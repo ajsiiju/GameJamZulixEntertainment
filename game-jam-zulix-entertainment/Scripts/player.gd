@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var speed := 4.0
+var speed := 10.0
 var active_skill: int = 1
 const JUMP_VELOCITY = 4.5
 @onready var camera: Node3D = $CameraRig/Camera3D

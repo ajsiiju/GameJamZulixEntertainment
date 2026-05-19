@@ -21,14 +21,37 @@ autostart = true
 wait_time = 15.0
 autostart = true
 
-[node name="TimerGrassAppear" type="Timer" parent="." unique_id=1349095426]
-wait_time = 90.0
-one_shot = true
+[node name="TimerPalkaPion" type="Timer" parent="." unique_id=1721766746]
+wait_time = 10.0
 autostart = true
 
 [node name="TimerGrass" type="Timer" parent="." unique_id=332944199]
 wait_time = 3.0
 
+[node name="Boss1" type="Timer" parent="." unique_id=691048150]
+wait_time = 20.0
+one_shot = true
+
+[node name="Boss2" type="Timer" parent="." unique_id=805157149]
+wait_time = 20.0
+one_shot = true
+
+[node name="Boss3" type="Timer" parent="." unique_id=1672681574]
+wait_time = 75.0
+one_shot = true
+
+[node name="TimerCatAndDog" type="Timer" parent="." unique_id=1877719883]
+wait_time = 5.0
+
+[node name="TimerPalkaPoziom" type="Timer" parent="." unique_id=1388753635]
+wait_time = 5.0
+autostart = true
+
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]
-[connection signal="timeout" from="TimerGrassAppear" to="." method="_on_timer_grass_appear_timeout"]
+[connection signal="timeout" from="TimerPalkaPion" to="." method="_on_timer_palka_pion_timeout"]
+[connection signal="timeout" from="TimerGrass" to="." method="_on_timer_grass_timeout"]
+[connection signal="timeout" from="Boss1" to="." method="_on_boss_1_timeout"]
+[connection signal="timeout" from="Boss2" to="." method="_on_boss_2_timeout"]
+[connection signal="timeout" from="TimerCatAndDog" to="." method="_on_timer_cat_and_dog_timeout"]
+[connection signal="timeout" from="TimerPalkaPoziom" to="." method="_on_timer_palka_poziom_timeout"]

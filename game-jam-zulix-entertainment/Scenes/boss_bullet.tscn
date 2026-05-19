@@ -1,29 +1,40 @@
 [gd_scene format=3 uid="uid://dapt82mfxbqdm"]
 
 [ext_resource type="Script" uid="uid://prfy5c7i1g5h" path="res://Scripts/boss_bullet.gd" id="1_bxm02"]
+[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="2_3euku"]
+[ext_resource type="Texture2D" uid="uid://d2toyym3ps58x" path="res://Assets/test.png" id="2_u23ew"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_bxm02"]
-radius = 0.44322246
+[sub_resource type="SphereShape3D" id="SphereShape3D_u23ew"]
+radius = 0.32454675
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3euku"]
+radius = 0.43034247
 
 [node name="Node3D" type="Node3D" unique_id=2019934270]
 script = ExtResource("1_bxm02")
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1078081574]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.24459273)
-target_position = Vector3(0, 0, -1)
-collide_with_areas = true
-
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1964297744]
-
-[node name="bullet_mesh" type="CSGSphere3D" parent="StaticBody3D" unique_id=1822959533]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1243881059]
-shape = SubResource("SphereShape3D_bxm02")
+shape = SubResource("SphereShape3D_u23ew")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1949974879]
+script = ExtResource("2_3euku")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1429024040]
+shape = SubResource("SphereShape3D_3euku")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=1622540026]
+billboard = 1
+texture = ExtResource("2_u23ew")
 
 [node name="Timer" type="Timer" parent="." unique_id=1152737625]
 wait_time = 10.0
 one_shot = true
 autostart = true
 
-[connection signal="get_damage" from="." to="." method="_on_get_damage"]
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_wave"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
