@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ds83qk20faxx8" path="res://scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://kjnxmx1tj0he" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cisywsx4gwr26" path="res://Scenes/ui.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cfmqt77c8jam7" path="res://Scenes/boss.tscn" id="2_bo1nx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,3 +37,5 @@ size = Vector3(53.09552, 1, 41.205933)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, 0, -2.0630493)
 
 [node name="CanvasLayerUI" parent="." unique_id=1443381599 instance=ExtResource("3_8gbba")]
+[node name="boss" parent="." unique_id=897832154 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.816624)
