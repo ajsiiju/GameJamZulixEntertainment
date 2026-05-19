@@ -3,7 +3,7 @@ extends CharacterBody3D
 var speed := 4.0
 const JUMP_VELOCITY = 4.5
 @onready var camera: Node3D = $CameraRig/Camera3D
-@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
+#@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
 
 func _physics_process(delta: float) -> void:
