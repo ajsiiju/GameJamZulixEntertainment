@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bff2nwmgmmwjr"]
 
+[ext_resource type="Script" uid="uid://ds83qk20faxx8" path="res://scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://kjnxmx1tj0he" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cisywsx4gwr26" path="res://Scenes/ui.tscn" id="3_8gbba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,6 +18,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Node3D" type="Node3D" unique_id=2040138282]
+script = ExtResource("1_bo1nx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=373721440]
 environment = SubResource("Environment_8gbba")
@@ -29,5 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, -2.063
 use_collision = true
 size = Vector3(53.09552, 1, 41.205933)
 
-[node name="player" parent="." unique_id=1849972682 instance=ExtResource("1_jjgbg")]
+[node name="player" parent="." unique_id=1849972682 groups=["Player"] instance=ExtResource("1_jjgbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, 0, -2.0630493)
+
+[node name="CanvasLayerUI" parent="." unique_id=1443381599 instance=ExtResource("3_8gbba")]

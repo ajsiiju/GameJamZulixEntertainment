@@ -1,10 +1,12 @@
 extends CharacterBody3D
 
 var speed := 4.0
+var active_skill: int = 1
 const JUMP_VELOCITY = 4.5
 @onready var camera: Node3D = $CameraRig/Camera3D
 @onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
+signal hotbar_key_pressed(number)
 
 func _physics_process(delta: float) -> void:
 	 #Add the gravity.
@@ -45,3 +47,13 @@ func turn_to(direction: Vector3) -> void:
 		var yaw:= atan2(-direction.x, -direction.z)
 		yaw = lerp_angle(rotation.y, yaw, 0.15)
 		rotation.y = yaw
+
+func _input(event):
+	for number in range(1, 10):
+		var action_name = "key_" + str(number)
+		if event.is_action(action_name) and event.is_pressed():
+			hotbar_key_pressed.emit(number)
+			active_skill = number
+		
+	
+	
