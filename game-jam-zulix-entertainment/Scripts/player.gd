@@ -6,7 +6,8 @@ const JUMP_VELOCITY = 4.5
 @onready var camera: Node3D = $CameraRig/Camera3D
 #@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
-signal hotbar_key_pressed(number)
+signal hotbar_key_pressed(number: int)
+signal change_social_points(points: int)
 
 func _physics_process(delta: float) -> void:
 	 #Add the gravity.
@@ -49,11 +50,13 @@ func turn_to(direction: Vector3) -> void:
 		rotation.y = yaw
 
 func _input(event):
-	for number in range(1, 10):
+	for number in range(1, 5):
 		var action_name = "key_" + str(number)
 		if event.is_action(action_name) and event.is_pressed():
 			hotbar_key_pressed.emit(number)
 			active_skill = number
-		
+	
+	if event.is_action("ui_accept") and event.is_pressed(): # debug
+		change_social_points.emit(1)
 	
 	

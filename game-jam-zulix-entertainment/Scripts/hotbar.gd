@@ -4,7 +4,7 @@ extends HBoxContainer
 
 func _ready() -> void:
 	set_style($Panel1)
-	var player = get_tree().get_first_node_in_group("Player")
+	var player = get_tree().get_first_node_in_group("player")
 	player.hotbar_key_pressed.connect(_key_pressed)
 
 func _key_pressed(key_number: int):

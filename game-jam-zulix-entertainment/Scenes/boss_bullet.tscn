@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dapt82mfxbqdm"]
+[gd_scene format=3 uid="uid://ddg2io27sl4rq"]
 
 [ext_resource type="Script" uid="uid://prfy5c7i1g5h" path="res://Scripts/boss_bullet.gd" id="1_bxm02"]
 
@@ -14,6 +14,8 @@ target_position = Vector3(0, 0, -1)
 collide_with_areas = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1964297744]
+collision_layer = 0
+collision_mask = 0
 
 [node name="bullet_mesh" type="CSGSphere3D" parent="StaticBody3D" unique_id=1822959533]
 

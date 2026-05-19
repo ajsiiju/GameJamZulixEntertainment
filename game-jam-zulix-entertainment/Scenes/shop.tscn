@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dbu3ku46c4v8j"]
+
+[ext_resource type="Script" uid="uid://fj63qs424nv3" path="res://scripts/shop.gd" id="1_a0mxf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6mhmv"]
+height = 0.39123535
+radius = 0.80371094
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mhmv"]
+albedo_color = Color(0.57254905, 1, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_a0mxf"]
+inner_radius = 0.889
+
+[node name="Area3D" type="Area3D" unique_id=1198247096]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_a0mxf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=301394182]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0.24093276, 0)
+shape = SubResource("CylinderShape3D_6mhmv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1993802269]
+transform = Transform3D(0.764, 0, 0, 0, 0.399, 0, 0, 0, 0.764, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_6mhmv")
+transparency = 0.5
+mesh = SubResource("TorusMesh_a0mxf")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=503667671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7092156, 0)
+billboard = 2
+modulate = Color(0.43137255, 1, 0.19215687, 1)
+text = "debug text"
+font_size = 64
