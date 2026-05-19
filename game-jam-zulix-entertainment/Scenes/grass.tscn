@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ct7mkg1ychhbp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4j8v"]
+size = Vector3(2.967041, 0.24377441, 3.0739746)
+
+[node name="grass" type="Node3D" unique_id=1613832033]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=522250255]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1161400301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3781128, 0)
+shape = SubResource("BoxShape3D_p4j8v")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=141390770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34716797, 0)
+size = Vector3(3.0761719, 0.30566406, 3.1445313)

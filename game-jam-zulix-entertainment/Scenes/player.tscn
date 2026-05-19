@@ -41,7 +41,7 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_qqcod")
 nodes/TimeScale/position = Vector2(320, 288)
 node_connections = [&"output", 0, &"movement", &"movement", 0, &"Animation", &"movement", 1, &"TimeScale", &"TimeScale", 0, &"Animation 2"]
 
-[node name="player" type="CharacterBody3D" unique_id=1849972682]
+[node name="player" type="CharacterBody3D" unique_id=1849972682 groups=["player"]]
 script = ExtResource("1_v0iea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1078810062]
