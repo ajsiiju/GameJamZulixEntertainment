@@ -2,7 +2,7 @@ extends SpringArm3D
 
 @onready var camera:Camera3D = $Camera3D
 @onready var turn_rate:= 200
-@onready var mouse_sensitivity:= .5
+@onready var mouse_sensitivity:= .05
 var mouse_input : Vector2 = Vector2()
 @onready var player: Node3D = get_parent()
 var camera_rig_height:float = position.y
@@ -22,7 +22,6 @@ func _process(delta: float) -> void:
 		rotation_degrees.x += look_input.y
 		rotation_degrees.y += look_input.x
 		rotation_degrees.x = clampf(rotation_degrees.x, -50, 35)
-
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

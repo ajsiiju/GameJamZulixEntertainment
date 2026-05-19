@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhmn883uquge8"]
+
+[ext_resource type="Script" uid="uid://bwvr67rqp6aoh" path="res://Scripts/projectile_launcher.gd" id="1_pt6he"]
+
+[node name="ProjectileLauncher" type="Node3D" unique_id=1136157717]
+script = ExtResource("1_pt6he")
+
+[node name="Timer" type="Timer" parent="." unique_id=679661803]
+one_shot = true
