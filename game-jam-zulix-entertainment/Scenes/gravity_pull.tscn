@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://2wo5tcmuigk0"]
+
+[ext_resource type="Texture2D" uid="uid://d2toyym3ps58x" path="res://Assets/test.png" id="1_3qb16"]
+[ext_resource type="Script" uid="uid://df3tei77kpage" path="res://Scripts/gravity_pull.gd" id="1_r8e3i"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_r8e3i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qb16"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pw03t"]
+size = Vector3(102.27539, 24.998077, 250.00357)
+
+[node name="gravity_pull" type="Area3D" unique_id=1398060901]
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector3(0, 0, 0)
+gravity_direction = Vector3(0, 0, 0)
+gravity = 20.0
+linear_damp_space_override = 1
+script = ExtResource("1_r8e3i")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=143218601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6441808, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_r8e3i")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=502419019]
+transparent_bg = true
+size = Vector2i(107, 102)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D/SubViewport" unique_id=2110339538]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite3D/SubViewport/AnimationPlayer" unique_id=680308682]
+sprite_frames = SubResource("SpriteFrames_3qb16")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=12786587]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_3qb16")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=84472312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048461914, -0.037979126, 0.5056305)
+shape = SubResource("BoxShape3D_pw03t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

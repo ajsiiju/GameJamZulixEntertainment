@@ -51,3 +51,18 @@ signal get_damage_matcha(damage_matcha)
 func _on_body_entered_matcha(body: Node3D) -> void:
 	if body.name == "player":
 		emit_signal("get_damage_matcha", damage_matcha)
+
+
+
+var damage_balls = 5
+signal get_damage_balls(damage_balls)
+
+func _on_body_entered_balls(body: Node3D) -> void:
+	if body.name == "player":
+		emit_signal("get_damage_balls", damage_balls)
+
+
+
+func _on_body_entered_roblox_bullet(body: Node3D) -> void:
+	pass
+	#odejmuje social credit

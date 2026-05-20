@@ -18,12 +18,14 @@ var current_boss = ""
 
 
 #FALA
+@export var job_apl_recource: JobAplResource
 @onready var ray_wave: RayCast3D = $RayWave
 @onready var timer_wave_bullets: Timer = $TimerWaveBullets
 var bullet  = load("res://Scenes/boss_bullet.tscn")
 var instance
 var wave_bullet_amount = 1
 var wave_bullet_position = 0.0
+var job_apl_recource_array = ["res://Recource/cortisol.tres", "res://Recource/copilot.tres", "res://Recource/excel.tres"]
 
 #POP_UP WINDOW
 @onready var timer_pop_up_window: Timer = $TimerPopUpWindow
@@ -41,6 +43,7 @@ var grass_instance = null
 var prev_grass_instance = null
 
 #CAT AND DOG
+@export var cat_do_recource: CatDogResource
 @onready var timer_cat_and_dog: Timer = $TimerCatAndDog
 var cat_dog_scene = load("res://Scenes/cat_dog_follow.tscn")
 @onready var cat_dog_instance = null
@@ -81,6 +84,10 @@ var roblox_bullet_instance = null
 
 
 #ROBLOX BALLS
+@onready var timer_roblox_balls: Timer = $TimerRobloxBalls
+var roblox_balls_scene = load("res://Scenes/roblox_balls.tscn")
+var roblox_balls_instance = null
+var roblox_balls_amount = 1
 
 
 func _ready() -> void:
@@ -88,8 +95,13 @@ func _ready() -> void:
 
 #FALA
 func _on_timer_wave_bullets_timeout() -> void:
-	while wave_bullet_amount <= 50:
+	while wave_bullet_amount <= 60:
+		var rand_recource = rng.randf_range(0, 2)
 		instance = bullet.instantiate()
+		
+		var current_resource = load(job_apl_recource_array[rand_recource])
+		instance.set_meta("job_apl_recource", current_resource)
+		instance.get_node("StaticBody3D/Sprite3D").texture = current_resource.texture
 		instance.position = ray_wave.global_position
 		instance.position.x -= wave_bullet_position
 		wave_bullet_position += 1
@@ -108,7 +120,7 @@ func _on_timer_pop_up_window_timeout() -> void:
 	var rand_position_x = rng.randf_range(85.0, 1455.0)
 	var rand_position_y = rng.randf_range(65.0, 515.0)
 	pop_up_instance = pop_up_window.instantiate()
-	pop_up_instance.position = Vector2(rand_position_x, rand_position_y)
+	pop_up_instance.get_node("Control").position = Vector2(rand_position_x, rand_position_y)
 	get_parent().add_child(pop_up_instance)
 	if prev_pop_up_instance:
 		prev_pop_up_instance.queue_free()
@@ -122,7 +134,7 @@ func _input(event: InputEvent) -> void:
 			
 			
 			if current_pressed_key != last_pressed_key:
-				var progress_bar = pop_up_instance.get_node("ProgressBar")
+				var progress_bar = pop_up_instance.get_node("Control/ProgressBar")
 				
 				if progress_bar:
 					progress_bar.value += 1
@@ -152,8 +164,8 @@ func _on_boss_1_timeout() -> void:
 #GRASS
 func _on_timer_grass_timeout() -> void:
 	grass_instance = grass.instantiate()
-	var rand_position_x = rng.randf_range(25.0, -20.0)
-	var rand_position_z = rng.randf_range(15.0, -20.0)
+	var rand_position_x = rng.randf_range(25.0, -25.0)
+	var rand_position_z = rng.randf_range(20.0, -30.0)
 	grass_instance.position = Vector3(rand_position_x, -0.858, rand_position_z)
 	get_parent().add_child(grass_instance)
 	
@@ -268,7 +280,6 @@ func _on_boss_3_timeout() -> void:
 @onready var player = get_parent().get_node("player")
 
 func _on_timer_chocolate_timeout() -> void:
-	DebugChat.message("zaczelo sie")
 	boss.texture = load("res://Assets/Characters/Bosses/labubu_attack.png")
 	
 	var chocolate_instance = chocolate_scene.instantiate()
@@ -317,21 +328,37 @@ func _on_boss_4_timeout() -> void:
 	boss_5.start()
 	
 	timer_roblox_bullet.start()
-	#timer_matcha.start()
+	timer_roblox_balls.start()
 	boss.texture = null
 
 
 
 #ROBLOX BULLET
 func _on_timer_roblox_bullet_timeout() -> void:
-	roblox_bullet_instance = bullet.instantiate()
+	roblox_bullet_instance = roblox_bullet_scene.instantiate()
+	var rand_pos_x = rng.randf_range(25.0, -25.0)
 	roblox_bullet_instance.position = ray_roblox_bullet.global_position
-	
-	var rand_pos_x = rng.randf_range(25.0, -20.0)
 	roblox_bullet_instance.position.x = rand_pos_x
 	
 	get_parent().add_child(roblox_bullet_instance)
 
 
+@onready var roblox_baller_anim: AnimationPlayer = $Sprite3D/SubViewport/RobloxBaller
+@onready var roblox_baller_sprites: AnimatedSprite2D = $Sprite3D/SubViewport/RobloxBaller/RobloxBaller
 
 #ROBLOX BALLS
+func _on_timer_roblox_balls_timeout() -> void:
+	roblox_baller_sprites.visible = true
+	roblox_baller_anim.play("roblox_baller")
+	while roblox_balls_amount <= 30:
+		roblox_balls_instance = roblox_balls_scene.instantiate()
+		var pos_y = 26.0
+		var rand_pos_x = rng.randf_range(25.0, -25.0)
+		var rand_pos_z = rng.randf_range(20.0, -30.0)
+		roblox_balls_instance.position = Vector3(rand_pos_x, pos_y, rand_pos_z)
+		roblox_balls_amount += 1
+		get_parent().add_child(roblox_balls_instance)
+	roblox_balls_amount = 1
+	
+	await get_tree().create_timer(3).timeout
+	roblox_baller_sprites.visible = false

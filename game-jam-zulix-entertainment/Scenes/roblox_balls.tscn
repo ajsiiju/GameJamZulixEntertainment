@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b2hfwfo7kfmw1"]
+
+[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_5nk5r"]
+[ext_resource type="Script" uid="uid://n2j61phkt2d" path="res://Scripts/roblox_balls.gd" id="1_ayfly"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_05vu6"]
+bounce = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05vu6"]
+albedo_color = Color(0.73560506, 0, 0.13602614, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5nk5r"]
+radius = 0.46463227
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ayfly"]
+radius = 0.4860474
+
+[node name="RobloxBalls" type="Node3D" unique_id=1837176854]
+script = ExtResource("1_ayfly")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=54908589]
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_05vu6")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="RigidBody3D" unique_id=1208242281]
+material = SubResource("StandardMaterial3D_05vu6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1786210866]
+shape = SubResource("SphereShape3D_5nk5r")
+
+[node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=1283522214]
+script = ExtResource("1_5nk5r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=305575209]
+shape = SubResource("SphereShape3D_ayfly")
+
+[node name="Timer" type="Timer" parent="." unique_id=1691998035]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="RigidBody3D/Area3D" to="RigidBody3D/Area3D" method="_on_body_entered_balls"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

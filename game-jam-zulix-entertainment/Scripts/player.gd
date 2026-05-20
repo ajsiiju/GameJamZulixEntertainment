@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+#TESTTEST
+#var active_gravity_well: Area3D = null
+#TESTTEST
+
 @onready var camera_rig: SpringArm3D = $CameraRig
 @onready var camera: Camera3D = $CameraRig/Camera3D
 @onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
@@ -9,10 +13,10 @@ extends CharacterBody3D
 @onready var timer: Timer = $CameraRig/Camera3D/RayCast3D/Timer
 #@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 
-const DEFAULT_SPEED: float = 8.0
+const DEFAULT_SPEED: float = 12.0
 var speed = DEFAULT_SPEED
 const CROUCH_SPEED: float = 4.0
-const JUMP_VELOCITY := 4.5
+const JUMP_VELOCITY := 6
 
 var visible_health: float = 50.0
 var target_health: float = 50.0
@@ -45,6 +49,20 @@ func _process(_delta: float) -> void:
 		queue_free()
 
 func _physics_process(delta: float) -> void:
+	#TESTTEST
+	## Add the gravity
+	#if active_gravity_well:
+		## Pull toward the center of the gravity_well area
+		#var pull_direction = (active_gravity_well.global_position - global_position).normalized()
+		## We grab the gravity value directly from whatever strength you set in the Area3D inspector!
+		#var gravity_power = active_gravity_well.gravity 
+		#
+		#velocity += pull_direction * gravity_power * delta
+	#elif not is_on_floor():
+		## Standard downward gravity when not near a gravity well
+		#velocity += get_gravity() * delta
+	#TESTTEST
+	
 	 #Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -57,6 +75,7 @@ func _physics_process(delta: float) -> void:
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		var direction := (camera.global_basis * Vector3(input_dir.x, 0, input_dir.y))
 		direction = Vector3(direction.x, 0, direction.z).normalized() * input_dir.length()
+	
 		
 		if direction:
 			velocity.x = direction.x * speed
@@ -153,3 +172,14 @@ func player_immunity(is_immune):
 	if is_immune:
 		immunity = true
 	DebugChat.message("player immune: " + str(is_immune))
+
+
+#TESTTEST
+#func _on_gravity_zone_entered(area: Area3D) -> void:
+	#if area.is_in_group("gravity_wells") or area.has_meta("is_gravity_well"):
+		#active_gravity_well = area
+#
+#func _on_gravity_zone_exited(area: Area3D) -> void:
+	#if area == active_gravity_well:
+		#active_gravity_well = null
+#TESTTEST

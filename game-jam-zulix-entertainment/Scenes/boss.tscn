@@ -3,12 +3,125 @@
 [ext_resource type="Script" uid="uid://d3u0d8oixsram" path="res://Scripts/boss.gd" id="1_0154r"]
 [ext_resource type="Texture2D" uid="uid://d1j6eax2wyi73" path="res://Assets/Characters/Bosses/tel_bg.png" id="2_mh6p8"]
 [ext_resource type="Texture2D" uid="uid://b3pwrna6pglit" path="res://Assets/Characters/Bosses/labubu_idle.png" id="3_cxrok"]
+[ext_resource type="Texture2D" uid="uid://qrey3qb4lg7e" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0000.png" id="4_pfkk2"]
 [ext_resource type="Texture2D" uid="uid://n4f7b6338eyy" path="res://Assets/Characters/Bosses/tel_overlay.png" id="4_qtle2"]
 [ext_resource type="Script" uid="uid://dbfn6v6qrtu8k" path="res://Scripts/timer.gd" id="4_ukjjc"]
+[ext_resource type="Texture2D" uid="uid://cuci2do8tue7m" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0001.png" id="5_uye1q"]
 [ext_resource type="Texture2D" uid="uid://bf6kxyhckoorq" path="res://Assets/Characters/Bosses/tel_border.png" id="5_yq25j"]
+[ext_resource type="Texture2D" uid="uid://b4y2h6udstd2" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0002.png" id="6_wbwar"]
+[ext_resource type="Texture2D" uid="uid://cetn0mbbj8jlw" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0003.png" id="7_k85sf"]
+[ext_resource type="Texture2D" uid="uid://nxnv8y70xxbk" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0004.png" id="8_ox38k"]
+[ext_resource type="Texture2D" uid="uid://37qr5j1jncl3" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0005.png" id="9_lp2t7"]
+[ext_resource type="Texture2D" uid="uid://cigmqln3ag0sq" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0006.png" id="10_skdhm"]
+[ext_resource type="Texture2D" uid="uid://dplyed7jylv3y" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0007.png" id="11_aanve"]
+[ext_resource type="Texture2D" uid="uid://dmj6crdbp2d30" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0008.png" id="12_vo53g"]
+[ext_resource type="Texture2D" uid="uid://b4eqijdeyq4mv" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0010.png" id="13_2h4ey"]
+[ext_resource type="Texture2D" uid="uid://4ku60vqwnyuv" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0011.png" id="14_ijygn"]
+[ext_resource type="Texture2D" uid="uid://c5ekiiy6wpge4" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0012.png" id="15_37v2q"]
+[ext_resource type="Texture2D" uid="uid://birf4255lp5td" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0013.png" id="16_ku0fy"]
+[ext_resource type="Texture2D" uid="uid://c4h162emsnp04" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0014.png" id="17_fy658"]
+[ext_resource type="Texture2D" uid="uid://cmq5dskk6o3sj" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0015.png" id="18_h1i2o"]
+[ext_resource type="Texture2D" uid="uid://bcmkj6k8508fn" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0016.png" id="19_0r56d"]
+[ext_resource type="Texture2D" uid="uid://c1xu4afsof23r" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0017.png" id="20_cy525"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cxrok"]
 viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="Animation" id="Animation_0555j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D/SubViewport/RobloxBaller/RobloxBaller:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_suwft"]
+resource_name = "roblox_baller"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D/SubViewport/RobloxBaller/RobloxBaller:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_35dwt"]
+_data = {
+&"RESET": SubResource("Animation_0555j"),
+&"roblox_baller": SubResource("Animation_suwft")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53dft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pfkk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uye1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wbwar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k85sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ox38k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lp2t7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_skdhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_aanve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vo53g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2h4ey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ijygn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_37v2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ku0fy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fy658")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_h1i2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0r56d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cy525")
+}],
+"loop": false,
+"name": &"roblox_baller",
+"speed": 24.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxrok"]
 bg_color = Color(0.46929657, 0.46929657, 0.4692964, 1)
@@ -28,7 +141,7 @@ corner_radius_bottom_left = 15
 script = ExtResource("1_0154r")
 
 [node name="RayWave" type="RayCast3D" parent="." unique_id=1438902319]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809, -0.09679365, -0.38584757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.321344, -0.097, -0.386)
 target_position = Vector3(0, 0, -1)
 
 [node name="RayRobloxBullet" type="RayCast3D" parent="." unique_id=1363398527]
@@ -36,7 +149,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809, -0.60772943, -0.38584
 target_position = Vector3(0, 0, -1)
 
 [node name="TimerWaveBullets" type="Timer" parent="." unique_id=777390409]
-wait_time = 5.0
 autostart = true
 
 [node name="TimerPopUpWindow" type="Timer" parent="." unique_id=956408659]
@@ -50,17 +162,20 @@ wait_time = 10.0
 wait_time = 3.0
 
 [node name="Boss1" type="Timer" parent="." unique_id=691048150]
+wait_time = 15.0
 one_shot = true
 autostart = true
 
 [node name="Boss2" type="Timer" parent="." unique_id=805157149]
+wait_time = 0.001
 one_shot = true
 
 [node name="Boss3" type="Timer" parent="." unique_id=1672681574]
+wait_time = 0.001
 one_shot = true
 
 [node name="Boss4" type="Timer" parent="." unique_id=1311549345]
-wait_time = 15.0
+wait_time = 0.001
 one_shot = true
 
 [node name="Boss5" type="Timer" parent="." unique_id=2041125505]
@@ -113,6 +228,18 @@ offset_bottom = 1979.88
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_cxrok")
 
+[node name="RobloxBaller" type="AnimationPlayer" parent="Sprite3D/SubViewport" unique_id=1033959276]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_35dwt")
+speed_scale = 15.0
+
+[node name="RobloxBaller" type="AnimatedSprite2D" parent="Sprite3D/SubViewport/RobloxBaller" unique_id=495400624]
+visible = false
+position = Vector2(286.78, 520.415)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_53dft")
+animation = &"roblox_baller"
+
 [node name="telefonOverlay" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=1418966732]
 offset_right = 974.0
 offset_bottom = 1882.0
@@ -132,7 +259,7 @@ offset_right = 549.435
 offset_bottom = 1020.425
 theme_override_styles/background = SubResource("StyleBoxFlat_cxrok")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ukjjc")
-max_value = 15.0
+max_value = 75.0
 show_percentage = false
 script = ExtResource("4_ukjjc")
 
@@ -140,7 +267,7 @@ script = ExtResource("4_ukjjc")
 autostart = true
 
 [node name="TimerRobloxBullet" type="Timer" parent="." unique_id=1621644406]
-wait_time = 3.0
+wait_time = 0.3
 
 [node name="TimerRobloxBalls" type="Timer" parent="." unique_id=1212915830]
 wait_time = 5.0
@@ -161,3 +288,4 @@ wait_time = 5.0
 [connection signal="timeout" from="TimerMatcha" to="." method="_on_timer_matcha_timeout"]
 [connection signal="timeout" from="Timer" to="Sprite3D/SubViewport/ProgressBar" method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerRobloxBullet" to="." method="_on_timer_roblox_bullet_timeout"]
+[connection signal="timeout" from="TimerRobloxBalls" to="." method="_on_timer_roblox_balls_timeout"]
