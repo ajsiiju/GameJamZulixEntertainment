@@ -29,6 +29,8 @@ window/size/mode=3
 
 player=""
 ground=""
+main=""
+shop_ui=""
 
 [input]
 
