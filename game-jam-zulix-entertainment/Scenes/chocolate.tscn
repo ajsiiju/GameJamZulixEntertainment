@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://4cnp7jweyo5k"]
+
+[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_kvlap"]
+[ext_resource type="Script" uid="uid://vjkerg7xykjp" path="res://Scripts/chocolate.gd" id="1_oabk7"]
+[ext_resource type="Texture2D" uid="uid://ctfcavyxoahhl" path="res://Assets/Characters/Bosses/chocolate.png" id="2_kvlap"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a60r4"]
+radius = 0.29149672
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s62ft"]
+radius = 0.36360133
+
+[node name="Chocolate" type="Node3D" unique_id=1276596501]
+script = ExtResource("1_oabk7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1210050953]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=510090065]
+shape = SubResource("SphereShape3D_a60r4")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=438572827]
+script = ExtResource("1_kvlap")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=428920884]
+shape = SubResource("SphereShape3D_s62ft")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=734855261]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+billboard = 1
+texture = ExtResource("2_kvlap")
+
+[node name="Timer" type="Timer" parent="." unique_id=2025526830]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_chocolate"]

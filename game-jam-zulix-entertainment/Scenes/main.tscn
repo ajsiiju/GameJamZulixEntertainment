@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bff2nwmgmmwjr"]
 
+[ext_resource type="Script" uid="uid://ds83qk20faxx8" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://kjnxmx1tj0he" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://bja65jke6nxt3" path="res://Scenes/test_enemy.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cfmqt77c8jam7" path="res://Scenes/boss.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cisywsx4gwr26" path="res://Scenes/ui.tscn" id="3_8gbba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,7 +18,12 @@ sky = SubResource("Sky_bo1nx")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_jjvhh"]
+vertices = PackedVector3Array(-24.218384, -0.13964844, -22.166016, -24.218384, -0.13964844, 18.083984, 27.781616, -0.13964844, 18.083984, 27.781616, -0.13964844, -22.166016)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
 [node name="Node3D" type="Node3D" unique_id=2040138282]
+script = ExtResource("1_bo1nx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=373721440]
 environment = SubResource("Environment_8gbba")
@@ -25,12 +32,24 @@ environment = SubResource("Environment_8gbba")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1747437879]
+[node name="platform" type="CSGBox3D" parent="." unique_id=1747437879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, -2.0630493)
 use_collision = true
+collision_mask = 0
 size = Vector3(53.09552, 1, 41.205933)
 
 [node name="player" parent="." unique_id=1849972682 instance=ExtResource("1_jjgbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, 0, -2.0630493)
 
-[node name="test_enemy" parent="." unique_id=143996697 instance=ExtResource("2_bo1nx")]
+[node name="CanvasLayerUI" parent="." unique_id=1443381599 instance=ExtResource("3_8gbba")]
+
+[node name="boss" parent="." unique_id=897832154 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3185892, 16.816624)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=213678960]
+navigation_mesh = SubResource("NavigationMesh_jjvhh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1747437879 groups=["ground"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, -2.0630493)
+use_collision = true
+size = Vector3(53.09552, 1, 41.205933)
