@@ -22,7 +22,7 @@ glow_enabled = true
 vertices = PackedVector3Array(-24.218384, -0.13964844, -22.166016, -24.218384, -0.13964844, 18.083984, 27.781616, -0.13964844, 18.083984, 27.781616, -0.13964844, -22.166016)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
-[node name="Node3D" type="Node3D" unique_id=2040138282]
+[node name="Node3D" type="Node3D" unique_id=2040138282 groups=["main"]]
 script = ExtResource("1_bo1nx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=373721440]
@@ -49,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3185892, 16.816624)
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=213678960]
 navigation_mesh = SubResource("NavigationMesh_jjvhh")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1747437879 groups=["ground"]]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=2000100279 groups=["ground"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, -2.0630493)
 use_collision = true
 size = Vector3(53.09552, 1, 41.205933)

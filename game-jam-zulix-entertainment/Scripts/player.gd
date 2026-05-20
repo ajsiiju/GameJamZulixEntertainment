@@ -4,23 +4,16 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $CameraRig/Camera3D
 @onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
-@onready var raycast: RayCast3D = $CameraRig/Camera3D/RayCast3D	# raycast is currently unused
+@onready var raycast: RayCast3D = $CameraRig/Camera3D/RayCast3D
 @onready var test_enemy: CharacterBody3D = $"../test_enemy"
 @onready var timer: Timer = $CameraRig/Camera3D/RayCast3D/Timer
+#@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 
-var target_health:float = 10
-var speed := 8.0
-const DEFAULT_SPEED:float = 8.0
-const CROUCH_SPEED:float = 4.0
+const DEFAULT_SPEED: float = 8.0
+var speed = DEFAULT_SPEED
+const CROUCH_SPEED: float = 4.0
 const JUMP_VELOCITY := 4.5
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("debug_test"):
-		target_health -= 1
-	if (target_health < 1):
-		queue_free()
-const DEFAULT_SPEED: float = 4.0
-var speed = DEFAULT_SPEED
 var visible_health: float = 50.0
 var target_health: float = 50.0
 const MAX_HEALTH: float = 100.0
@@ -32,10 +25,9 @@ var social_points: int  = 0
 var unlocked_skills: Array[bool] = [true]
 var skill_unlock_costs: Array[int] = [0,5,5,5,5]
 var skill_costs: Array[int] = [0,7,7,7,7]
-const JUMP_VELOCITY = 4.5
-@onready var camera: Node3D = $CameraRig/Camera3D
-#@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
-@onready var anim_tree: AnimationTree = $AnimationTree
+
+
+
 signal hotbar_key_pressed(number: int)
 signal set_social_points_ui(points: int)
 
@@ -44,6 +36,13 @@ func _ready() -> void:
 	var shop_ui = get_tree().get_first_node_in_group("shop_ui")
 	shop_ui.unlock_skill.connect(unlock_skill)
 	unlocked_skills.resize(5)
+
+func _process(_delta: float) -> void:
+	visible_health = lerp(visible_health, target_health, HEALTH_REGEN_PER_FRAME)
+	if Input.is_action_just_pressed("debug_test"):
+		target_health -= 1
+	if (target_health < 1):
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	 #Add the gravity.
@@ -89,16 +88,7 @@ func _input(event: InputEvent) -> void:
 		anim_tree.set("parameters/movement/transition_request", "crouch")
 	elif Input.is_action_just_released("crouch"):
 		speed = DEFAULT_SPEED
-func _process(_delta):
-	visible_health = lerp(visible_health, target_health, HEALTH_REGEN_PER_FRAME)
-
-func turn_to(direction: Vector3) -> void:
-	if  direction:
-		var yaw:= atan2(-direction.x, -direction.z)
-		yaw = lerp_angle(rotation.y, yaw, 0.15)
-		rotation.y = yaw
-
-func _input(event):
+	
 	for skill_number in range(0, 5):
 		var action_name = "key_" + str(skill_number)
 		if event.is_action(action_name) \
@@ -107,10 +97,12 @@ func _input(event):
 		and (skill_costs[skill_number] <= social_points):
 			hotbar_key_pressed.emit(skill_number)
 			activate_skill(skill_number)
-	
-	if event.is_action("ui_accept") and event.is_pressed(): # debug
-		social_points += 1
-		set_social_points_ui.emit(social_points)
+
+func turn_to(direction: Vector3) -> void:
+	if  direction:
+		var yaw:= atan2(-direction.x, -direction.z)
+		yaw = lerp_angle(rotation.y, yaw, 0.15)
+		rotation.y = yaw
 	
 func unlock_skill(skill_number):
 	DebugChat.message("unlocking skill: " + str(skill_number))
