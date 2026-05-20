@@ -30,10 +30,10 @@ func _process(delta: float) -> void:
 		debug_value -= 0.01
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		mouse_input = -event.relative * mouse_sensitivity
 	elif event is InputEventKey and event.keycode == KEY_ESCAPE and event.is_pressed():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	position = player.position + Vector3(0, camera_rig_height, 0)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctvtah4a6cqce"
-path="res://.godot/imported/exit_button.png-e312302ad9f5c662a1e1537e4356344d.ctex"
+uid="uid://duktkt0444rd"
+path="res://.godot/imported/kaltka0001.png-e4cd51047d7579d4b5354aae40bb39ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/shop_ui/exit_button.png"
-dest_files=["res://.godot/imported/exit_button.png-e312302ad9f5c662a1e1537e4356344d.ctex"]
+source_file="res://Assets/duck/kaltka0001.png"
+dest_files=["res://.godot/imported/kaltka0001.png-e4cd51047d7579d4b5354aae40bb39ca.ctex"]
 
 [params]
 

@@ -4,6 +4,7 @@ var timer_to_show_shop: float = 5.0
 var timer_to_exit_shop: float = 0.0
 @export var SHOP_VISIBILITY_TIME: float  = 15.0
 signal unlock_skill(skill_number)
+signal move_social_points(move_position)
 
 func _ready() -> void:
 	visible = false
@@ -28,12 +29,14 @@ func _process(delta: float) -> void:
 			visible = false
 			timer_to_show_shop = 5.0
 			timer_to_exit_shop = 0.0
+			move_social_points.emit("corner")
 			set_process(false)
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			visible = true
 			timer_to_exit_shop += delta
 			$shop_bg/ProgressBar.value = timer_to_exit_shop
+			move_social_points.emit("middle")
 		
 func on_exit_button():
 	get_tree().quit()

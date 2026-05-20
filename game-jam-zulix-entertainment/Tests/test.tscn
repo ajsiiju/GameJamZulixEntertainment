@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://2h1vesqoiq5"]
+
+[ext_resource type="Texture2D" uid="uid://d1xhioe8mdnw8" path="res://Assets/hud/dab.png" id="1_c3bg8"]
+
+[node name="test" type="CanvasLayer" unique_id=315459253]
+
+[node name="Dab" type="Sprite2D" parent="." unique_id=19255276]
+position = Vector2(779, 127)
+scale = Vector2(4.2609982, 4.3168354)
+texture = ExtResource("1_c3bg8")
