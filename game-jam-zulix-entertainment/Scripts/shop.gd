@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	elif open_shop_timer <= 0:
 		$Label3D.text = ""
 	else:
-		$Label3D.text = "SHOP OPEN IN\n" + "%0.2f" % open_shop_timer
+		$Label3D.text = "SKLEP\n" + "%0.2f" % open_shop_timer
 
 func _on_body_entered(body: Node3D):
 	if body.is_in_group("player"):

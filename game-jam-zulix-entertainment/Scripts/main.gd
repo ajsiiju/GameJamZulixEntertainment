@@ -38,9 +38,9 @@ func create_shop_timer() -> Timer:
 func open_shop():
 	shop_timer.paused = true
 	ad_appear_counter.emit()
-	respawn_shop_area()
+	spawn_shop_area()
 	
-func respawn_shop_area():
+func spawn_shop_area():
 	shop_instance = shop_scene.instantiate()
 	platform_range = update_platform_range($platform)
 	shop_instance.position = Vector3(
@@ -51,6 +51,8 @@ func respawn_shop_area():
 					platform_range[Borders.MAX_Z] - OFFSET_FROM_WALL)
 	)
 	add_child(shop_instance)
+	var player = get_tree().get_first_node_in_group("player")
+	shop_instance.player_immunity.connect(player.player_immunity)
 
 func update_platform_range(platform: CSGBox3D) -> Array[float]:
 	var middle = platform.global_position
