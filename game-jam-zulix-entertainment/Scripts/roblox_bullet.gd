@@ -1,6 +1,6 @@
 extends Node3D
 
-const SPEED = 20.0
+const SPEED = 30.0
 
 func _process(delta: float) -> void:
 	position += transform.basis * Vector3(0, 0, -SPEED) * delta

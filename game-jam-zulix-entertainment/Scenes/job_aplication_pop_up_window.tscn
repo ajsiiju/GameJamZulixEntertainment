@@ -19,5 +19,5 @@ layout_mode = 0
 offset_top = 436.0
 offset_right = 354.0
 offset_bottom = 463.0
-max_value = 40.0
+max_value = 20.0
 show_percentage = false
