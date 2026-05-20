@@ -18,5 +18,6 @@ func message(new_text: String):
 
 func _input(event):
 		if event.is_action("ui_accept"):
-			labels.clear()
-			debugChat.text = str(labels)
+			#labels.clear()
+			#debugChat.text = str(labels)
+			pass
