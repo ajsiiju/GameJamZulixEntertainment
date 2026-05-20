@@ -1,16 +1,38 @@
 [gd_scene format=3 uid="uid://cfmqt77c8jam7"]
 
 [ext_resource type="Script" uid="uid://d3u0d8oixsram" path="res://Scripts/boss.gd" id="1_0154r"]
+[ext_resource type="Texture2D" uid="uid://d1j6eax2wyi73" path="res://Assets/Characters/Bosses/tel_bg.png" id="2_mh6p8"]
+[ext_resource type="Texture2D" uid="uid://b3pwrna6pglit" path="res://Assets/Characters/Bosses/labubu_idle.png" id="3_cxrok"]
+[ext_resource type="Texture2D" uid="uid://n4f7b6338eyy" path="res://Assets/Characters/Bosses/tel_overlay.png" id="4_qtle2"]
+[ext_resource type="Script" uid="uid://dbfn6v6qrtu8k" path="res://Scripts/timer.gd" id="4_ukjjc"]
+[ext_resource type="Texture2D" uid="uid://bf6kxyhckoorq" path="res://Assets/Characters/Bosses/tel_border.png" id="5_yq25j"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cxrok"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxrok"]
+bg_color = Color(0.46929657, 0.46929657, 0.4692964, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukjjc"]
+bg_color = Color(0.839894, 0, 0.14956766, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="boss" type="Node3D" unique_id=897832154]
 script = ExtResource("1_0154r")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1833903251]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7647095, 0)
-size = Vector3(4.923828, 4.529419, 0.15039063)
+[node name="RayWave" type="RayCast3D" parent="." unique_id=1438902319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809, -0.09679365, -0.38584757)
+target_position = Vector3(0, 0, -1)
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1438902319]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809, 0.48638523, -0.38584757)
+[node name="RayRobloxBullet" type="RayCast3D" parent="." unique_id=1363398527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809, -0.60772943, -0.38584757)
 target_position = Vector3(0, 0, -1)
 
 [node name="TimerWaveBullets" type="Timer" parent="." unique_id=777390409]
@@ -18,34 +40,110 @@ wait_time = 5.0
 autostart = true
 
 [node name="TimerPopUpWindow" type="Timer" parent="." unique_id=956408659]
-wait_time = 15.0
+wait_time = 8.0
 autostart = true
 
 [node name="TimerPalkaPion" type="Timer" parent="." unique_id=1721766746]
 wait_time = 10.0
-autostart = true
 
 [node name="TimerGrass" type="Timer" parent="." unique_id=332944199]
 wait_time = 3.0
 
 [node name="Boss1" type="Timer" parent="." unique_id=691048150]
-wait_time = 20.0
 one_shot = true
+autostart = true
 
 [node name="Boss2" type="Timer" parent="." unique_id=805157149]
-wait_time = 20.0
 one_shot = true
 
 [node name="Boss3" type="Timer" parent="." unique_id=1672681574]
+one_shot = true
+
+[node name="Boss4" type="Timer" parent="." unique_id=1311549345]
+wait_time = 15.0
+one_shot = true
+
+[node name="Boss5" type="Timer" parent="." unique_id=2041125505]
+wait_time = 75.0
+one_shot = true
+
+[node name="Boss6" type="Timer" parent="." unique_id=307904111]
 wait_time = 75.0
 one_shot = true
 
 [node name="TimerCatAndDog" type="Timer" parent="." unique_id=1877719883]
-wait_time = 5.0
+wait_time = 2.0
 
 [node name="TimerPalkaPoziom" type="Timer" parent="." unique_id=1388753635]
 wait_time = 5.0
+
+[node name="TimerChocolate" type="Timer" parent="." unique_id=1987312555]
+wait_time = 0.5
+
+[node name="TimerChocolateChangeFast" type="Timer" parent="." unique_id=649093771]
+wait_time = 5.0
+one_shot = true
+
+[node name="TimerChocolateChangeSlow" type="Timer" parent="." unique_id=1043477564]
+wait_time = 10.0
+one_shot = true
+
+[node name="TimerMatcha" type="Timer" parent="." unique_id=1239012497]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1206672974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0346174, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_cxrok")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1381877105]
+transparent_bg = true
+size = Vector2i(584, 1129)
+
+[node name="telefonBg" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=491331962]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_mh6p8")
+
+[node name="boss" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=1964432007]
+offset_left = 52.46
+offset_top = 280.88
+offset_right = 1650.46
+offset_bottom = 1979.88
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_cxrok")
+
+[node name="telefonOverlay" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=1418966732]
+offset_right = 974.0
+offset_bottom = 1882.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_qtle2")
+
+[node name="telefonBorder" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=97311385]
+offset_right = 974.0
+offset_bottom = 1882.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_yq25j")
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewport" unique_id=1672063245]
+offset_left = 34.32
+offset_top = 1005.425
+offset_right = 549.435
+offset_bottom = 1020.425
+theme_override_styles/background = SubResource("StyleBoxFlat_cxrok")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ukjjc")
+max_value = 15.0
+show_percentage = false
+script = ExtResource("4_ukjjc")
+
+[node name="Timer" type="Timer" parent="." unique_id=1423984441]
 autostart = true
+
+[node name="TimerRobloxBullet" type="Timer" parent="." unique_id=1621644406]
+wait_time = 3.0
+
+[node name="TimerRobloxBalls" type="Timer" parent="." unique_id=1212915830]
+wait_time = 5.0
 
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]
@@ -53,5 +151,13 @@ autostart = true
 [connection signal="timeout" from="TimerGrass" to="." method="_on_timer_grass_timeout"]
 [connection signal="timeout" from="Boss1" to="." method="_on_boss_1_timeout"]
 [connection signal="timeout" from="Boss2" to="." method="_on_boss_2_timeout"]
+[connection signal="timeout" from="Boss3" to="." method="_on_boss_3_timeout"]
+[connection signal="timeout" from="Boss4" to="." method="_on_boss_4_timeout"]
 [connection signal="timeout" from="TimerCatAndDog" to="." method="_on_timer_cat_and_dog_timeout"]
 [connection signal="timeout" from="TimerPalkaPoziom" to="." method="_on_timer_palka_poziom_timeout"]
+[connection signal="timeout" from="TimerChocolate" to="." method="_on_timer_chocolate_timeout"]
+[connection signal="timeout" from="TimerChocolateChangeFast" to="." method="_on_timer_chocolate_change_fast_timeout"]
+[connection signal="timeout" from="TimerChocolateChangeSlow" to="." method="_on_timer_chocolate_change_slow_timeout"]
+[connection signal="timeout" from="TimerMatcha" to="." method="_on_timer_matcha_timeout"]
+[connection signal="timeout" from="Timer" to="Sprite3D/SubViewport/ProgressBar" method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerRobloxBullet" to="." method="_on_timer_roblox_bullet_timeout"]

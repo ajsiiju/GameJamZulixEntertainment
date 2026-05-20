@@ -33,3 +33,21 @@ signal get_damage_palka(damage_palka)
 func _on_body_entered_palka(body: Node3D) -> void:
 	if body.name == "player":
 		emit_signal("get_damage_palka", damage_palka)
+
+
+
+var damage_chocolate = 5
+signal get_damage_chocolate(damage_chocolate)
+
+func _on_body_entered_chocolate(body: Node3D) -> void:
+	if body.name == "player":
+		emit_signal("get_damage_chocolate", damage_chocolate)
+
+
+
+var damage_matcha = 5
+signal get_damage_matcha(damage_matcha)
+
+func _on_body_entered_matcha(body: Node3D) -> void:
+	if body.name == "player":
+		emit_signal("get_damage_matcha", damage_matcha)

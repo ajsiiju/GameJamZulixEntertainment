@@ -31,7 +31,7 @@ billboard = 1
 texture = ExtResource("2_u23ew")
 
 [node name="Timer" type="Timer" parent="." unique_id=1152737625]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 
