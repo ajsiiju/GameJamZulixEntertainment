@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://vjqwsvor6kb4" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://cdybh12vh1aoa" path="res://Scripts/camera_rig.gd" id="2_h4iuc"]
+[ext_resource type="PackedScene" uid="uid://bhmn883uquge8" path="res://Scenes/projectile_launcher.tscn" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ogh5"]
 radius = 0.45263672
 height = 1.4901829
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h4iuc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cvnsp"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fd4e3"]
 animation = &"base/run"
@@ -29,7 +32,6 @@ input_1/break_loop_at_end = false
 input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h4iuc"]
-graph_offset = Vector2(-97.07725, 20.834034)
 nodes/output/position = Vector2(768, 128)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_h4iuc")
 nodes/Animation/position = Vector2(160, 144)
@@ -49,13 +51,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.063515246, 0.7031126, 0)
 shape = SubResource("CapsuleShape3D_5ogh5")
 
 [node name="CameraRig" type="SpringArm3D" parent="." unique_id=1249298410]
-transform = Transform3D(0.9999903, 0, 0.004433047, 0, 1, 0, -0.004433047, 0, 0.9999903, 0, 1.289, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 2, 0)
 top_level = true
+collision_mask = 2
 shape = SubResource("SphereShape3D_h4iuc")
 script = ExtResource("2_h4iuc")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1779475955]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraRig/Camera3D" unique_id=1768894938]
+target_position = Vector3(0, 0, -20)
+collision_mask = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraRig/Camera3D/RayCast3D" unique_id=1029826860]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -10)
+mesh = SubResource("SphereMesh_cvnsp")
+
+[node name="Timer" type="Timer" parent="CameraRig/Camera3D/RayCast3D" unique_id=1855314832]
+wait_time = 0.2
+one_shot = true
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=172380418]
 tree_root = SubResource("AnimationNodeBlendTree_h4iuc")
@@ -72,3 +87,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3048403, -0.06600571)
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1209018433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03564453, 0.6732178, -0.026809692)
 size = Vector3(0.7138672, 1.4387207, 0.66311646)
+
+[node name="ProjectileLauncher" parent="." unique_id=1136157717 instance=ExtResource("3_6t5aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

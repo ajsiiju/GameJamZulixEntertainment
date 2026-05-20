@@ -1,5 +1,24 @@
 extends CharacterBody3D
 
+@onready var camera_rig: SpringArm3D = $CameraRig
+@onready var camera: Camera3D = $CameraRig/Camera3D
+@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
+@onready var anim_tree: AnimationTree = $AnimationTree
+@onready var raycast: RayCast3D = $CameraRig/Camera3D/RayCast3D	# raycast is currently unused
+@onready var test_enemy: CharacterBody3D = $"../test_enemy"
+@onready var timer: Timer = $CameraRig/Camera3D/RayCast3D/Timer
+
+var target_health:float = 10
+var speed := 8.0
+const DEFAULT_SPEED:float = 8.0
+const CROUCH_SPEED:float = 4.0
+const JUMP_VELOCITY := 4.5
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("debug_test"):
+		target_health -= 1
+	if (target_health < 1):
+		queue_free()
 const DEFAULT_SPEED: float = 4.0
 var speed = DEFAULT_SPEED
 var visible_health: float = 50.0
@@ -39,6 +58,7 @@ func _physics_process(delta: float) -> void:
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		var direction := (camera.global_basis * Vector3(input_dir.x, 0, input_dir.y))
 		direction = Vector3(direction.x, 0, direction.z).normalized() * input_dir.length()
+		
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
@@ -47,7 +67,6 @@ func _physics_process(delta: float) -> void:
 			velocity.z = move_toward(velocity.z, 0, speed)
 
 		move_and_slide()
-		turn_to(direction)
 	
 	#MOVEMENT ANIMATION
 	var current_speed := velocity.length()
@@ -59,7 +78,17 @@ func _physics_process(delta: float) -> void:
 		anim_tree.set("parameters/movement/transition_request", "idle")
 	if Input.mouse_mode == Input.MOUSE_MODE_CONFINED:
 		anim_tree.set("parameters/movement/transition_request", "idle")
+	
+	# rotate player model with camera
+	rotation.y = lerp_angle(rotation.y, camera_rig.rotation.y, 0.3)
 
+func _input(event: InputEvent) -> void:
+	# handle crouching
+	if Input.is_action_just_pressed("crouch"):
+		speed = CROUCH_SPEED
+		anim_tree.set("parameters/movement/transition_request", "crouch")
+	elif Input.is_action_just_released("crouch"):
+		speed = DEFAULT_SPEED
 func _process(_delta):
 	visible_health = lerp(visible_health, target_health, HEALTH_REGEN_PER_FRAME)
 

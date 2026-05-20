@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://crmvhy0hsux21"]
+
+[ext_resource type="Script" uid="uid://cbxw71t2fyj4s" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Control" unique_id=319089423]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1469138535]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -164.5
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=424995297]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 72
+text = "GRAĆ"
+
+[node name="Authors" type="Button" parent="VBoxContainer" unique_id=1353330827]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 72
+text = "AUTORZY"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=452080501]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 72
+text = "WYJŚCIE"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Authors" to="." method="_on_authors_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
