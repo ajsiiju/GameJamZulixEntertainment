@@ -1,21 +1,23 @@
 extends CharacterBody3D
 
 @onready var camera_rig: SpringArm3D = $CameraRig
-@onready var camera: Node3D = $CameraRig/Camera3D
+@onready var camera: Camera3D = $CameraRig/Camera3D
 @onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var raycast: RayCast3D = $CameraRig/Camera3D/RayCast3D	# raycast is currently unused
 @onready var test_enemy: CharacterBody3D = $"../test_enemy"
 @onready var timer: Timer = $CameraRig/Camera3D/RayCast3D/Timer
 
-var health_points = 10
-var speed := 4.0
-const JUMP_VELOCITY = 4.5
+var target_health:float = 10
+var speed := 8.0
+const DEFAULT_SPEED:float = 8.0
+const CROUCH_SPEED:float = 4.0
+const JUMP_VELOCITY := 4.5
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_test"):
-		health_points -= 1
-	if (health_points < 1):
+		target_health -= 1
+	if (target_health < 1):
 		queue_free()
 
 func _physics_process(delta: float) -> void:
@@ -58,7 +60,7 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	# handle crouching
 	if Input.is_action_just_pressed("crouch"):
-		speed = 2.0
+		speed = CROUCH_SPEED
 		anim_tree.set("parameters/movement/transition_request", "crouch")
 	elif Input.is_action_just_released("crouch"):
-		speed = 4.0
+		speed = DEFAULT_SPEED
