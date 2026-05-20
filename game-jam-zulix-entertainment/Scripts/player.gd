@@ -1,12 +1,12 @@
 extends CharacterBody3D
 
-var DEFAULT_SPEED: float = 4.0
+const DEFAULT_SPEED: float = 4.0
 var speed = DEFAULT_SPEED
 var visible_health: float = 50.0
 var target_health: float = 50.0
-var MAX_HEALTH: float = 100.0
-var HEALTH_REGEN_PER_FRAME: float = 0.02
-var SPECIAL_ATTACK_IMMUNITY_TIME: float = 4.0
+const MAX_HEALTH: float = 100.0
+const HEALTH_REGEN_PER_FRAME: float = 0.02
+const SPECIAL_ATTACK_IMMUNITY_TIME: float = 4.0
 var immunity = false
 var social_points: int  = 0
 # skill number 0 is nothing
