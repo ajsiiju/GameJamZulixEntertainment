@@ -1,13 +1,22 @@
 extends CharacterBody3D
 
 var speed := 4.0
-var active_skill: int = 1
+var active_skill: int = 0
+var social_points: int  = 0
+# skill number 0 is nothing
+var unlocked_skills: Array[bool] = [true]
+var skill_costs: Array[int] = [0,5,5,5,5]
 const JUMP_VELOCITY = 4.5
 @onready var camera: Node3D = $CameraRig/Camera3D
 #@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
 signal hotbar_key_pressed(number: int)
-signal change_social_points(points: int)
+signal set_social_points_ui(points: int)
+
+func _ready() -> void:
+	var shop_ui = get_tree().get_first_node_in_group("shop_ui")
+	shop_ui.unlock_skill.connect(unlock_skill)
+	unlocked_skills.resize(5)
 
 func _physics_process(delta: float) -> void:
 	 #Add the gravity.
@@ -50,13 +59,27 @@ func turn_to(direction: Vector3) -> void:
 		rotation.y = yaw
 
 func _input(event):
-	for number in range(1, 5):
+	for number in range(0, 5):
 		var action_name = "key_" + str(number)
-		if event.is_action(action_name) and event.is_pressed():
+		if event.is_action(action_name) \
+		and event.is_pressed() \
+		and unlocked_skills[number]:
 			hotbar_key_pressed.emit(number)
 			active_skill = number
 	
 	if event.is_action("ui_accept") and event.is_pressed(): # debug
-		change_social_points.emit(1)
+		social_points += 1
+		set_social_points_ui.emit(social_points)
 	
+func unlock_skill(skill_number):
+	DebugChat.message("unlocking skill: " + str(skill_number))
+	if (skill_costs[skill_number] <= social_points) \
+	and (unlocked_skills[skill_number] == false):
+		social_points -= skill_costs[skill_number]
+		set_social_points_ui.emit(social_points)
+		unlocked_skills[skill_number] = true
+		
+func change_social_points(points):
+	social_points += points
+	set_social_points_ui.emit(social_points)
 	

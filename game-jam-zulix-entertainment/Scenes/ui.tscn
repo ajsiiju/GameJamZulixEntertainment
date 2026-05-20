@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cisywsx4gwr26"]
 
-[ext_resource type="Script" uid="uid://i2ae2fu1p4ge" path="res://scripts/debug_chat.gd" id="1_jxero"]
-[ext_resource type="Script" uid="uid://c72pfcppjm4v4" path="res://scripts/hotbar.gd" id="2_qdvrb"]
-[ext_resource type="Script" uid="uid://bygsvhhkwdkk5" path="res://scripts/ad_label.gd" id="3_nf4gj"]
+[ext_resource type="Script" uid="uid://i2ae2fu1p4ge" path="res://Scripts/debug_chat.gd" id="1_jxero"]
+[ext_resource type="Script" uid="uid://c72pfcppjm4v4" path="res://Scripts/hotbar.gd" id="2_qdvrb"]
+[ext_resource type="Script" uid="uid://bygsvhhkwdkk5" path="res://Scripts/ad_label.gd" id="3_nf4gj"]
 [ext_resource type="Texture2D" uid="uid://dbc8ivykckyaa" path="res://Assets/hud/social_points_bg.png" id="4_8fs27"]
-[ext_resource type="Script" uid="uid://6t88454bi40b" path="res://scripts/shop_ui.gd" id="4_2246s"]
+[ext_resource type="Script" uid="uid://6t88454bi40b" path="res://Scripts/shop_ui.gd" id="4_2246s"]
 [ext_resource type="Texture2D" uid="uid://bhpovno0djdn6" path="res://Assets/shop_ui/shop_bg.png" id="5_4vbiv"]
-[ext_resource type="Script" uid="uid://b5myguyxsllmq" path="res://scripts/social_points_bg.gd" id="5_whq80"]
+[ext_resource type="Script" uid="uid://b5myguyxsllmq" path="res://Scripts/social_points_bg.gd" id="5_whq80"]
 [ext_resource type="Texture2D" uid="uid://d0o0nkf78lg2l" path="res://Assets/shop_ui/skill_offer.png" id="6_3r70p"]
 [ext_resource type="Texture2D" uid="uid://c3uxcep0qpk7k" path="res://Assets/shop_ui/buy_button.png" id="7_8fs27"]
 [ext_resource type="Texture2D" uid="uid://bbk6fasyh0u62" path="res://Assets/shop_ui/2137.png" id="8_whq80"]
@@ -129,7 +129,7 @@ grow_vertical = 2
 text = "2137"
 label_settings = SubResource("LabelSettings_kuui0")
 
-[node name="ShopUI" type="Control" parent="." unique_id=1592280237]
+[node name="ShopUI" type="Control" parent="." unique_id=1592280237 groups=["shop_ui"]]
 visible = false
 layout_mode = 3
 anchors_preset = 15
