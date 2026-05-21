@@ -127,11 +127,6 @@ func _physics_process(delta: float) -> void:
 		#move_and_slide()
 	
 	
-			velocity.x = move_toward(velocity.x, dash_velocity.x, speed)
-			velocity.z = move_toward(velocity.z, dash_velocity.z, speed)
-			
-		move_and_slide()
-	
 	#MOVEMENT ANIMATION
 	var current_speed := velocity.length()
 	if current_speed > 1:
