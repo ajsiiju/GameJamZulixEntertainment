@@ -13,6 +13,7 @@ var shop_instance
 @export var SHOP_RESPAWN_TIME = SHOP_AD_TIME + SHOP_TIME_TO_SHOW + 15.0
 signal ad_appear_counter
 
+
 enum Borders {
 	MIN_X,
 	MAX_X,

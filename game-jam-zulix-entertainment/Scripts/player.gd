@@ -41,7 +41,7 @@ var dash_velocity: Vector3
 signal hotbar_icon_unlocked(number: int)
 signal hotbar_key_pressed(number: int)
 signal set_social_points_ui(points: int)
-
+var points = Callable(self, "change_social_points")
 
 func _ready() -> void:
 	var shop_ui = get_tree().get_first_node_in_group("shop_ui")
@@ -186,7 +186,7 @@ func unlock_skill(skill_number):
 func change_social_points(points: int):
 	social_points += points
 	set_social_points_ui.emit(social_points)
-		
+
 func activate_skill(skill_number):
 	match skill_number:
 		1:
