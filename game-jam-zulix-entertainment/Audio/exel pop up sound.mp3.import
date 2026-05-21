@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8s4lyg6qaark"
+path="res://.godot/imported/exel pop up sound.mp3-99d8d66973f96ddf51b2e3ab730e68c0.mp3str"
+
+[deps]
+
+source_file="res://Audio/exel pop up sound.mp3"
+dest_files=["res://.godot/imported/exel pop up sound.mp3-99d8d66973f96ddf51b2e3ab730e68c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

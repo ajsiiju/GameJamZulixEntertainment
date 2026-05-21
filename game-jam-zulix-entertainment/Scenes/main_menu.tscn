@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bqqmlh4wq0k44" path="res://Assets/ui/menu/menu_button3_pressed.png" id="11_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://cswsye0e7cxqm" path="res://Assets/ui/menu/menu_button3_hovered.png" id="12_wyh8j"]
 [ext_resource type="BitMap" uid="uid://bwbictlkpvafg" path="res://Assets/ui/menu/menu_button3_mask.png" id="15_m3bi6"]
+[ext_resource type="AudioStream" uid="uid://de0mapu051aaa" path="res://Audio/RottingBrainMainMenu.mp3" id="16_m3bi6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vr1f0"]
 font = ExtResource("4_yhxw7")
@@ -133,6 +134,12 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "WYJŚCIE"
 label_settings = SubResource("LabelSettings_vr1f0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=886632994]
+stream = ExtResource("16_m3bi6")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer1/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer1/Authors" to="." method="_on_authors_pressed"]

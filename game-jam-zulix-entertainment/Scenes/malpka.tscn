@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://dc75immvbgqg"]
+
+[ext_resource type="Script" uid="uid://bbdi6h38s6qsh" path="res://Scripts/malpka.gd" id="1_561s3"]
+[ext_resource type="Texture2D" uid="uid://dllat5jgjqidw" path="res://Assets/misc/malpka/tile00.png" id="1_dp1qr"]
+[ext_resource type="Texture2D" uid="uid://csgnj4no608p2" path="res://Assets/misc/malpka/tile01.png" id="2_jm4l5"]
+[ext_resource type="Texture2D" uid="uid://bfyxnn0vpp5i6" path="res://Assets/misc/malpka/tile10.png" id="3_561s3"]
+[ext_resource type="Texture2D" uid="uid://vrgxcvrqcq0p" path="res://Assets/misc/malpka/tile11.png" id="4_g5ala"]
+[ext_resource type="Texture2D" uid="uid://ba0fldcdmw4yj" path="res://Assets/misc/malpka/tile12.png" id="5_fejih"]
+[ext_resource type="Texture2D" uid="uid://c6aby5coedif4" path="res://Assets/misc/malpka/tile13.png" id="6_irwqw"]
+[ext_resource type="Texture2D" uid="uid://p3wmcfy58eop" path="res://Assets/misc/malpka/tile14.png" id="7_n3hpf"]
+[ext_resource type="Texture2D" uid="uid://r6tqqmiwgdjc" path="res://Assets/misc/malpka/tile15.png" id="8_g0ktx"]
+[ext_resource type="Texture2D" uid="uid://ji512y03kumx" path="res://Assets/misc/malpka/tile16.png" id="9_bn0ia"]
+[ext_resource type="Texture2D" uid="uid://cb1tlbkqbp2wg" path="res://Assets/misc/malpka/tile17.png" id="10_f7r7x"]
+[ext_resource type="Texture2D" uid="uid://b6ujv6u1oicue" path="res://Assets/misc/malpka/tile18.png" id="11_f0iff"]
+[ext_resource type="Texture2D" uid="uid://dc7s4dkkmny47" path="res://Assets/misc/malpka/tile19.png" id="12_dtduw"]
+[ext_resource type="Texture2D" uid="uid://bijqjwe8pnu4g" path="res://Assets/misc/malpka/tile02.png" id="13_jecy0"]
+[ext_resource type="Texture2D" uid="uid://b1h2pfa4kkyqm" path="res://Assets/misc/malpka/tile20.png" id="14_ji3wg"]
+[ext_resource type="Texture2D" uid="uid://dtest7b1fweld" path="res://Assets/misc/malpka/tile21.png" id="15_hjaus"]
+[ext_resource type="Texture2D" uid="uid://dhiw61j0h7vqn" path="res://Assets/misc/malpka/tile22.png" id="16_eebcl"]
+[ext_resource type="Texture2D" uid="uid://qg0jwhmfc8nm" path="res://Assets/misc/malpka/tile23.png" id="17_0i7wu"]
+[ext_resource type="Texture2D" uid="uid://c4t2a22g7pnq8" path="res://Assets/misc/malpka/tile24.png" id="18_mfiib"]
+[ext_resource type="Texture2D" uid="uid://c81eeux3bp76m" path="res://Assets/misc/malpka/tile25.png" id="19_blity"]
+[ext_resource type="Texture2D" uid="uid://b7p216bk2gvt1" path="res://Assets/misc/malpka/tile26.png" id="20_t35gr"]
+[ext_resource type="Texture2D" uid="uid://drkk2q435m7jt" path="res://Assets/misc/malpka/tile03.png" id="21_77xm1"]
+[ext_resource type="Texture2D" uid="uid://cp3s0r0tentk1" path="res://Assets/misc/malpka/tile04.png" id="22_vyyt5"]
+[ext_resource type="Texture2D" uid="uid://daglqgbv84ypw" path="res://Assets/misc/malpka/tile05.png" id="23_1a1bt"]
+[ext_resource type="Texture2D" uid="uid://36msxfp7o3fu" path="res://Assets/misc/malpka/tile06.png" id="24_rksoc"]
+[ext_resource type="Texture2D" uid="uid://qsacal1s8tej" path="res://Assets/misc/malpka/tile07.png" id="25_853qh"]
+[ext_resource type="Texture2D" uid="uid://c8soq2aihkcen" path="res://Assets/misc/malpka/tile08.png" id="26_ed8sq"]
+[ext_resource type="Texture2D" uid="uid://d04r1igussuf4" path="res://Assets/misc/malpka/tile09.png" id="27_dskvh"]
+[ext_resource type="Texture2D" uid="uid://bt4qhr3y6p48o" path="res://Assets/misc/malpka/malpka_dialog.png" id="29_g5ala"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_h4h6e"]
+frames = 27
+speed_scale = 8.4
+frame_0/texture = ExtResource("1_dp1qr")
+frame_1/texture = ExtResource("2_jm4l5")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("13_jecy0")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("21_77xm1")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("22_vyyt5")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("23_1a1bt")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("24_rksoc")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("25_853qh")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("26_ed8sq")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("27_dskvh")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("3_561s3")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("4_g5ala")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("5_fejih")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("6_irwqw")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("7_n3hpf")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("8_g0ktx")
+frame_15/duration = 1.0
+frame_16/texture = ExtResource("9_bn0ia")
+frame_16/duration = 1.0
+frame_17/texture = ExtResource("10_f7r7x")
+frame_17/duration = 1.0
+frame_18/texture = ExtResource("11_f0iff")
+frame_18/duration = 1.0
+frame_19/texture = ExtResource("12_dtduw")
+frame_19/duration = 1.0
+frame_20/texture = ExtResource("14_ji3wg")
+frame_20/duration = 1.0
+frame_21/texture = ExtResource("15_hjaus")
+frame_21/duration = 1.0
+frame_22/texture = ExtResource("16_eebcl")
+frame_22/duration = 1.0
+frame_23/texture = ExtResource("17_0i7wu")
+frame_23/duration = 1.0
+frame_24/texture = ExtResource("18_mfiib")
+frame_24/duration = 1.0
+frame_25/texture = ExtResource("19_blity")
+frame_25/duration = 1.0
+frame_26/texture = ExtResource("20_t35gr")
+frame_26/duration = 300.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_fejih"]
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=380867994]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_561s3")
+
+[node name="Malpka" type="TextureRect" parent="." unique_id=408936247]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.76100004
+anchor_top = 0.80600005
+anchor_right = 0.86
+anchor_bottom = 1.0
+offset_left = 0.8798828
+offset_top = -0.4800415
+offset_right = 0.79992676
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AnimatedTexture_h4h6e")
+stretch_mode = 4
+
+[node name="Dialog" type="TextureRect" parent="." unique_id=1141617169]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.60200006
+anchor_top = 0.57900006
+anchor_right = 0.99200004
+anchor_bottom = 0.81100005
+offset_left = -0.8400879
+offset_top = -0.32006836
+offset_right = 0.35986328
+offset_bottom = 0.11993408
+texture = ExtResource("29_g5ala")
+
+[node name="Label" type="Label" parent="Dialog" unique_id=515422020]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.029000001
+anchor_top = 0.08800001
+anchor_right = 0.975
+anchor_bottom = 0.73300004
+offset_left = 0.25
+offset_top = -0.08800125
+offset_right = -0.25
+offset_bottom = 0.016983032
+grow_horizontal = 2
+grow_vertical = 2
+text = "_"
+label_settings = SubResource("LabelSettings_fejih")

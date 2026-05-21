@@ -1,6 +1,8 @@
 extends Node3D
 
 @onready var game_platform: CSGBox3D
+@onready var boss_music = $BossMusic
+@onready var shop_music = $ShopMusic
 var shop_timer: Timer
 var platform_range: Array[float]
 var shop_scene = preload("res://Scenes/shop.tscn")
@@ -8,7 +10,7 @@ var shop_instance
 @export var OFFSET_FROM_WALL: float = 4.0
 @export var SHOP_AD_TIME = 15.0
 @export var SHOP_TIME_TO_SHOW = 5.0
-@export var SHOP_RESPAWN_TIME = 15.0 + SHOP_AD_TIME + SHOP_TIME_TO_SHOW
+@export var SHOP_RESPAWN_TIME = SHOP_AD_TIME + SHOP_TIME_TO_SHOW + 15.0
 signal ad_appear_counter
 
 enum Borders {
@@ -20,11 +22,8 @@ enum Borders {
 	MAX_Z
 }
 
-#func _ready():
-	#shop_timer = create_shop_timer()
-
-func _process(_delta: float) -> void:
-	pass
+func _ready():
+	shop_timer = create_shop_timer()
 
 func create_shop_timer() -> Timer:
 	var new_shop_timer = Timer.new()
@@ -36,7 +35,17 @@ func create_shop_timer() -> Timer:
 	return new_shop_timer
 	
 func open_shop():
-	shop_timer.paused = true
+	boss_music.stream_paused = true
+	if !shop_music.playing:
+		shop_music.play()
+	shop_music.stream_paused = false
+	get_tree().create_timer(SHOP_AD_TIME).timeout.connect(
+	func():
+			boss_music.stream_paused = false
+			shop_music.stream_paused = true,
+		CONNECT_ONE_SHOT
+	)
+	shop_timer.paused = true # debug
 	ad_appear_counter.emit()
 	spawn_shop_area()
 	

@@ -14,13 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://d0o0nkf78lg2l" path="res://Assets/ui/shop_ui/skill_offer.png" id="6_3r70p"]
 [ext_resource type="Texture2D" uid="uid://ccb528qgl5qe0" path="res://Assets/ui/hud/67.png" id="6_v4f2e"]
 [ext_resource type="Texture2D" uid="uid://c3uxcep0qpk7k" path="res://Assets/ui/shop_ui/buy_button.png" id="7_8fs27"]
-[ext_resource type="Texture2D" uid="uid://bbk6fasyh0u62" path="res://Assets/ui/shop_ui/2137.png" id="8_whq80"]
+[ext_resource type="Texture2D" uid="uid://bxqn6sfopmbih" path="res://Assets/ui/shop_ui/2137.png" id="8_whq80"]
 [ext_resource type="Texture2D" uid="uid://cutvoud3rk6wp" path="res://Assets/ui/shop_ui/bargain.png" id="9_kuui0"]
 [ext_resource type="Texture2D" uid="uid://c3bsthklht7kf" path="res://Assets/ui/shop_ui/spin_circle_half.png" id="10_smy1h"]
 [ext_resource type="Texture2D" uid="uid://cfg17ewa54ypx" path="res://Assets/ui/hud/player_hp_bar.png" id="11_fcexb"]
 [ext_resource type="Texture2D" uid="uid://drrsps327ojr5" path="res://Assets/ui/hud/boss_hp_bar.png" id="11_fe2sg"]
 [ext_resource type="Script" uid="uid://do2ppahxs8qcx" path="res://Scripts/boss_health_bar.gd" id="11_jd57c"]
-[ext_resource type="Texture2D" uid="uid://daelqacfkje6v" path="res://Assets/ui/shop_ui/hot_tungtungi.png" id="11_lkjmk"]
 [ext_resource type="Script" uid="uid://bpll4g7c03ujd" path="res://Scripts/health_bar.gd" id="11_v4f2e"]
 [ext_resource type="Texture2D" uid="uid://ctvtah4a6cqce" path="res://Assets/ui/shop_ui/exit_button.png" id="12_d42i4"]
 [ext_resource type="Texture2D" uid="uid://dueiliaaggxta" path="res://Assets/ui/hud/crosshair.png" id="13_0o3wc"]
@@ -32,6 +31,12 @@
 [ext_resource type="Texture2D" uid="uid://b62erjqjug6th" path="res://Assets/ui/shop_ui/download.png" id="27_kjfio"]
 [ext_resource type="Texture2D" uid="uid://bw5soffs20sfo" path="res://Assets/ui/shop_ui/download_pressed.png" id="28_0o3wc"]
 [ext_resource type="Texture2D" uid="uid://bvded2chp4t3h" path="res://Assets/ui/shop_ui/download_hovered.png" id="29_ebfgw"]
+[ext_resource type="Texture2D" uid="uid://bmeouyqytq2gv" path="res://Assets/ui/shop_ui/2137_pressed.png" id="31_ipwe8"]
+[ext_resource type="Texture2D" uid="uid://dxkvngh85t7bj" path="res://Assets/ui/shop_ui/2137_hovered.png" id="32_al6qt"]
+[ext_resource type="Texture2D" uid="uid://dy3udoqv1ftk3" path="res://Assets/misc/tungtung/tungtung.png" id="32_mdsrb"]
+[ext_resource type="Texture2D" uid="uid://gce25kw5blkh" path="res://Assets/misc/tungtung/tungtung_pressed.png" id="33_bsvcc"]
+[ext_resource type="PackedScene" uid="uid://dc75immvbgqg" path="res://Scenes/malpka.tscn" id="33_ebfgw"]
+[ext_resource type="Texture2D" uid="uid://ddkt0cg5uhias" path="res://Assets/misc/tungtung/tungtung_hovered.png" id="34_u8gt4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe2sg"]
 bg_color = Color(0, 0, 0, 0.13725491)
@@ -50,13 +55,13 @@ font_size = 42
 font_color = Color(0.8474744, 0.84747446, 0.84747446, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4f2e"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0.67068946, 0.6706895, 0.6706893, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmm21"]
 bg_color = Color(0.4164556, 0.1617352, 0.59247303, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbcfj"]
-bg_color = Color(0.60784316, 0.50980395, 0.09803922, 1)
+bg_color = Color(0.47314936, 0.39528355, 0.06961357, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vbiv"]
 
@@ -256,6 +261,7 @@ offset_bottom = 109.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_v4f2e")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nbcfj")
+max_value = 1000.0
 value = 47.0
 show_percentage = false
 script = ExtResource("11_jd57c")
@@ -293,7 +299,6 @@ grow_vertical = 2
 texture = ExtResource("13_0o3wc")
 
 [node name="ShopUI" type="Control" parent="." unique_id=1592280237 groups=["shop_ui"]]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -434,16 +439,6 @@ offset_right = 556.0
 offset_bottom = 471.0
 texture = ExtResource("6_v4f2e")
 
-[node name="2137" type="TextureRect" parent="ShopUI/shop_bg" unique_id=642811170]
-layout_mode = 0
-offset_left = 2795.0
-offset_top = 147.5
-offset_right = 3087.5
-offset_bottom = 438.50018
-texture = ExtResource("8_whq80")
-expand_mode = 1
-stretch_mode = 3
-
 [node name="bargain" type="TextureRect" parent="ShopUI/shop_bg" unique_id=88410260]
 layout_mode = 0
 offset_left = 3050.0
@@ -461,16 +456,6 @@ offset_top = 779.99994
 offset_right = 489.9999
 offset_bottom = 1474.9998
 texture = ExtResource("10_smy1h")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="hot_tungtungi" type="TextureRect" parent="ShopUI/shop_bg" unique_id=1997444577]
-layout_mode = 0
-offset_left = 635.0001
-offset_top = 1532.5
-offset_right = 1137.5002
-offset_bottom = 2028.5
-texture = ExtResource("11_lkjmk")
 expand_mode = 1
 stretch_mode = 3
 
@@ -508,6 +493,26 @@ offset_bottom = 1942.5
 texture_normal = ExtResource("27_kjfio")
 texture_pressed = ExtResource("28_0o3wc")
 texture_hover = ExtResource("29_ebfgw")
+
+[node name="duck_button" type="TextureButton" parent="ShopUI/shop_bg" unique_id=2111345514]
+layout_mode = 0
+offset_left = 2452.4998
+offset_top = -105.0
+offset_right = 3456.4998
+offset_bottom = 585.0
+texture_normal = ExtResource("8_whq80")
+texture_pressed = ExtResource("31_ipwe8")
+texture_hover = ExtResource("32_al6qt")
+
+[node name="tungtung_button" type="TextureButton" parent="ShopUI/shop_bg" unique_id=1041525998]
+layout_mode = 0
+offset_left = 199.99998
+offset_top = 1429.9999
+offset_right = 1039.0
+offset_bottom = 2115.0
+texture_normal = ExtResource("32_mdsrb")
+texture_pressed = ExtResource("33_bsvcc")
+texture_hover = ExtResource("34_u8gt4")
 
 [node name="SocialPointsBg" type="TextureRect" parent="." unique_id=378042509]
 anchors_preset = 5
@@ -554,3 +559,6 @@ grow_vertical = 0
 text = "Social
 Credit"
 label_settings = SubResource("LabelSettings_kjfio")
+
+[node name="Malpka" parent="." unique_id=380867994 instance=ExtResource("33_ebfgw")]
+visible = false
