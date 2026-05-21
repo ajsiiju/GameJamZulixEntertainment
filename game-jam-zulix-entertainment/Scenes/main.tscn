@@ -87,8 +87,6 @@ size = Vector3(53.09552, 1, 41.205933)
 [node name="BossMusic" type="AudioStreamPlayer" parent="." unique_id=1769272504]
 stream = ExtResource("7_6bp64")
 autoplay = true
-bus = &"Music"
 parameters/looping = false
 
 [node name="ShopMusic" type="AudioStreamPlayer" parent="." unique_id=1521823245]
-bus = &"Music"

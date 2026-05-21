@@ -36,7 +36,22 @@ var current_boss_number = 0
 var previous_boss_array = current_boss_number - 1
 var current_boss_array = null
 var next_boss_array = current_boss_number + 1
+
+func _process(_delta: float) -> void:
+	visible_health= lerp(visible_health, target_health, HEALTH_REGEN_PER_FRAME)
+
+func change_health(health_difference):
+	target_health += health_difference
+	target_health = clamp(target_health, 0.0, MAX_HEALTH)
+	if health_difference < 0.0:
+		hurt_audio.play()
+		player.change_social_points(10)
+	if target_health <= 0.0:
+		get_tree().change_scene_to_file("res://Scenes/game_won.tscn")
+	
+
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	while boss_amount < 6:
 		var random_number = rng.randi_range(0, max_random_number)
 		max_random_number -= 1
@@ -159,65 +174,8 @@ func boss_2_start() -> void:
 	boss_anim_sprites.visible = false
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_idle.png")
 
+
 func boss_2_stop() -> void:
-	pass
-
-func boss_3_start() -> void:
-	pass
-
-func boss_3_stop() -> void:
-	pass
-
-func boss_4_start() -> void:
-	pass
-
-func boss_4_stop() -> void:
-	pass
-
-func boss_5_start() -> void:
-	pass
-
-func boss_5_stop() -> void:
-	pass
-
-func boss_6_start() -> void:
-	pass
-
-func boss_6_stop() -> void:
-	pass
-
-var current_boss = ""
-
-#kiedy użyje sie stuna sprawdza który boss i zatrzymuje jego timery ataków na 3s i z powrotem wznawia
-#if current_boss == "":
-#pass
-
-func _ready() -> void:
-	boss.texture = load("res://Assets/Characters/Bosses/job_apl.jpg")
-	telefon_bg.texture = load("res://Assets/Characters/Bosses/tel_bg2.png")
-	player = get_tree().get_first_node_in_group("player")
-
-func _process(_delta: float) -> void:
-	visible_
-  
-  = lerp(visible_health, target_health, HEALTH_REGEN_PER_FRAME)
-
-func change_health(health_difference):
-	target_health += health_difference
-	target_health = clamp(target_health, 0.0, MAX_HEALTH)
-	if health_difference < 0.0:
-		hurt_audio.play()
-		player.change_social_points(10)
-	if target_health <= 0.0:
-		get_tree().change_scene_to_file("res://Scenes/game_won.tscn")
-
-func _on_boss_1_timeout() -> void:
-	boss_1_start()
-	boss_2.start()
-	boss_1_stop()
-
-
-func _on_boss_2_timeout() -> void:
 	timer_grass.stop()
 	
 	timer_cat_and_dog.stop()
