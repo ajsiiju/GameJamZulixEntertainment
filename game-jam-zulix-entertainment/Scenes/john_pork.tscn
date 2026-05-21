@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cnuvmrfw4sd27"]
 
 [ext_resource type="Script" uid="uid://con4rnjuxy15j" path="res://Scripts/john_pork.gd" id="1_yb5aa"]
+[ext_resource type="AudioStream" uid="uid://detpvvsnniug8" path="res://Audio/meow.mp3" id="2_v55rp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7qiby"]
 
@@ -15,3 +16,9 @@ shape = SubResource("BoxShape3D_7qiby")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1306744278]
 mesh = SubResource("BoxMesh_yb5aa")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1449766841]
+stream = ExtResource("2_v55rp")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
