@@ -11,12 +11,6 @@ var shop_instance
 @export var SHOP_RESPAWN_TIME = 15.0 + SHOP_AD_TIME + SHOP_TIME_TO_SHOW
 signal ad_appear_counter
 
-# I have no idea why adding social credits works through the main node, but it works somehow
-# You know what they say, "if something looks stupid, but works, then don't fucking touch it"
-@onready var player: CharacterBody3D = $player
-var points = Callable(self, "change_social_points")
-func change_social_points(points):
-	player.points.call(points)
 
 enum Borders {
 	MIN_X,
