@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJamZulixEntertainment"
-run/main_scene="uid://crmvhy0hsux21"
+run/main_scene="uid://cpmp2pmwm1jt"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://gg47jtb3js8y"
 

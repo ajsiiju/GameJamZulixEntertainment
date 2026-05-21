@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dwp06c7ifw8kh"]
+[gd_scene format=3 uid="uid://7mcjqg03mw7e"]
 
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_8okam"]
 [ext_resource type="Script" uid="uid://deopb4usoi0c5" path="res://Scripts/roblox_bullet.gd" id="1_djuwi"]

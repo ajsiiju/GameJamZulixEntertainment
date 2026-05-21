@@ -1,26 +1,37 @@
 [gd_scene format=3 uid="uid://cisywsx4gwr26"]
 
 [ext_resource type="Script" uid="uid://i2ae2fu1p4ge" path="res://Scripts/debug_chat.gd" id="1_jxero"]
-[ext_resource type="Texture2D" uid="uid://5dpqlemnvrh2" path="res://Assets/hud/hotbar.png" id="2_d42i4"]
+[ext_resource type="Texture2D" uid="uid://5dpqlemnvrh2" path="res://Assets/ui/hud/hotbar.png" id="2_d42i4"]
 [ext_resource type="Script" uid="uid://c72pfcppjm4v4" path="res://Scripts/hotbar.gd" id="2_qdvrb"]
-[ext_resource type="Texture2D" uid="uid://r64eeej5bvbi" path="res://Assets/hud/muka.png" id="3_lkjmk"]
+[ext_resource type="Texture2D" uid="uid://r64eeej5bvbi" path="res://Assets/ui/hud/muka.png" id="3_lkjmk"]
 [ext_resource type="Script" uid="uid://bygsvhhkwdkk5" path="res://Scripts/ad_label.gd" id="3_nf4gj"]
-[ext_resource type="Texture2D" uid="uid://dbc8ivykckyaa" path="res://Assets/hud/social_points_bg.png" id="4_8fs27"]
+[ext_resource type="Texture2D" uid="uid://dbc8ivykckyaa" path="res://Assets/ui/hud/social_points_bg.png" id="4_8fs27"]
 [ext_resource type="Script" uid="uid://6t88454bi40b" path="res://Scripts/shop_ui.gd" id="4_2246s"]
-[ext_resource type="Texture2D" uid="uid://d1xhioe8mdnw8" path="res://Assets/hud/dab.png" id="4_d42i4"]
-[ext_resource type="Texture2D" uid="uid://bhpovno0djdn6" path="res://Assets/shop_ui/shop_bg.png" id="5_4vbiv"]
-[ext_resource type="Texture2D" uid="uid://dtc6ipd0krgpb" path="res://Assets/hud/gangnam.png" id="5_fcexb"]
+[ext_resource type="Texture2D" uid="uid://d1xhioe8mdnw8" path="res://Assets/ui/hud/dab.png" id="4_d42i4"]
+[ext_resource type="Texture2D" uid="uid://bhpovno0djdn6" path="res://Assets/ui/shop_ui/shop_bg.png" id="5_4vbiv"]
+[ext_resource type="Texture2D" uid="uid://dtc6ipd0krgpb" path="res://Assets/ui/hud/gangnam.png" id="5_fcexb"]
 [ext_resource type="Script" uid="uid://b5myguyxsllmq" path="res://Scripts/social_points_bg.gd" id="5_whq80"]
-[ext_resource type="Texture2D" uid="uid://d0o0nkf78lg2l" path="res://Assets/shop_ui/skill_offer.png" id="6_3r70p"]
-[ext_resource type="Texture2D" uid="uid://ccb528qgl5qe0" path="res://Assets/hud/67.png" id="6_v4f2e"]
-[ext_resource type="Texture2D" uid="uid://c3uxcep0qpk7k" path="res://Assets/shop_ui/buy_button.png" id="7_8fs27"]
-[ext_resource type="Texture2D" uid="uid://bbk6fasyh0u62" path="res://Assets/shop_ui/2137.png" id="8_whq80"]
-[ext_resource type="Texture2D" uid="uid://cutvoud3rk6wp" path="res://Assets/shop_ui/bargain.png" id="9_kuui0"]
-[ext_resource type="Texture2D" uid="uid://c3bsthklht7kf" path="res://Assets/shop_ui/spin_circle_half.png" id="10_smy1h"]
-[ext_resource type="Texture2D" uid="uid://cfg17ewa54ypx" path="res://Assets/hud/player_hp_bar.png" id="11_fcexb"]
-[ext_resource type="Texture2D" uid="uid://daelqacfkje6v" path="res://Assets/shop_ui/hot_tungtungi.png" id="11_lkjmk"]
+[ext_resource type="Texture2D" uid="uid://d0o0nkf78lg2l" path="res://Assets/ui/shop_ui/skill_offer.png" id="6_3r70p"]
+[ext_resource type="Texture2D" uid="uid://ccb528qgl5qe0" path="res://Assets/ui/hud/67.png" id="6_v4f2e"]
+[ext_resource type="Texture2D" uid="uid://c3uxcep0qpk7k" path="res://Assets/ui/shop_ui/buy_button.png" id="7_8fs27"]
+[ext_resource type="Texture2D" uid="uid://bbk6fasyh0u62" path="res://Assets/ui/shop_ui/2137.png" id="8_whq80"]
+[ext_resource type="Texture2D" uid="uid://cutvoud3rk6wp" path="res://Assets/ui/shop_ui/bargain.png" id="9_kuui0"]
+[ext_resource type="Texture2D" uid="uid://c3bsthklht7kf" path="res://Assets/ui/shop_ui/spin_circle_half.png" id="10_smy1h"]
+[ext_resource type="Texture2D" uid="uid://cfg17ewa54ypx" path="res://Assets/ui/hud/player_hp_bar.png" id="11_fcexb"]
+[ext_resource type="Texture2D" uid="uid://drrsps327ojr5" path="res://Assets/ui/hud/boss_hp_bar.png" id="11_fe2sg"]
+[ext_resource type="Script" uid="uid://do2ppahxs8qcx" path="res://Scripts/boss_health_bar.gd" id="11_jd57c"]
+[ext_resource type="Texture2D" uid="uid://daelqacfkje6v" path="res://Assets/ui/shop_ui/hot_tungtungi.png" id="11_lkjmk"]
 [ext_resource type="Script" uid="uid://bpll4g7c03ujd" path="res://Scripts/health_bar.gd" id="11_v4f2e"]
-[ext_resource type="Texture2D" uid="uid://cictc5o4prxbh" path="res://Assets/shop_ui/exit_button.png" id="12_d42i4"]
+[ext_resource type="Texture2D" uid="uid://ctvtah4a6cqce" path="res://Assets/ui/shop_ui/exit_button.png" id="12_d42i4"]
+[ext_resource type="Texture2D" uid="uid://dueiliaaggxta" path="res://Assets/ui/hud/crosshair.png" id="13_0o3wc"]
+[ext_resource type="Texture2D" uid="uid://dbw2ih0m2kydo" path="res://Assets/ui/shop_ui/buy_button_hovered.png" id="17_85lyl"]
+[ext_resource type="Texture2D" uid="uid://bsf2syrpwlyx1" path="res://Assets/ui/shop_ui/buy_button_pressed.png" id="17_pmm21"]
+[ext_resource type="Texture2D" uid="uid://d03hi6bhuuyh3" path="res://Assets/ui/shop_ui/buy_button_disabled.png" id="19_nbcfj"]
+[ext_resource type="Texture2D" uid="uid://b41oyxf4in11g" path="res://Assets/ui/shop_ui/exit_button_pressed.png" id="25_3g2cg"]
+[ext_resource type="Texture2D" uid="uid://cqs7sum8mrdb6" path="res://Assets/ui/shop_ui/exit_button_hovered.png" id="26_wc4t8"]
+[ext_resource type="Texture2D" uid="uid://b62erjqjug6th" path="res://Assets/ui/shop_ui/download.png" id="27_kjfio"]
+[ext_resource type="Texture2D" uid="uid://bw5soffs20sfo" path="res://Assets/ui/shop_ui/download_pressed.png" id="28_0o3wc"]
+[ext_resource type="Texture2D" uid="uid://bvded2chp4t3h" path="res://Assets/ui/shop_ui/download_hovered.png" id="29_ebfgw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe2sg"]
 bg_color = Color(0, 0, 0, 0.13725491)
@@ -38,19 +49,25 @@ bg_color = Color(0, 0, 0, 0.13725491)
 font_size = 42
 font_color = Color(0.8474744, 0.84747446, 0.84747446, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_kuui0"]
-font_size = 32
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4f2e"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmm21"]
 bg_color = Color(0.4164556, 0.1617352, 0.59247303, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbcfj"]
+bg_color = Color(0.60784316, 0.50980395, 0.09803922, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vbiv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r70p"]
 bg_color = Color(0.92156863, 0.95686275, 0.011764706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kuui0"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjfio"]
+font_size = 36
 
 [node name="CanvasLayerUI" type="CanvasLayer" unique_id=1443381599]
 
@@ -77,10 +94,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -339.0
-offset_top = -294.0
-offset_right = 335.5
-offset_bottom = -108.5
+offset_left = -333.0
+offset_top = -297.0
+offset_right = 341.5
+offset_bottom = -111.5
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_d42i4")
@@ -108,6 +125,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_fe2sg")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/hotbar_graph/Hotbar/Panel1" unique_id=438315023]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,6 +141,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jd57c")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/hotbar_graph/Hotbar/Panel2" unique_id=872996267]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -138,6 +157,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_85lyl")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/hotbar_graph/Hotbar/Panel3" unique_id=926691427]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,6 +173,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_mplvk")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/hotbar_graph/Hotbar/Panel4" unique_id=1980650250]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -187,38 +208,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SocialPointsBg" type="TextureRect" parent="HUD" unique_id=378042509]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.97
-anchor_top = 0.15
-anchor_right = 0.97
-anchor_bottom = 0.15
-offset_left = -344.0
-offset_top = -115.0
-offset_bottom = 115.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("4_8fs27")
-expand_mode = 1
-script = ExtResource("5_whq80")
-
-[node name="social_points_label" type="Label" parent="HUD/SocialPointsBg" unique_id=1588044323]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.298
-anchor_top = 0.298
-anchor_right = 0.298
-anchor_bottom = 0.298
-offset_left = 12.088036
-offset_top = -23.54
-offset_right = 140.08804
-offset_bottom = 23.96
-grow_horizontal = 2
-grow_vertical = 2
-text = "2137"
-label_settings = SubResource("LabelSettings_kuui0")
-
 [node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=953184805]
 layout_mode = 1
 anchors_preset = 7
@@ -234,6 +223,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_v4f2e")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pmm21")
+max_value = 1000.0
 value = 47.0
 show_percentage = false
 script = ExtResource("11_v4f2e")
@@ -254,7 +244,56 @@ grow_vertical = 2
 texture = ExtResource("11_fcexb")
 expand_mode = 1
 
+[node name="BossHealthBar" type="ProgressBar" parent="HUD" unique_id=117295113]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -489.0
+offset_top = 35.0
+offset_right = 494.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_v4f2e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nbcfj")
+value = 47.0
+show_percentage = false
+script = ExtResource("11_jd57c")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/BossHealthBar" unique_id=707415404]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -510.25
+offset_top = -51.25
+offset_right = 510.25
+offset_bottom = 51.25
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_fe2sg")
+expand_mode = 1
+
+[node name="Crosshair" type="TextureRect" parent="HUD" unique_id=259847377]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_0o3wc")
+
 [node name="ShopUI" type="Control" parent="." unique_id=1592280237 groups=["shop_ui"]]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -296,6 +335,17 @@ offset_top = 529.99994
 offset_right = 558.5
 offset_bottom = 675.99994
 texture_normal = ExtResource("7_8fs27")
+texture_pressed = ExtResource("17_pmm21")
+texture_hover = ExtResource("17_85lyl")
+texture_disabled = ExtResource("19_nbcfj")
+
+[node name="TextureRect" type="TextureRect" parent="ShopUI/shop_bg/skill_offer1" unique_id=18971331]
+layout_mode = 1
+offset_left = -34.999996
+offset_top = -119.999985
+offset_right = 556.0
+offset_bottom = 471.0
+texture = ExtResource("3_lkjmk")
 
 [node name="skill_offer2" type="TextureRect" parent="ShopUI/shop_bg" unique_id=307665402]
 layout_mode = 0
@@ -314,6 +364,17 @@ offset_top = 535.00006
 offset_right = 558.50006
 offset_bottom = 681.00006
 texture_normal = ExtResource("7_8fs27")
+texture_pressed = ExtResource("17_pmm21")
+texture_hover = ExtResource("17_85lyl")
+texture_disabled = ExtResource("19_nbcfj")
+
+[node name="TextureRect" type="TextureRect" parent="ShopUI/shop_bg/skill_offer2" unique_id=360657275]
+layout_mode = 0
+offset_left = -34.999996
+offset_top = -119.999985
+offset_right = 556.0
+offset_bottom = 471.0
+texture = ExtResource("4_d42i4")
 
 [node name="skill_offer3" type="TextureRect" parent="ShopUI/shop_bg" unique_id=325698543]
 layout_mode = 0
@@ -332,6 +393,17 @@ offset_top = 537.5
 offset_right = 566.0001
 offset_bottom = 683.5
 texture_normal = ExtResource("7_8fs27")
+texture_pressed = ExtResource("17_pmm21")
+texture_hover = ExtResource("17_85lyl")
+texture_disabled = ExtResource("19_nbcfj")
+
+[node name="TextureRect" type="TextureRect" parent="ShopUI/shop_bg/skill_offer3" unique_id=97813577]
+layout_mode = 0
+offset_left = -34.999996
+offset_top = -119.999985
+offset_right = 556.0
+offset_bottom = 471.0
+texture = ExtResource("5_fcexb")
 
 [node name="skill_offer4" type="TextureRect" parent="ShopUI/shop_bg" unique_id=1752206523]
 layout_mode = 0
@@ -350,23 +422,34 @@ offset_top = 529.99994
 offset_right = 558.50006
 offset_bottom = 675.99994
 texture_normal = ExtResource("7_8fs27")
+texture_pressed = ExtResource("17_pmm21")
+texture_hover = ExtResource("17_85lyl")
+texture_disabled = ExtResource("19_nbcfj")
+
+[node name="TextureRect" type="TextureRect" parent="ShopUI/shop_bg/skill_offer4" unique_id=1685191362]
+layout_mode = 0
+offset_left = -34.999996
+offset_top = -119.999985
+offset_right = 556.0
+offset_bottom = 471.0
+texture = ExtResource("6_v4f2e")
 
 [node name="2137" type="TextureRect" parent="ShopUI/shop_bg" unique_id=642811170]
 layout_mode = 0
-offset_left = 3137.5
-offset_top = 270.00006
-offset_right = 3430.0
-offset_bottom = 561.00024
+offset_left = 2795.0
+offset_top = 147.5
+offset_right = 3087.5
+offset_bottom = 438.50018
 texture = ExtResource("8_whq80")
 expand_mode = 1
 stretch_mode = 3
 
 [node name="bargain" type="TextureRect" parent="ShopUI/shop_bg" unique_id=88410260]
 layout_mode = 0
-offset_left = 3110.0
-offset_top = 1600.0
-offset_right = 3473.0002
-offset_bottom = 2028.5
+offset_left = 3050.0
+offset_top = 1587.5
+offset_right = 3413.0002
+offset_bottom = 2016.0
 texture = ExtResource("9_kuui0")
 expand_mode = 1
 stretch_mode = 3
@@ -398,6 +481,8 @@ offset_top = 15.0
 offset_right = 3807.0
 offset_bottom = 388.0
 texture_normal = ExtResource("12_d42i4")
+texture_pressed = ExtResource("25_3g2cg")
+texture_hover = ExtResource("26_wc4t8")
 
 [node name="ProgressBar" type="ProgressBar" parent="ShopUI/shop_bg" unique_id=1785704307]
 layout_mode = 1
@@ -413,3 +498,59 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3r70p")
 max_value = 15.0
 value = 6.7
 show_percentage = false
+
+[node name="DownloadButton" type="TextureButton" parent="ShopUI/shop_bg" unique_id=986350547]
+layout_mode = 0
+offset_left = 1492.5
+offset_top = 1722.5
+offset_right = 2236.5
+offset_bottom = 1942.5
+texture_normal = ExtResource("27_kjfio")
+texture_pressed = ExtResource("28_0o3wc")
+texture_hover = ExtResource("29_ebfgw")
+
+[node name="SocialPointsBg" type="TextureRect" parent="." unique_id=378042509]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.0
+offset_top = 43.0
+offset_right = 175.0
+offset_bottom = 273.0
+grow_horizontal = 2
+texture = ExtResource("4_8fs27")
+expand_mode = 1
+script = ExtResource("5_whq80")
+
+[node name="social_points_label" type="Label" parent="SocialPointsBg" unique_id=1588044323]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.298
+anchor_top = 0.298
+anchor_right = 0.298
+anchor_bottom = 0.298
+offset_left = 12.088036
+offset_top = -23.54
+offset_right = 140.08804
+offset_bottom = 23.96
+grow_horizontal = 2
+grow_vertical = 2
+text = "2137"
+label_settings = SubResource("LabelSettings_kuui0")
+
+[node name="Label" type="Label" parent="SocialPointsBg" unique_id=1833527162]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.363
+anchor_top = 1.0
+anchor_right = 0.363
+anchor_bottom = 1.0
+offset_left = -52.872
+offset_top = -119.0
+offset_right = 53.128
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Social
+Credit"
+label_settings = SubResource("LabelSettings_kjfio")

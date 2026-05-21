@@ -18,20 +18,22 @@ var speed = DEFAULT_SPEED
 const CROUCH_SPEED: float = 4.0
 const JUMP_VELOCITY := 6
 
-var visible_health: float = 50.0
-var target_health: float = 50.0
-const MAX_HEALTH: float = 100.0
+var visible_health: float = 500.0
+var target_health: float = 500.0
+const MAX_HEALTH: float = 1000.0
 const HEALTH_REGEN_PER_FRAME: float = 0.02
 const SPECIAL_ATTACK_IMMUNITY_TIME: float = 4.0
 var immunity = false
-var social_points: int  = 0
+var social_points: int  = 100
 # skill number 0 is nothing
 var unlocked_skills: Array[bool] = [true]
 var skill_unlock_costs: Array[int] = [0,5,5,5,5]
-var skill_costs: Array[int] = [0,7,7,7,7]
+var skill_costs: Array[int] = [0,0,0,0,0]
+var dashing = false
+var DASH_SPEED: float = 40.0
+var dash_velocity: Vector3
 
-
-
+signal hotbar_icon_unlocked(number: int)
 signal hotbar_key_pressed(number: int)
 signal set_social_points_ui(points: int)
 
@@ -81,9 +83,12 @@ func _physics_process(delta: float) -> void:
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		var direction := (camera_rig.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() * input_dir.length()
 		
+		dash_velocity = dash_velocity.move_toward(Vector3.ZERO, DASH_SPEED * delta * 2)
+
 		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+			velocity.x = direction.x * speed + dash_velocity.x
+			velocity.z = direction.z * speed + dash_velocity.z
+			
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.z = move_toward(velocity.z, 0, speed)
@@ -122,6 +127,10 @@ func _physics_process(delta: float) -> void:
 		#move_and_slide()
 	
 	
+			velocity.x = move_toward(velocity.x, dash_velocity.x, speed)
+			velocity.z = move_toward(velocity.z, dash_velocity.z, speed)
+			
+		move_and_slide()
 	
 	#MOVEMENT ANIMATION
 	var current_speed := velocity.length()
@@ -167,29 +176,34 @@ func unlock_skill(skill_number):
 		social_points -= skill_unlock_costs[skill_number]
 		set_social_points_ui.emit(social_points)
 		unlocked_skills[skill_number] = true
+		var shop_ui = get_tree().get_first_node_in_group("shop_ui")
+		shop_ui.get_node("shop_bg/skill_offer" + str(skill_number) + "/buy_button1").disabled = true
+		hotbar_icon_unlocked.emit(skill_number)
 		
 func change_social_points(points: int):
 	social_points += points
 	set_social_points_ui.emit(social_points)
 		
 func activate_skill(skill_number):
-	change_social_points(-skill_costs[skill_number])
 	match skill_number:
 		1:
 			pass
 		2:
-			speed = 80.0
-			immunity = true
-			get_tree().create_timer(0.1).timeout.connect(
-				func():
-					speed = DEFAULT_SPEED
-					immunity = false,
-					CONNECT_ONE_SHOT
-			)
+			if !dashing:
+				dashing = true
+				dash_velocity = -global_basis.z * DASH_SPEED
+				immunity = true
+				get_tree().create_timer(0.1).timeout.connect(
+					func():
+						dashing = false
+						immunity = false,
+						CONNECT_ONE_SHOT
+				)
+			return
 		3:
-			change_health(20)
+			change_health(200)
 		4: 
-			change_health(40)
+			change_health(400)
 			immunity = true
 			get_tree().create_timer(SPECIAL_ATTACK_IMMUNITY_TIME).timeout.connect(
 				func():
@@ -198,6 +212,7 @@ func activate_skill(skill_number):
 			)
 		_:
 			pass
+	change_social_points(-skill_costs[skill_number])
 
 func change_health(health_difference):
 	if immunity and health_difference < 0:
@@ -209,3 +224,4 @@ func player_immunity(is_immune):
 	if is_immune:
 		immunity = true
 	DebugChat.message("player immune: " + str(is_immune))
+	
