@@ -453,10 +453,17 @@ wait_time = 15.0
 wait_time = 0.1
 
 [node name="Area3D" type="Area3D" parent="." unique_id=975148772]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1906939153]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.221436, 0)
 shape = SubResource("BoxShape3D_ngxla")
+
+[node name="HurtAudio" type="AudioStreamPlayer3D" parent="." unique_id=1449879315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.769934, 0)
+max_polyphony = 4
+bus = &"SoundFx"
 
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]

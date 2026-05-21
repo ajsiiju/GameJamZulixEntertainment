@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3dbqmotsc2nv"
+path="res://.godot/imported/dźwięk matcha.mp3-c03a0eb74ae9c87e78356a776a9a0f73.mp3str"
+
+[deps]
+
+source_file="res://Audio/dźwięk matcha.mp3"
+dest_files=["res://.godot/imported/dźwięk matcha.mp3-c03a0eb74ae9c87e78356a776a9a0f73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

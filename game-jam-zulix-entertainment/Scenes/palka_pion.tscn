@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://xt8cpknd1mfc"]
+[gd_scene format=3 uid="uid://co6o38lyypeho"]
 
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_535ey"]
 [ext_resource type="PackedScene" uid="uid://dwphmeggnqxvd" path="res://Assets/Characters/Bosses/PRAWIDŁOWA PAŁA SAHURA.glb" id="2_s58w4"]
@@ -12,6 +12,7 @@ radius = 0.8129883
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=493509065]
 
 [node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=166331085]
+collision_layer = 0
 script = ExtResource("1_535ey")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=805297307]

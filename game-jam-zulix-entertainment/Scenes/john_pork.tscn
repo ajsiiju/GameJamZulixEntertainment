@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cnuvmrfw4sd27"]
+
+[ext_resource type="Script" uid="uid://con4rnjuxy15j" path="res://Scripts/john_pork.gd" id="1_yb5aa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qiby"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yb5aa"]
+
+[node name="Area3D" type="Area3D" unique_id=1810104686]
+script = ExtResource("1_yb5aa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=662531783]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_7qiby")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1306744278]
+mesh = SubResource("BoxMesh_yb5aa")

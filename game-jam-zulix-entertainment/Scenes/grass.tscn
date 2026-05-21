@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://ct7mkg1ychhbp"]
+[gd_scene format=3 uid="uid://wjdp6k62yuex"]
 
 [ext_resource type="Script" uid="uid://c5bv3p13lfj58" path="res://Scripts/grass.gd" id="1_qm417"]
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="2_on02d"]
-[ext_resource type="PackedScene" uid="uid://cwlc7nwawj6wv" path="res://Scenes/grass_mesh.tscn" id="2_qm417"]
+[ext_resource type="PackedScene" path="res://Scenes/grass_mesh.tscn" id="2_qm417"]
+[ext_resource type="AudioStream" uid="uid://du188m0cu0kbr" path="res://Audio/rośnie koperek z ziemi.mp3" id="4_8gyqa"]
+[ext_resource type="AudioStream" uid="uid://exdeun6lr6xv" path="res://Audio/koperek wraca do ziemi.mp3" id="5_y1qba"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4j8v"]
 size = Vector3(9.02124, 7.983408, 9.241943)
@@ -14,7 +16,6 @@ script = ExtResource("1_qm417")
 
 [node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=510371791]
 collision_layer = 0
-collision_mask = 0
 script = ExtResource("2_on02d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1161400301]
@@ -24,9 +25,19 @@ shape = SubResource("BoxShape3D_p4j8v")
 [node name="ziolo_dobre2" parent="." unique_id=5182033 instance=ExtResource("2_qm417")]
 
 [node name="Timer" type="Timer" parent="." unique_id=244091990]
-wait_time = 2.0
+wait_time = 3.6
 one_shot = true
 autostart = true
+
+[node name="GrassAppear" type="AudioStreamPlayer3D" parent="." unique_id=298761593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6938992, 0)
+stream = ExtResource("4_8gyqa")
+autoplay = true
+bus = &"SoundFx"
+
+[node name="GrassDisappear" type="AudioStreamPlayer3D" parent="." unique_id=536754035]
+stream = ExtResource("5_y1qba")
+bus = &"SoundFx"
 
 [connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_grass"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://du188m0cu0kbr"
+path="res://.godot/imported/rośnie koperek z ziemi.mp3-92e1c70365a19547e69561eba45c9114.mp3str"
+
+[deps]
+
+source_file="res://Audio/rośnie koperek z ziemi.mp3"
+dest_files=["res://.godot/imported/rośnie koperek z ziemi.mp3-92e1c70365a19547e69561eba45c9114.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
