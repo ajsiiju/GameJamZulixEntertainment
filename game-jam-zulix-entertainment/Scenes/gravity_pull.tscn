@@ -1,45 +1,84 @@
 [gd_scene format=3 uid="uid://2wo5tcmuigk0"]
 
-[ext_resource type="Texture2D" uid="uid://d2toyym3ps58x" path="res://Assets/test.png" id="1_3qb16"]
 [ext_resource type="Script" uid="uid://df3tei77kpage" path="res://Scripts/gravity_pull.gd" id="1_r8e3i"]
+[ext_resource type="Texture2D" uid="uid://cdlvyfvpvksff" path="res://Assets/Characters/Bosses/BoberTeeth/frame_1.png" id="2_nfcdc"]
+[ext_resource type="Texture2D" uid="uid://bt1h2gp86en4s" path="res://Assets/Characters/Bosses/BoberTeeth/frame_2.png" id="3_6urws"]
+[ext_resource type="Texture2D" uid="uid://c5tyahghwd3g3" path="res://Assets/Characters/Bosses/BoberTeeth/frame_3.png" id="4_3kr6o"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_r8e3i"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nfcdc"]
+viewport_path = NodePath("Sprite3D/SubViewport")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3qb16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nfcdc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6urws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3kr6o")
+}],
+"loop": true,
+"name": &"bober_teeth",
+"speed": 5.0
+}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pw03t"]
-size = Vector3(102.27539, 24.998077, 250.00357)
+size = Vector3(102.27539, 8.407341, 250.00357)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6urws"]
+albedo_color = Color(0.3645893, 0.5760569, 0.7157723, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3kr6o"]
+emission_shape_scale = Vector3(35, 0.2, 35)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 180.0
+radial_accel_min = -19.300001
+radial_accel_max = -10.000002
+
+[sub_resource type="BoxMesh" id="BoxMesh_hfvdi"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="gravity_pull" type="Area3D" unique_id=1398060901]
 gravity_space_override = 1
 gravity_point = true
 gravity_point_center = Vector3(0, 0, 0)
 gravity_direction = Vector3(0, 0, 0)
-gravity = 20.0
+gravity = 40.0
 linear_damp_space_override = 1
 script = ExtResource("1_r8e3i")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=143218601]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6441808, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 13.301726, 0)
 billboard = 1
-texture = SubResource("ViewportTexture_r8e3i")
+texture = SubResource("ViewportTexture_nfcdc")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=502419019]
 transparent_bg = true
-size = Vector2i(107, 102)
+size = Vector2i(844, 1913)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D/SubViewport" unique_id=2110339538]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite3D/SubViewport/AnimationPlayer" unique_id=680308682]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite3D/SubViewport" unique_id=680308682]
+position = Vector2(400, 1000)
 sprite_frames = SubResource("SpriteFrames_3qb16")
-
-[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=12786587]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_3qb16")
+animation = &"bober_teeth"
+autoplay = "bober_teeth"
+frame_progress = 0.29297855
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=84472312]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048461914, -0.037979126, 0.5056305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048461914, -3.4685383, 0.5056305)
 shape = SubResource("BoxShape3D_pw03t")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=1006699276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25805432, 0)
+material_override = SubResource("StandardMaterial3D_6urws")
+amount = 1500
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_3kr6o")
+draw_pass_1 = SubResource("BoxMesh_hfvdi")

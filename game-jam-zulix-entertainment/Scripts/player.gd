@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 #TESTTEST
-#var active_gravity_well: Area3D = null
+var active_gravity_well: Area3D = null
 #TESTTEST
 
 @onready var camera_rig: SpringArm3D = $CameraRig
@@ -50,32 +50,36 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#TESTTEST
-	## Add the gravity
-	#if active_gravity_well:
-		## Pull toward the center of the gravity_well area
-		#var pull_direction = (active_gravity_well.global_position - global_position).normalized()
-		## We grab the gravity value directly from whatever strength you set in the Area3D inspector!
-		#var gravity_power = active_gravity_well.gravity 
-		#
-		#velocity += pull_direction * gravity_power * delta
-	#elif not is_on_floor():
-		## Standard downward gravity when not near a gravity well
-		#velocity += get_gravity() * delta
-	#TESTTEST
+	# 1. CALCULATE CUSTOM HORIZONTAL PULL ONLY
+	var horizontal_pull := Vector3.ZERO
 	
-	 #Add the gravity.
+	if active_gravity_well:
+		var raw_direction = active_gravity_well.global_position - global_position
+		raw_direction.y = 0 # Ensure no Y manipulation
+		
+		var pull_direction = raw_direction.normalized()
+		
+		# Keep your custom multiplier for punchy horizontal dragging
+		var gravity_multiplier: float = 20
+		var gravity_power = active_gravity_well.gravity * gravity_multiplier
+		
+		horizontal_pull = pull_direction * gravity_power * delta
+
+	# ALWAYS APPLY NORMAL DOWNWARD GRAVITY ON Y AXIS
+	# This ensures you land properly and prevents jump-stacking glitches!
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	# #TESTTEST
 
-	# Handle jump.
+	# 2. HANDLE JUMP (Will now behave exactly like standard game mechanics)
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	
+		
+	# 3. CALCULATE INTENTIONAL PLAYER MOVEMENT (WASD)
 	if Input.mouse_mode != Input.MOUSE_MODE_CONFINED:
 		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-		var direction := (camera.global_basis * Vector3(input_dir.x, 0, input_dir.y))
-		direction = Vector3(direction.x, 0, direction.z).normalized() * input_dir.length()
-	
+		var direction := (camera_rig.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() * input_dir.length()
 		
 		if direction:
 			velocity.x = direction.x * speed
@@ -84,7 +88,40 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.z = move_toward(velocity.z, 0, speed)
 
-		move_and_slide()
+	# 4. COMBINE ONLY THE HORIZONTAL PULL 
+	# (We already added the vertical project gravity safely up on line 18)
+	velocity += horizontal_pull
+
+	# 5. EXECUTE MOVEMENT
+	move_and_slide()
+	#TESTTEST
+	
+	
+	#PREVIOUS
+	 #Add the gravity.
+	#if not is_on_floor():
+		#velocity += get_gravity() * delta
+#
+	## Handle jump.
+	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		#velocity.y = JUMP_VELOCITY
+	#
+	#if Input.mouse_mode != Input.MOUSE_MODE_CONFINED:
+		#var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		#var direction := (camera.global_basis * Vector3(input_dir.x, 0, input_dir.y))
+		#direction = Vector3(direction.x, 0, direction.z).normalized() * input_dir.length()
+	#
+		#
+		#if direction:
+			#velocity.x = direction.x * speed
+			#velocity.z = direction.z * speed
+		#else:
+			#velocity.x = move_toward(velocity.x, 0, speed)
+			#velocity.z = move_toward(velocity.z, 0, speed)
+		#
+		#move_and_slide()
+	
+	
 	
 	#MOVEMENT ANIMATION
 	var current_speed := velocity.length()
@@ -172,14 +209,3 @@ func player_immunity(is_immune):
 	if is_immune:
 		immunity = true
 	DebugChat.message("player immune: " + str(is_immune))
-
-
-#TESTTEST
-#func _on_gravity_zone_entered(area: Area3D) -> void:
-	#if area.is_in_group("gravity_wells") or area.has_meta("is_gravity_well"):
-		#active_gravity_well = area
-#
-#func _on_gravity_zone_exited(area: Area3D) -> void:
-	#if area == active_gravity_well:
-		#active_gravity_well = null
-#TESTTEST

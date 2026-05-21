@@ -3,69 +3,156 @@
 [ext_resource type="Script" uid="uid://d3u0d8oixsram" path="res://Scripts/boss.gd" id="1_0154r"]
 [ext_resource type="Texture2D" uid="uid://d1j6eax2wyi73" path="res://Assets/Characters/Bosses/tel_bg.png" id="2_mh6p8"]
 [ext_resource type="Texture2D" uid="uid://b3pwrna6pglit" path="res://Assets/Characters/Bosses/labubu_idle.png" id="3_cxrok"]
+[ext_resource type="Texture2D" uid="uid://e4fik46160sn" path="res://Assets/Characters/Bosses/BoberAttack/frame_01.png" id="4_g7cqf"]
 [ext_resource type="Texture2D" uid="uid://qrey3qb4lg7e" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0000.png" id="4_pfkk2"]
 [ext_resource type="Texture2D" uid="uid://n4f7b6338eyy" path="res://Assets/Characters/Bosses/tel_overlay.png" id="4_qtle2"]
 [ext_resource type="Script" uid="uid://dbfn6v6qrtu8k" path="res://Scripts/timer.gd" id="4_ukjjc"]
+[ext_resource type="Texture2D" uid="uid://bujwyt8ygpxa4" path="res://Assets/Characters/Bosses/BoberAttack/frame_02.png" id="5_1g202"]
 [ext_resource type="Texture2D" uid="uid://cuci2do8tue7m" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0001.png" id="5_uye1q"]
 [ext_resource type="Texture2D" uid="uid://bf6kxyhckoorq" path="res://Assets/Characters/Bosses/tel_border.png" id="5_yq25j"]
+[ext_resource type="Texture2D" uid="uid://d204fi66co31i" path="res://Assets/Characters/Bosses/BoberAttack/frame_03.png" id="6_ngxla"]
 [ext_resource type="Texture2D" uid="uid://b4y2h6udstd2" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0002.png" id="6_wbwar"]
+[ext_resource type="Texture2D" uid="uid://c3ocdojgl8dy5" path="res://Assets/Characters/Bosses/BoberAttack/frame_04.png" id="7_k4i01"]
 [ext_resource type="Texture2D" uid="uid://cetn0mbbj8jlw" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0003.png" id="7_k85sf"]
 [ext_resource type="Texture2D" uid="uid://nxnv8y70xxbk" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0004.png" id="8_ox38k"]
+[ext_resource type="Texture2D" uid="uid://bti2yedor4jop" path="res://Assets/Characters/Bosses/BoberAttack/frame_05.png" id="8_rjom0"]
 [ext_resource type="Texture2D" uid="uid://37qr5j1jncl3" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0005.png" id="9_lp2t7"]
+[ext_resource type="Texture2D" uid="uid://jmjkccdsrvlr" path="res://Assets/Characters/Bosses/BoberAttack/frame_06.png" id="9_urlil"]
+[ext_resource type="Texture2D" uid="uid://cwh8r4l2ovlwp" path="res://Assets/Characters/Bosses/BoberAttack/frame_07.png" id="10_ph4xk"]
 [ext_resource type="Texture2D" uid="uid://cigmqln3ag0sq" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0006.png" id="10_skdhm"]
 [ext_resource type="Texture2D" uid="uid://dplyed7jylv3y" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0007.png" id="11_aanve"]
+[ext_resource type="Texture2D" uid="uid://qcywbff2fr8j" path="res://Assets/Characters/Bosses/BoberAttack/frame_08.png" id="11_rx48q"]
+[ext_resource type="Texture2D" uid="uid://dbgxxk1x46w21" path="res://Assets/Characters/Bosses/BoberAttack/frame_09.png" id="12_fto04"]
 [ext_resource type="Texture2D" uid="uid://dmj6crdbp2d30" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0008.png" id="12_vo53g"]
 [ext_resource type="Texture2D" uid="uid://b4eqijdeyq4mv" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0010.png" id="13_2h4ey"]
+[ext_resource type="Texture2D" uid="uid://dix5x8u85vb2h" path="res://Assets/Characters/Bosses/BoberAttack/frame_10.png" id="13_p8cj0"]
 [ext_resource type="Texture2D" uid="uid://4ku60vqwnyuv" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0011.png" id="14_ijygn"]
+[ext_resource type="Texture2D" uid="uid://bn7i6uwjwkuxg" path="res://Assets/Characters/Bosses/BoberAttack/frame_11.png" id="14_y2d53"]
 [ext_resource type="Texture2D" uid="uid://c5ekiiy6wpge4" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0012.png" id="15_37v2q"]
+[ext_resource type="Texture2D" uid="uid://dv35leg6d7f0b" path="res://Assets/Characters/Bosses/BoberIdle/frame_01.png" id="15_qr82i"]
 [ext_resource type="Texture2D" uid="uid://birf4255lp5td" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0013.png" id="16_ku0fy"]
+[ext_resource type="Texture2D" uid="uid://cq4qjstairj51" path="res://Assets/Characters/Bosses/BoberIdle/frame_02.png" id="16_ri5v4"]
+[ext_resource type="Texture2D" uid="uid://b7l3n2x85csmn" path="res://Assets/Characters/Bosses/BoberIdle/frame_03.png" id="17_1ukgp"]
 [ext_resource type="Texture2D" uid="uid://c4h162emsnp04" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0014.png" id="17_fy658"]
 [ext_resource type="Texture2D" uid="uid://cmq5dskk6o3sj" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0015.png" id="18_h1i2o"]
+[ext_resource type="Texture2D" uid="uid://57auqyjg3co3" path="res://Assets/Characters/Bosses/BoberIdle/frame_04.png" id="18_llyva"]
 [ext_resource type="Texture2D" uid="uid://bcmkj6k8508fn" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0016.png" id="19_0r56d"]
+[ext_resource type="Texture2D" uid="uid://ci3fu4v24be4i" path="res://Assets/Characters/Bosses/BoberIdle/frame_05.png" id="19_30r6q"]
+[ext_resource type="Texture2D" uid="uid://nern1a710k15" path="res://Assets/Characters/Bosses/BoberIdle/frame_06.png" id="20_7qewi"]
 [ext_resource type="Texture2D" uid="uid://c1xu4afsof23r" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0017.png" id="20_cy525"]
+[ext_resource type="Texture2D" uid="uid://ce2x3vijfo7st" path="res://Assets/Characters/Bosses/BoberIdle/frame_07.png" id="21_0ul1w"]
+[ext_resource type="Texture2D" uid="uid://dlaq5i7r4tdch" path="res://Assets/Characters/Bosses/RobloxRobux/k16.png" id="21_aanve"]
+[ext_resource type="Texture2D" uid="uid://de6c6n4c8ua3v" path="res://Assets/Characters/Bosses/BoberIdle/frame_08.png" id="22_tyasl"]
+[ext_resource type="Texture2D" uid="uid://bbucsq3q2xfoe" path="res://Assets/Characters/Bosses/RobloxRobux/k17.png" id="22_vo53g"]
+[ext_resource type="Texture2D" uid="uid://bwt1xtag58b1c" path="res://Assets/Characters/Bosses/RobloxRobux/k18.png" id="23_2h4ey"]
+[ext_resource type="Texture2D" uid="uid://cm8576ufusukq" path="res://Assets/Characters/Bosses/BoberIdle/frame_09.png" id="23_kqtr0"]
+[ext_resource type="Texture2D" uid="uid://dpraulw8vds6n" path="res://Assets/Characters/Bosses/BoberIdle/frame_10.png" id="24_6cjbh"]
+[ext_resource type="Texture2D" uid="uid://bhhe83mwjaf3u" path="res://Assets/Characters/Bosses/RobloxRobux/k19.png" id="24_ijygn"]
+[ext_resource type="Texture2D" uid="uid://b7snedyp3c7jl" path="res://Assets/Characters/Bosses/RobloxRobux/k21.png" id="25_37v2q"]
+[ext_resource type="Texture2D" uid="uid://cqcjxl6jbyu2t" path="res://Assets/Characters/Bosses/BoberIdle/frame_011.png" id="25_u8hy1"]
+[ext_resource type="Texture2D" uid="uid://i8kgyxnh6etx" path="res://Assets/Characters/Bosses/RobloxRobux/k22.png" id="26_ku0fy"]
+[ext_resource type="Texture2D" uid="uid://18mbeu0oxbuh" path="res://Assets/Characters/Bosses/RobloxRobux/k24.png" id="27_fy658"]
+[ext_resource type="Texture2D" uid="uid://clrqvs4iyi5mr" path="res://Assets/Characters/Bosses/Tung/frame1.png" id="28_b32q0"]
+[ext_resource type="Texture2D" uid="uid://cc5rj48ube2hn" path="res://Assets/Characters/Bosses/Tung/frame2.png" id="29_0flhb"]
+[ext_resource type="Texture2D" uid="uid://cn3yqqoty8mfg" path="res://Assets/Characters/Bosses/Tung/frame3.png" id="30_4lofs"]
+[ext_resource type="Texture2D" uid="uid://cfvjl7lt1830" path="res://Assets/Characters/Bosses/Tung/frame4.png" id="31_jv4jr"]
+[ext_resource type="Texture2D" uid="uid://gehueoyln3n0" path="res://Assets/Characters/Bosses/Tung/frame5.png" id="32_o2yv3"]
+[ext_resource type="Texture2D" uid="uid://cgemk6khjg1la" path="res://Assets/Characters/Bosses/Tung/frame6.png" id="33_fnwv7"]
+[ext_resource type="Texture2D" uid="uid://hjnwwd3d3qkr" path="res://Assets/Characters/Bosses/Tung/frame7.png" id="34_sfqjs"]
+[ext_resource type="Texture2D" uid="uid://dwrbol34pyyl2" path="res://Assets/Characters/Bosses/Tung/frame8.png" id="35_3musf"]
+[ext_resource type="Texture2D" uid="uid://icbojvcvimio" path="res://Assets/Characters/Bosses/Tung/frame9.png" id="36_8sov2"]
+[ext_resource type="Texture2D" uid="uid://d0uqhl1yqdcnx" path="res://Assets/Characters/Bosses/Tung/frame10.png" id="37_wy8ja"]
+[ext_resource type="Texture2D" uid="uid://dh445myko4tc3" path="res://Assets/Characters/Bosses/Tung/frame11.png" id="38_rf5yu"]
+[ext_resource type="Texture2D" uid="uid://b23ynfb2w03wr" path="res://Assets/Characters/Bosses/Tung/frame12.png" id="39_rcnyk"]
+[ext_resource type="Texture2D" uid="uid://bm11gjs5j8r6f" path="res://Assets/Characters/Bosses/Tung/frame13.png" id="40_87p2e"]
+[ext_resource type="Texture2D" uid="uid://nhqv6ssm4g6p" path="res://Assets/Characters/Bosses/Tung/frame14.png" id="41_ledy6"]
+[ext_resource type="Texture2D" uid="uid://bjs1lnijohvwj" path="res://Assets/Characters/Bosses/Tung/frame15.png" id="42_m08np"]
+[ext_resource type="Texture2D" uid="uid://cwotd6lantjw7" path="res://Assets/Characters/Bosses/Tung/frame16.png" id="43_vj2p4"]
+[ext_resource type="Texture2D" uid="uid://bj7w8y5ras64i" path="res://Assets/Characters/Bosses/Tung/frame17.png" id="44_xw0s2"]
+[ext_resource type="Texture2D" uid="uid://b0ddhg63auin2" path="res://Assets/Characters/Bosses/Tung/frame18.png" id="45_tag0e"]
+[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="71_1g202"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cxrok"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[sub_resource type="Animation" id="Animation_0555j"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D/SubViewport/RobloxBaller/RobloxBaller:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_suwft"]
-resource_name = "roblox_baller"
-length = 30.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D/SubViewport/RobloxBaller/RobloxBaller:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_35dwt"]
-_data = {
-&"RESET": SubResource("Animation_0555j"),
-&"roblox_baller": SubResource("Animation_suwft")
-}
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_53dft"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_g7cqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1g202")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ngxla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k4i01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rjom0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_urlil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ph4xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rx48q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fto04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p8cj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_y2d53")
+}],
+"loop": true,
+"name": &"bober_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_qr82i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ri5v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1ukgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_llyva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_30r6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7qewi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0ul1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_tyasl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_kqtr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6cjbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_u8hy1")
+}],
+"loop": true,
+"name": &"bober_idle",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_pfkk2")
@@ -121,6 +208,91 @@ animations = [{
 "loop": false,
 "name": &"roblox_baller",
 "speed": 24.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": ExtResource("21_aanve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vo53g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_2h4ey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ijygn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_37v2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ku0fy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_fy658")
+}],
+"loop": true,
+"name": &"roblox_robux",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_b32q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0flhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4lofs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_jv4jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_o2yv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_fnwv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_sfqjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_3musf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_8sov2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_wy8ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_rf5yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_rcnyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_87p2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_ledy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_m08np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_vj2p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_xw0s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_tag0e")
+}],
+"loop": true,
+"name": &"tung_idle",
+"speed": 5.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxrok"]
@@ -137,6 +309,9 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ngxla"]
+size = Vector3(11.957031, 22.355957, 3.8769531)
+
 [node name="boss" type="Node3D" unique_id=897832154]
 script = ExtResource("1_0154r")
 
@@ -148,38 +323,42 @@ target_position = Vector3(0, 0, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809, -0.60772943, -0.38584757)
 target_position = Vector3(0, 0, -1)
 
+[node name="RayBoberBullet" type="RayCast3D" parent="." unique_id=1415726849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809, -0.60772943, -0.38584757)
+target_position = Vector3(0, 0, -1)
+
 [node name="TimerWaveBullets" type="Timer" parent="." unique_id=777390409]
 autostart = true
 
 [node name="TimerPopUpWindow" type="Timer" parent="." unique_id=956408659]
-wait_time = 8.0
+wait_time = 2.0
 autostart = true
 
 [node name="TimerPalkaPion" type="Timer" parent="." unique_id=1721766746]
-wait_time = 10.0
+wait_time = 8.0
 
 [node name="TimerGrass" type="Timer" parent="." unique_id=332944199]
-wait_time = 3.0
+wait_time = 2.0
 
 [node name="Boss1" type="Timer" parent="." unique_id=691048150]
-wait_time = 15.0
+wait_time = 25.0
 one_shot = true
 autostart = true
 
 [node name="Boss2" type="Timer" parent="." unique_id=805157149]
-wait_time = 0.001
+wait_time = 25.0
 one_shot = true
 
 [node name="Boss3" type="Timer" parent="." unique_id=1672681574]
-wait_time = 0.001
+wait_time = 25.0
 one_shot = true
 
 [node name="Boss4" type="Timer" parent="." unique_id=1311549345]
-wait_time = 0.001
+wait_time = 25.0
 one_shot = true
 
 [node name="Boss5" type="Timer" parent="." unique_id=2041125505]
-wait_time = 75.0
+wait_time = 25.0
 one_shot = true
 
 [node name="Boss6" type="Timer" parent="." unique_id=307904111]
@@ -204,9 +383,10 @@ wait_time = 10.0
 one_shot = true
 
 [node name="TimerMatcha" type="Timer" parent="." unique_id=1239012497]
+wait_time = 0.5
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1206672974]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0346174, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10.061788, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_cxrok")
 
@@ -228,17 +408,12 @@ offset_bottom = 1979.88
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_cxrok")
 
-[node name="RobloxBaller" type="AnimationPlayer" parent="Sprite3D/SubViewport" unique_id=1033959276]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_35dwt")
-speed_scale = 15.0
-
-[node name="RobloxBaller" type="AnimatedSprite2D" parent="Sprite3D/SubViewport/RobloxBaller" unique_id=495400624]
+[node name="BossAnimSprites" type="AnimatedSprite2D" parent="Sprite3D/SubViewport" unique_id=495400624]
 visible = false
-position = Vector2(286.78, 520.415)
+position = Vector2(286.78, 565.605)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_53dft")
-animation = &"roblox_baller"
+animation = &"bober_attack"
 
 [node name="telefonOverlay" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=1418966732]
 offset_right = 974.0
@@ -267,10 +442,23 @@ script = ExtResource("4_ukjjc")
 autostart = true
 
 [node name="TimerRobloxBullet" type="Timer" parent="." unique_id=1621644406]
-wait_time = 0.3
+wait_time = 0.2
 
 [node name="TimerRobloxBalls" type="Timer" parent="." unique_id=1212915830]
-wait_time = 5.0
+wait_time = 10.0
+
+[node name="TimerGravityPull" type="Timer" parent="." unique_id=336883801]
+wait_time = 15.0
+
+[node name="TimerBoberBullets" type="Timer" parent="." unique_id=750786509]
+wait_time = 0.1
+
+[node name="Area3D" type="Area3D" parent="." unique_id=975148772]
+script = ExtResource("71_1g202")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1906939153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.221436, 0)
+shape = SubResource("BoxShape3D_ngxla")
 
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]
@@ -280,6 +468,8 @@ wait_time = 5.0
 [connection signal="timeout" from="Boss2" to="." method="_on_boss_2_timeout"]
 [connection signal="timeout" from="Boss3" to="." method="_on_boss_3_timeout"]
 [connection signal="timeout" from="Boss4" to="." method="_on_boss_4_timeout"]
+[connection signal="timeout" from="Boss5" to="." method="_on_boss_5_timeout"]
+[connection signal="timeout" from="Boss6" to="." method="_on_boss_6_timeout"]
 [connection signal="timeout" from="TimerCatAndDog" to="." method="_on_timer_cat_and_dog_timeout"]
 [connection signal="timeout" from="TimerPalkaPoziom" to="." method="_on_timer_palka_poziom_timeout"]
 [connection signal="timeout" from="TimerChocolate" to="." method="_on_timer_chocolate_timeout"]
@@ -289,3 +479,6 @@ wait_time = 5.0
 [connection signal="timeout" from="Timer" to="Sprite3D/SubViewport/ProgressBar" method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerRobloxBullet" to="." method="_on_timer_roblox_bullet_timeout"]
 [connection signal="timeout" from="TimerRobloxBalls" to="." method="_on_timer_roblox_balls_timeout"]
+[connection signal="timeout" from="TimerGravityPull" to="." method="_on_timer_gravity_pull_timeout"]
+[connection signal="timeout" from="TimerBoberBullets" to="." method="_on_timer_bober_bullets_timeout"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered_roblox_bullet"]

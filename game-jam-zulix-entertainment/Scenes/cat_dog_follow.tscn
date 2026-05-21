@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://diu5yeotqgjwf"]
 
-[ext_resource type="Texture2D" uid="uid://d2toyym3ps58x" path="res://Assets/test.png" id="1_fwoal"]
 [ext_resource type="Script" uid="uid://uuagqp4wbyys" path="res://Scripts/cat_dog_follow.gd" id="1_ymri1"]
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="2_xqb1u"]
 
@@ -23,8 +22,8 @@ script = ExtResource("2_xqb1u")
 shape = SubResource("SphereShape3D_xqb1u")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=414638723]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 billboard = 1
-texture = ExtResource("1_fwoal")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=782734175]
 

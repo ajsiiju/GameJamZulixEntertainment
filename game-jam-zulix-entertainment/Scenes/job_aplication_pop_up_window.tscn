@@ -1,5 +1,13 @@
 [gd_scene format=3 uid="uid://bwj7qp3rraxgf"]
 
+[ext_resource type="Script" uid="uid://c3ybpvdafqu1y" path="res://Scripts/job_apl_pop_up.gd" id="1_sunvb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4esog"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sunvb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Control" type="CanvasLayer" unique_id=1324546153]
 
 [node name="Control" type="Control" parent="." unique_id=1435651305]
@@ -7,17 +15,14 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=774082183]
-layout_mode = 0
-offset_right = 353.0
-offset_bottom = 435.0
-color = Color(0.79927206, 0.08209718, 0.2411176, 1)
+script = ExtResource("1_sunvb")
 
 [node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=191541184]
 layout_mode = 0
 offset_top = 436.0
 offset_right = 354.0
 offset_bottom = 463.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4esog")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sunvb")
 max_value = 20.0
 show_percentage = false

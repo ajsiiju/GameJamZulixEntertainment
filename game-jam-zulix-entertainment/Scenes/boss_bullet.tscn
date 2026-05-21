@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://prfy5c7i1g5h" path="res://Scripts/boss_bullet.gd" id="1_bxm02"]
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="2_3euku"]
-[ext_resource type="Texture2D" uid="uid://d2toyym3ps58x" path="res://Assets/test.png" id="2_u23ew"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u23ew"]
 radius = 0.32454675
@@ -28,7 +27,6 @@ shape = SubResource("SphereShape3D_3euku")
 
 [node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=1622540026]
 billboard = 1
-texture = ExtResource("2_u23ew")
 
 [node name="Timer" type="Timer" parent="." unique_id=1152737625]
 wait_time = 5.0

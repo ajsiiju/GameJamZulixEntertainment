@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://kjnxmx1tj0he" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cfmqt77c8jam7" path="res://Scenes/boss.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cisywsx4gwr26" path="res://Scenes/ui.tscn" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://2wo5tcmuigk0" path="res://Scenes/gravity_pull.tscn" id="6_6bp64"]
 [ext_resource type="ArrayMesh" uid="uid://cqm4hmi1pbbmq" path="res://Assets/Enviro/arena.obj" id="6_21xkr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
@@ -77,6 +76,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, 120.90
 visible = false
 use_collision = true
 size = Vector3(53.09552, 1, 41.205933)
-
-[node name="gravity_pull" parent="." unique_id=1398060901 instance=ExtResource("6_6bp64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07174134, 0)

@@ -7,8 +7,60 @@ extends Node3D
 @onready var boss_6: Timer = $Boss6
 
 @onready var boss: TextureRect = $Sprite3D/SubViewport/boss
+@onready var telefon_bg: TextureRect = $Sprite3D/SubViewport/telefonBg
 
 
+#boss 1 - job apl
+#boss 2 - makłowicz
+#boss 3 - tung
+#boss 4 - labubu
+#boss 5 - roblox
+#boss 6 - bober
+
+func boss_1_start() -> void:
+	timer_wave_bullets.stop()
+	if get_parent().has_node("boss_bullet"):
+		instance.queue_free()
+	
+	timer_pop_up_window.stop()
+	if get_parent().has_node("job_aplication_pop_up_window"):
+		pop_up_instance.queue_free()
+
+func boss_1_stop() -> void:
+	timer_grass.start()
+	timer_cat_and_dog.start()
+	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_idle.png")
+	telefon_bg.texture = load("res://Assets/Characters/Bosses/tel_bg.png")
+
+func boss_2_start() -> void:
+	pass
+
+func boss_2_stop() -> void:
+	pass
+
+func boss_3_start() -> void:
+	pass
+
+func boss_3_stop() -> void:
+	pass
+
+func boss_4_start() -> void:
+	pass
+
+func boss_4_stop() -> void:
+	pass
+
+func boss_5_start() -> void:
+	pass
+
+func boss_5_stop() -> void:
+	pass
+
+func boss_6_start() -> void:
+	pass
+
+func boss_6_stop() -> void:
+	pass
 
 var current_boss = ""
 
@@ -16,7 +68,94 @@ var current_boss = ""
 #if current_boss == "":
 #pass
 
+func _ready() -> void:
+	boss.texture = load("res://Assets/Characters/Bosses/job_apl.jpg")
+	telefon_bg.texture = load("res://Assets/Characters/Bosses/tel_bg2.png")
 
+func _on_boss_1_timeout() -> void:
+	boss_1_start()
+	boss_2.start()
+	boss_1_stop()
+
+
+func _on_boss_2_timeout() -> void:
+	timer_grass.stop()
+	#if get_parent().has_node("grass"):
+		#grass_instance.queue_free()
+	
+	timer_cat_and_dog.stop()
+	if get_parent().has_node("cat_dog_follow"):
+		cat_dog_instance.queue_free()
+	
+	boss_3.start()
+	
+	timer_palka_pion.start()
+	timer_palka_poziom.start()
+	boss.texture = null	
+	boss_anim_sprites.visible = true
+	boss_anim_sprites.play("tung_idle")
+
+
+func _on_boss_3_timeout() -> void:
+	timer_palka_poziom.stop()
+	if get_parent().has_node("palka_poziom"):
+		palka_poziom_instance.queue_free()
+	
+	timer_palka_pion.stop()
+	#if get_parent().has_node("palka_pion"):
+		#palka_pion_instance.queue_free()
+	
+	boss_anim_sprites.visible = false
+	boss_anim_sprites.stop()
+	
+	boss_4.start()
+	
+	timer_chocolate.start()
+	timer_chocolate_change_fast.start()
+	timer_matcha.start()
+	boss.texture = load("res://Assets/Characters/Bosses/labubu_idle.png")
+
+
+func _on_boss_4_timeout() -> void:
+	timer_chocolate.stop()
+	if get_parent().has_node("chocolate"):
+		chocolate_instance.queue_free()
+	
+	timer_matcha.stop()
+	if get_parent().has_node("matcha"):
+		matcha_instance.queue_free()
+	
+	boss_5.start()
+	
+	timer_roblox_bullet.start()
+	timer_roblox_balls.start()
+	boss.texture = null
+	boss_anim_sprites.visible = true
+	boss_anim_sprites.play("roblox_robux")
+
+
+
+func _on_boss_5_timeout() -> void:
+	timer_roblox_bullet.stop()
+	if get_parent().has_node("roblox_bullet"):
+		roblox_bullet_instance.queue_free()
+	
+	timer_roblox_balls.stop()
+	if get_parent().has_node("roblox_balls"):
+		roblox_balls_instance.queue_free()
+	
+	boss_6.start()
+	
+	timer_gravity_pull.start()
+	timer_bober_bullets.start()
+	boss_anim_sprites.play("bober_idle")
+
+
+func _on_boss_6_timeout() -> void:
+	pass # Replace with function body.
+
+
+@onready var boss_anim_sprites: AnimatedSprite2D = $Sprite3D/SubViewport/BossAnimSprites
 #FALA
 @export var job_apl_recource: JobAplResource
 @onready var ray_wave: RayCast3D = $RayWave
@@ -25,7 +164,7 @@ var bullet  = load("res://Scenes/boss_bullet.tscn")
 var instance
 var wave_bullet_amount = 1
 var wave_bullet_position = 0.0
-var job_apl_recource_array = ["res://Recource/cortisol.tres", "res://Recource/copilot.tres", "res://Recource/excel.tres"]
+var job_apl_resource_array = ["res://Recource/cortisol.tres", "res://Recource/copilot.tres", "res://Recource/excel.tres"]
 
 #POP_UP WINDOW
 @onready var timer_pop_up_window: Timer = $TimerPopUpWindow
@@ -35,6 +174,7 @@ var current_pressed_key = ""
 var pop_up_instance = null
 var prev_pop_up_instance = null
 var rng = RandomNumberGenerator.new()
+var quota = 20
 
 #GRASS
 @onready var timer_grass: Timer = $TimerGrass
@@ -47,34 +187,30 @@ var prev_grass_instance = null
 @onready var timer_cat_and_dog: Timer = $TimerCatAndDog
 var cat_dog_scene = load("res://Scenes/cat_dog_follow.tscn")
 @onready var cat_dog_instance = null
-
+var cat_dog_resource_array = ["res://Recource/cat.tres", "res://Recource/dog.tres"]
 
 #PALKA PION
 @onready var timer_palka_pion: Timer = $TimerPalkaPion
-var palka_scene = load("res://Scenes/palka.tscn")
+var palka_pion_scene = load("res://Scenes/palka_pion.tscn")
 var palka_pion_amount = 1
 var palka_pion_instance = null
-
 
 #PALKA POZIOM
 @onready var timer_palka_poziom: Timer = $TimerPalkaPoziom
 var palka_poziom_instance = null
-
+var palka_poziom_scene = load("res://Scenes/palka_poziom.tscn")
 
 #CHOCOLATE
 @onready var timer_chocolate: Timer = $TimerChocolate
 @onready var timer_chocolate_change_fast: Timer = $TimerChocolateChangeFast
 @onready var timer_chocolate_change_slow: Timer = $TimerChocolateChangeSlow
-
 var chocolate_scene = load("res://Scenes/chocolate.tscn")
 var chocolate_instance = null
-
 
 #MATCHA
 @onready var timer_matcha: Timer = $TimerMatcha
 var matcha_scene = load("res://Scenes/matcha.tscn")
 var matcha_instance = null
-
 
 #ROBLOX BULLET
 @onready var timer_roblox_bullet: Timer = $TimerRobloxBullet
@@ -82,49 +218,61 @@ var roblox_bullet_scene = load("res://Scenes/roblox_bullet.tscn")
 var roblox_bullet_instance = null
 @onready var ray_roblox_bullet: RayCast3D = $RayRobloxBullet
 
-
 #ROBLOX BALLS
 @onready var timer_roblox_balls: Timer = $TimerRobloxBalls
 var roblox_balls_scene = load("res://Scenes/roblox_balls.tscn")
 var roblox_balls_instance = null
 var roblox_balls_amount = 1
 
+#GRAVITY PULL
+@onready var timer_gravity_pull: Timer = $TimerGravityPull
+var gravity_pull_scene = load("res://Scenes/gravity_pull.tscn")
+var gravity_pull_instance = null
 
-func _ready() -> void:
-	boss.texture = null
+#BOBER BULLETS
+@onready var timer_bober_bullets: Timer = $TimerBoberBullets
+var bober_bullet_scene = load("res://Scenes/bober_bullets.tscn")
+var bober_bullet_instance = null
+@onready var ray_bober_bullet: RayCast3D = $RayBoberBullet
+
+
 
 #FALA
 func _on_timer_wave_bullets_timeout() -> void:
 	while wave_bullet_amount <= 60:
-		var rand_recource = rng.randf_range(0, 2)
 		instance = bullet.instantiate()
 		
-		var current_resource = load(job_apl_recource_array[rand_recource])
+		var rand_resource = rng.randf_range(0, 3)
+		var current_resource = load(job_apl_resource_array[rand_resource])
 		instance.set_meta("job_apl_recource", current_resource)
 		instance.get_node("StaticBody3D/Sprite3D").texture = current_resource.texture
+		instance.get_node("StaticBody3D/Sprite3D").scale = Vector3(0.1, 0.1, 0.1)
+		
 		instance.position = ray_wave.global_position
 		instance.position.x -= wave_bullet_position
 		wave_bullet_position += 1
 		wave_bullet_amount += 1
+		
 		get_parent().add_child(instance)
 	wave_bullet_amount = 1
 	wave_bullet_position = 0.0
 	
-	var rand_time = rng.randf_range(3.0, 5.0)
+	var rand_time = rng.randf_range(1.0, 3.0)
 	timer_wave_bullets.wait_time = rand_time
 
 
 
 #POP_UP WINDOW
 func _on_timer_pop_up_window_timeout() -> void:
-	var rand_position_x = rng.randf_range(85.0, 1455.0)
-	var rand_position_y = rng.randf_range(65.0, 515.0)
+	#var rand_position_x = rng.randf_range(85.0, 1455.0)
+	#var rand_position_y = rng.randf_range(65.0, 515.0)
 	pop_up_instance = pop_up_window.instantiate()
-	pop_up_instance.get_node("Control").position = Vector2(rand_position_x, rand_position_y)
+	#pop_up_instance.get_node("Control").position = Vector2(rand_position_x, rand_position_y)
 	get_parent().add_child(pop_up_instance)
 	if prev_pop_up_instance:
 		prev_pop_up_instance.queue_free()
 	prev_pop_up_instance = pop_up_instance
+	quota = 20
 
 func _input(event: InputEvent) -> void:
 	if pop_up_instance != null:
@@ -135,29 +283,35 @@ func _input(event: InputEvent) -> void:
 			
 			if current_pressed_key != last_pressed_key:
 				var progress_bar = pop_up_instance.get_node("Control/ProgressBar")
+				#var label = pop_up_instance.get_node("../PopUp/Label")
+				#var label2 = pop_up_instance.get_node("../PopUp2/Label")
+				#var label3 = pop_up_instance.get_node("../PopUp3/Label")
+				#var label4 = pop_up_instance.get_node("../PopUp4/Label")
+				#var label5 = pop_up_instance.get_node("../PopUp5/Label")
+				#var label6 = pop_up_instance.get_node("../PopUp6/Label")
+				#var label7 = pop_up_instance.get_node("../PopUp7/Label")
+				#var label8 = pop_up_instance.get_node("../PopUp8/Label")
+				#var label9 = pop_up_instance.get_node("../PopUp9/Label")
+				#var label10 = pop_up_instance.get_node("../PopUp10/Label")
 				
 				if progress_bar:
+					#label.text = str(quota)
+					#label2.text = str(quota)
+					#label3.text = str(quota)
+					#label4.text = str(quota)
+					#label5.text = str(quota)
+					#label6.text = str(quota)
+					#label7.text = str(quota)
+					#label8.text = str(quota)
+					#label9.text = str(quota)
+					#label10.text = str(quota)
 					progress_bar.value += 1
+					quota -= 1
 					if progress_bar.value >= progress_bar.max_value:
 						pop_up_instance.queue_free()
 						pop_up_instance = null
 	
 	last_pressed_key = current_pressed_key
-
-
-func _on_boss_1_timeout() -> void:
-	timer_wave_bullets.stop()
-	if get_parent().has_node("boss_bullet"):
-		instance.queue_free()
-	
-	timer_pop_up_window.stop()
-	if get_parent().has_node("job_aplication_pop_up_window"):
-		pop_up_instance.queue_free()
-	boss_2.start()
-	
-	timer_grass.start()
-	timer_cat_and_dog.start()
-	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_idle.png")
 
 
 
@@ -166,46 +320,37 @@ func _on_timer_grass_timeout() -> void:
 	grass_instance = grass.instantiate()
 	var rand_position_x = rng.randf_range(25.0, -25.0)
 	var rand_position_z = rng.randf_range(20.0, -30.0)
-	grass_instance.position = Vector3(rand_position_x, -0.858, rand_position_z)
+	grass_instance.position = Vector3(rand_position_x, -10.524, rand_position_z)
 	get_parent().add_child(grass_instance)
 	
 	var transitionTween = create_tween()
-	transitionTween.tween_property(grass_instance, "position:y", -0.436, 0.5)
+	transitionTween.tween_property(grass_instance, "position:y", -3.965, 0.3)
 	
-	if prev_grass_instance:
-		prev_grass_instance.queue_free()
-	prev_grass_instance = grass_instance
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_attack.png")
 	await get_tree().create_timer(0.2).timeout
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_idle.png")
+	
+	await get_tree().create_timer(1.2).timeout
+	transitionTween.tween_property(grass_instance, "position:y", -10.524, 0.3)
 
 
 
 #CAT AND DOG FOLLOW
 func _on_timer_cat_and_dog_timeout() -> void:
 	cat_dog_instance = cat_dog_scene.instantiate()
+	
+	var rand_resource = rng.randf_range(0, 2)
+	var current_resource = load(cat_dog_resource_array[rand_resource])
+	cat_dog_instance.set_meta("cat_dog_recsource", current_resource)
+	cat_dog_instance.get_node("Sprite3D").texture = current_resource.texture
+	
 	cat_dog_instance.position = Vector3(0, 0, 15.822)
+	
 	get_parent().add_child(cat_dog_instance)
+	
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_attack.png")
 	await get_tree().create_timer(0.2).timeout
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_idle.png")
-
-
-
-func _on_boss_2_timeout() -> void:
-	timer_grass.stop()
-	if get_parent().has_node("grass"):
-		grass_instance.queue_free()
-	
-	timer_cat_and_dog.stop()
-	if get_parent().has_node("cat_dog_follow"):
-		cat_dog_instance.queue_free()
-	
-	boss_3.start()
-	
-	timer_palka_pion.start()
-	timer_palka_poziom.start()
-	boss.texture = null
 
 
 
@@ -213,7 +358,7 @@ func _on_boss_2_timeout() -> void:
 func _on_timer_palka_pion_timeout() -> void:
 	boss.texture = null
 	while palka_pion_amount <= 5:
-		palka_pion_instance = palka_scene.instantiate()
+		palka_pion_instance = palka_pion_scene.instantiate()
 		var rand_position_x = rng.randf_range(15.0, -15.0)
 		palka_pion_instance.position = Vector3(rand_position_x, -0.182, 15.94)
 		get_parent().add_child(palka_pion_instance)
@@ -236,7 +381,7 @@ func _on_timer_palka_pion_timeout() -> void:
 #PALKA POZIOM
 func _on_timer_palka_poziom_timeout() -> void:
 	boss.texture = null
-	palka_poziom_instance = palka_scene.instantiate()
+	palka_poziom_instance = palka_poziom_scene.instantiate()
 	palka_poziom_instance.position = Vector3(0, -0.182, 15.94)
 	get_parent().add_child(palka_poziom_instance)
 	
@@ -255,24 +400,6 @@ func _on_timer_palka_poziom_timeout() -> void:
 	
 	await get_tree().create_timer(1).timeout
 	palka_poziom_instance.queue_free()
-
-
-
-func _on_boss_3_timeout() -> void:
-	timer_palka_poziom.stop()
-	if get_parent().has_node("palka"):
-		palka_pion_instance.queue_free()
-	
-	timer_palka_pion.stop()
-	if get_parent().has_node("palka"):
-		palka_poziom_instance.queue_free()
-	
-	boss_4.start()
-	
-	timer_chocolate.start()
-	timer_chocolate_change_fast.start()
-	timer_matcha.start()
-	boss.texture = load("res://Assets/Characters/Bosses/labubu_idle.png")
 
 
 
@@ -316,23 +443,6 @@ func _on_timer_matcha_timeout() -> void:
 
 
 
-func _on_boss_4_timeout() -> void:
-	timer_chocolate.stop()
-	if get_parent().has_node("chocolate"):
-		chocolate_instance.queue_free()
-	
-	timer_matcha.stop()
-	if get_parent().has_node("matcha"):
-		matcha_instance.queue_free()
-	
-	boss_5.start()
-	
-	timer_roblox_bullet.start()
-	timer_roblox_balls.start()
-	boss.texture = null
-
-
-
 #ROBLOX BULLET
 func _on_timer_roblox_bullet_timeout() -> void:
 	roblox_bullet_instance = roblox_bullet_scene.instantiate()
@@ -343,14 +453,11 @@ func _on_timer_roblox_bullet_timeout() -> void:
 	get_parent().add_child(roblox_bullet_instance)
 
 
-@onready var roblox_baller_anim: AnimationPlayer = $Sprite3D/SubViewport/RobloxBaller
-@onready var roblox_baller_sprites: AnimatedSprite2D = $Sprite3D/SubViewport/RobloxBaller/RobloxBaller
 
 #ROBLOX BALLS
 func _on_timer_roblox_balls_timeout() -> void:
-	roblox_baller_sprites.visible = true
-	roblox_baller_anim.play("roblox_baller")
-	while roblox_balls_amount <= 30:
+	boss_anim_sprites.play("roblox_baller")
+	while roblox_balls_amount <= 40:
 		roblox_balls_instance = roblox_balls_scene.instantiate()
 		var pos_y = 26.0
 		var rand_pos_x = rng.randf_range(25.0, -25.0)
@@ -360,5 +467,30 @@ func _on_timer_roblox_balls_timeout() -> void:
 		get_parent().add_child(roblox_balls_instance)
 	roblox_balls_amount = 1
 	
-	await get_tree().create_timer(3).timeout
-	roblox_baller_sprites.visible = false
+	await get_tree().create_timer(2).timeout
+	boss_anim_sprites.play("roblox_robux")
+
+
+
+#GRAVITY PULL
+func _on_timer_gravity_pull_timeout() -> void:
+	boss_anim_sprites.play("bober_attack")
+	
+	gravity_pull_instance = gravity_pull_scene.instantiate()
+	gravity_pull_instance.global_position = global_position
+	get_parent().add_child(gravity_pull_instance)
+	
+	await get_tree().create_timer(12).timeout
+	gravity_pull_instance.queue_free()
+	boss_anim_sprites.play("bober_idle")
+
+
+
+#BOBER BULLETS
+func _on_timer_bober_bullets_timeout() -> void:
+	bober_bullet_instance = bober_bullet_scene.instantiate()
+	var rand_pos_x = rng.randf_range(25.0, -25.0)
+	bober_bullet_instance.position = ray_bober_bullet.global_position
+	bober_bullet_instance.position.x = rand_pos_x
+	
+	get_parent().add_child(bober_bullet_instance)

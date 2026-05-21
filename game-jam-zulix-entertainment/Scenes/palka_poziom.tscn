@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cvel3i2xju1du"]
+
+[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_w4w7l"]
+[ext_resource type="PackedScene" uid="uid://dwphmeggnqxvd" path="res://Assets/Characters/Bosses/PRAWIDŁOWA PAŁA SAHURA.glb" id="2_08xkg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qrwc7"]
+height = 52.436195
+radius = 0.8129883
+
+[node name="palka_poziom" type="Node3D" unique_id=1710252040]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=542565603]
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=736117677]
+script = ExtResource("1_w4w7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=555302810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09500933, 26.423645, 0.07706976)
+shape = SubResource("CylinderShape3D_qrwc7")
+
+[node name="PRAWIDŁOWA PAŁA SAHURA" parent="StaticBody3D" unique_id=472002880 instance=ExtResource("2_08xkg")]
+transform = Transform3D(19.999512, -0.2443441, 0, 0.1396252, 34.999146, 0, 0, 0, 20, 0.095332146, -1.0890275, 0.054301262)
+
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_palka_poziom"]

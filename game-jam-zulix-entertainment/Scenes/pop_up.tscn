@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://l1avqff8kpq"]
+
+[ext_resource type="Texture2D" uid="uid://dxbb5a0lmdwj7" path="res://Assets/Characters/Bosses/job_apl_pop_up.jpg" id="1_tv3en"]
+
+[node name="PopUp" type="CanvasLayer" unique_id=1387776888]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1388443518]
+offset_right = 431.0
+offset_bottom = 431.0
+texture = ExtResource("1_tv3en")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1443780736]
+offset_left = 353.0
+offset_top = 20.0
+offset_right = 399.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "20"
