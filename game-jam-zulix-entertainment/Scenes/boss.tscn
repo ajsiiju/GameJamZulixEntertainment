@@ -70,7 +70,6 @@
 [ext_resource type="Texture2D" uid="uid://cwotd6lantjw7" path="res://Assets/Characters/Bosses/Tung/frame16.png" id="43_vj2p4"]
 [ext_resource type="Texture2D" uid="uid://bj7w8y5ras64i" path="res://Assets/Characters/Bosses/Tung/frame17.png" id="44_xw0s2"]
 [ext_resource type="Texture2D" uid="uid://b0ddhg63auin2" path="res://Assets/Characters/Bosses/Tung/frame18.png" id="45_tag0e"]
-[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="71_1g202"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cxrok"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -312,7 +311,7 @@ corner_radius_bottom_left = 15
 [sub_resource type="BoxShape3D" id="BoxShape3D_ngxla"]
 size = Vector3(11.957031, 22.355957, 3.8769531)
 
-[node name="boss" type="Node3D" unique_id=897832154]
+[node name="boss" type="Node3D" unique_id=897832154 groups=["boss"]]
 script = ExtResource("1_0154r")
 
 [node name="RayWave" type="RayCast3D" parent="." unique_id=1438902319]
@@ -454,19 +453,10 @@ wait_time = 15.0
 wait_time = 0.1
 
 [node name="Area3D" type="Area3D" parent="." unique_id=975148772]
-script = ExtResource("71_1g202")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1906939153]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.221436, 0)
 shape = SubResource("BoxShape3D_ngxla")
-
-[node name="BossCharacterBody" type="CharacterBody3D" parent="." unique_id=1427534396]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-collision_layer = 4
-script = ExtResource("7_qtle2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BossCharacterBody" unique_id=241968554]
-shape = SubResource("BoxShape3D_mh6p8")
 
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]
@@ -489,4 +479,3 @@ shape = SubResource("BoxShape3D_mh6p8")
 [connection signal="timeout" from="TimerRobloxBalls" to="." method="_on_timer_roblox_balls_timeout"]
 [connection signal="timeout" from="TimerGravityPull" to="." method="_on_timer_gravity_pull_timeout"]
 [connection signal="timeout" from="TimerBoberBullets" to="." method="_on_timer_bober_bullets_timeout"]
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered_roblox_bullet"]
