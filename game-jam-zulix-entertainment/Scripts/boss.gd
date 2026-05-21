@@ -8,8 +8,6 @@ extends Node3D
 
 @onready var boss: TextureRect = $Sprite3D/SubViewport/boss
 
-
-
 var current_boss = ""
 
 #kiedy użyje sie stuna sprawdza który boss i zatrzymuje jego timery ataków na 3s i z powrotem wznawia
@@ -45,18 +43,15 @@ var prev_grass_instance = null
 var cat_dog_scene = load("res://Scenes/cat_dog_follow.tscn")
 @onready var cat_dog_instance = null
 
-
 #PALKA PION
 @onready var timer_palka_pion: Timer = $TimerPalkaPion
 var palka_scene = load("res://Scenes/palka.tscn")
 var palka_pion_amount = 1
 var palka_pion_instance = null
 
-
 #PALKA POZIOM
 @onready var timer_palka_poziom: Timer = $TimerPalkaPoziom
 var palka_poziom_instance = null
-
 
 #CHOCOLATE
 @onready var timer_chocolate: Timer = $TimerChocolate
@@ -66,12 +61,10 @@ var palka_poziom_instance = null
 var chocolate_scene = load("res://Scenes/chocolate.tscn")
 var chocolate_instance = null
 
-
 #MATCHA
 @onready var timer_matcha: Timer = $TimerMatcha
 var matcha_scene = load("res://Scenes/matcha.tscn")
 var matcha_instance = null
-
 
 #ROBLOX BULLET
 @onready var timer_roblox_bullet: Timer = $TimerRobloxBullet
@@ -79,9 +72,7 @@ var roblox_bullet_scene = load("res://Scenes/roblox_bullet.tscn")
 var roblox_bullet_instance = null
 @onready var ray_roblox_bullet: RayCast3D = $RayRobloxBullet
 
-
 #ROBLOX BALLS
-
 
 func _ready() -> void:
 	boss.texture = null

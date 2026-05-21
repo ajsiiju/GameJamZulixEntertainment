@@ -10,8 +10,8 @@ extends CharacterBody3D
 #@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 
 const DEFAULT_SPEED: float = 8.0
-var speed = DEFAULT_SPEED
 const CROUCH_SPEED: float = 4.0
+var speed = DEFAULT_SPEED
 const JUMP_VELOCITY := 4.5
 
 var visible_health: float = 50.0
@@ -26,11 +26,9 @@ var unlocked_skills: Array[bool] = [true]
 var skill_unlock_costs: Array[int] = [0,5,5,5,5]
 var skill_costs: Array[int] = [0,7,7,7,7]
 
-
-
 signal hotbar_key_pressed(number: int)
 signal set_social_points_ui(points: int)
-
+var points = Callable(self, "change_social_points")
 
 func _ready() -> void:
 	var shop_ui = get_tree().get_first_node_in_group("shop_ui")
@@ -111,11 +109,11 @@ func unlock_skill(skill_number):
 		social_points -= skill_unlock_costs[skill_number]
 		set_social_points_ui.emit(social_points)
 		unlocked_skills[skill_number] = true
-		
-func change_social_points(points: int):
+
+func change_social_points(points):
 	social_points += points
 	set_social_points_ui.emit(social_points)
-		
+
 func activate_skill(skill_number):
 	change_social_points(-skill_costs[skill_number])
 	match skill_number:

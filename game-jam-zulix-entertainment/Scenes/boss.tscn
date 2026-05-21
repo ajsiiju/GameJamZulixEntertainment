@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://n4f7b6338eyy" path="res://Assets/Characters/Bosses/tel_overlay.png" id="4_qtle2"]
 [ext_resource type="Script" uid="uid://dbfn6v6qrtu8k" path="res://Scripts/timer.gd" id="4_ukjjc"]
 [ext_resource type="Texture2D" uid="uid://bf6kxyhckoorq" path="res://Assets/Characters/Bosses/tel_border.png" id="5_yq25j"]
+[ext_resource type="Script" uid="uid://vroqsw7oshct" path="res://Scripts/boss_character_body.gd" id="7_qtle2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cxrok"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -23,6 +24,9 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mh6p8"]
+size = Vector3(4, 8, 4)
 
 [node name="boss" type="Node3D" unique_id=897832154]
 script = ExtResource("1_0154r")
@@ -144,6 +148,14 @@ wait_time = 3.0
 
 [node name="TimerRobloxBalls" type="Timer" parent="." unique_id=1212915830]
 wait_time = 5.0
+
+[node name="BossCharacterBody" type="CharacterBody3D" parent="." unique_id=1427534396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+collision_layer = 4
+script = ExtResource("7_qtle2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BossCharacterBody" unique_id=241968554]
+shape = SubResource("BoxShape3D_mh6p8")
 
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]

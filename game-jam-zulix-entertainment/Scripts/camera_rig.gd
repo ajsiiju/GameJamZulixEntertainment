@@ -5,8 +5,8 @@ extends SpringArm3D
 @onready var mouse_sensitivity:= .05
 var mouse_input : Vector2 = Vector2()
 @onready var player: Node3D = get_parent()
+@onready var camera_offset: Node3D = $"../CameraOffset"
 var camera_rig_height:float = position.y
-var debug_value:float = 0
 
 func _ready() -> void:
 	spring_length = 2.75
@@ -22,15 +22,9 @@ func _process(delta: float) -> void:
 		rotation_degrees.x += look_input.y
 		rotation_degrees.y += look_input.x
 		rotation_degrees.x = clampf(rotation_degrees.x, -50, 35)
-	
-	# debug
-	if Input.is_action_pressed("debug_add"):
-		debug_value += 0.01
-	if Input.is_action_pressed("debug_sub"):
-		debug_value -= 0.01
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		mouse_input = -event.relative * mouse_sensitivity
 	elif event is InputEventKey and event.keycode == KEY_ESCAPE and event.is_pressed():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
