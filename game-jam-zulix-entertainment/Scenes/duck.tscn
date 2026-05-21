@@ -11,28 +11,39 @@
 [ext_resource type="Texture2D" uid="uid://ni48e02tuo16" path="res://Assets/duck/kaltka0008.png" id="9_ewecb"]
 [ext_resource type="Texture2D" uid="uid://diib3h3xwn62h" path="res://Assets/duck/kaltka0009.png" id="10_ygasp"]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_h84wv"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_d81ih"]
 frames = 10
+speed_scale = 30.0
 frame_0/texture = ExtResource("1_d81ih")
-frame_0/duration = 0.1
 frame_1/texture = ExtResource("2_4hkkw")
-frame_1/duration = 0.1
+frame_1/duration = 1.0
 frame_2/texture = ExtResource("3_pqv8e")
-frame_2/duration = 0.1
+frame_2/duration = 1.0
 frame_3/texture = ExtResource("4_guqge")
-frame_3/duration = 0.1
+frame_3/duration = 1.0
 frame_4/texture = ExtResource("5_kfq0l")
-frame_4/duration = 0.1
+frame_4/duration = 1.0
 frame_5/texture = ExtResource("6_gbat4")
-frame_5/duration = 0.1
+frame_5/duration = 1.0
 frame_6/texture = ExtResource("7_ebs3e")
-frame_6/duration = 0.1
+frame_6/duration = 1.0
 frame_7/texture = ExtResource("8_msygk")
-frame_7/duration = 0.1
+frame_7/duration = 1.0
 frame_8/texture = ExtResource("9_ewecb")
-frame_8/duration = 0.1
+frame_8/duration = 1.0
 frame_9/texture = ExtResource("10_ygasp")
-frame_9/duration = 0.1
+frame_9/duration = 1.0
 
-[node name="TextureRect" type="TextureRect" unique_id=1039708663]
-texture = SubResource("AnimatedTexture_h84wv")
+[node name="duck" type="Control" unique_id=1499518719]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 372.0
+offset_bottom = 373.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=893409937]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -39.0
+offset_right = 368.0
+offset_bottom = 334.0
+texture = SubResource("AnimatedTexture_d81ih")

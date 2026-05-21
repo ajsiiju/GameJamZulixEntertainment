@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dwp06c7ifw8kh"]
+[gd_scene format=3 uid="uid://7mcjqg03mw7e"]
 
-[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_8okam"]
-[ext_resource type="Script" uid="uid://deopb4usoi0c5" path="res://Scripts/roblox_bullet.gd" id="1_djuwi"]
+[ext_resource type="Script" path="res://Scripts/damage.gd" id="1_8okam"]
+[ext_resource type="Script" path="res://Scripts/roblox_bullet.gd" id="1_djuwi"]
 [ext_resource type="Texture2D" uid="uid://d2toyym3ps58x" path="res://Assets/test.png" id="2_djuwi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_es40b"]

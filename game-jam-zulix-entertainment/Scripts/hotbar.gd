@@ -8,11 +8,16 @@ func _ready() -> void:
 	create_styles()
 	var player = get_tree().get_first_node_in_group("player")
 	player.hotbar_key_pressed.connect(_key_pressed)
-
+	player.hotbar_icon_unlocked.connect(_icon_unlocked)
+	
 func _key_pressed(key_number: int):
 	if key_number != 0:
 		var panel_name = "Panel" + str(key_number)
 		blink_highlight(get_node(panel_name))
+
+func _icon_unlocked(icon_number: int):
+	var panel_name = "Panel" + str(icon_number)
+	get_node(panel_name + "/TextureRect").visible = true
 
 func create_styles():
 	style_box_default = StyleBoxFlat.new()

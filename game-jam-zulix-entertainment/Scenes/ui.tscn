@@ -1,36 +1,37 @@
 [gd_scene format=3 uid="uid://cisywsx4gwr26"]
 
 [ext_resource type="Script" uid="uid://i2ae2fu1p4ge" path="res://Scripts/debug_chat.gd" id="1_jxero"]
-[ext_resource type="Texture2D" uid="uid://5dpqlemnvrh2" path="res://Assets/hud/hotbar.png" id="2_d42i4"]
+[ext_resource type="Texture2D" uid="uid://5dpqlemnvrh2" path="res://Assets/ui/hud/hotbar.png" id="2_d42i4"]
 [ext_resource type="Script" uid="uid://c72pfcppjm4v4" path="res://Scripts/hotbar.gd" id="2_qdvrb"]
-[ext_resource type="Texture2D" uid="uid://r64eeej5bvbi" path="res://Assets/hud/muka.png" id="3_lkjmk"]
+[ext_resource type="Texture2D" uid="uid://r64eeej5bvbi" path="res://Assets/ui/hud/muka.png" id="3_lkjmk"]
 [ext_resource type="Script" uid="uid://bygsvhhkwdkk5" path="res://Scripts/ad_label.gd" id="3_nf4gj"]
-[ext_resource type="Texture2D" uid="uid://dbc8ivykckyaa" path="res://Assets/hud/social_points_bg.png" id="4_8fs27"]
+[ext_resource type="Texture2D" uid="uid://dbc8ivykckyaa" path="res://Assets/ui/hud/social_points_bg.png" id="4_8fs27"]
 [ext_resource type="Script" uid="uid://6t88454bi40b" path="res://Scripts/shop_ui.gd" id="4_2246s"]
-[ext_resource type="Texture2D" uid="uid://d1xhioe8mdnw8" path="res://Assets/hud/dab.png" id="4_d42i4"]
-[ext_resource type="Texture2D" uid="uid://bhpovno0djdn6" path="res://Assets/shop_ui/shop_bg.png" id="5_4vbiv"]
-[ext_resource type="Texture2D" uid="uid://dtc6ipd0krgpb" path="res://Assets/hud/gangnam.png" id="5_fcexb"]
+[ext_resource type="Texture2D" uid="uid://d1xhioe8mdnw8" path="res://Assets/ui/hud/dab.png" id="4_d42i4"]
+[ext_resource type="Texture2D" uid="uid://bhpovno0djdn6" path="res://Assets/ui/shop_ui/shop_bg.png" id="5_4vbiv"]
+[ext_resource type="Texture2D" uid="uid://dtc6ipd0krgpb" path="res://Assets/ui/hud/gangnam.png" id="5_fcexb"]
 [ext_resource type="Script" uid="uid://b5myguyxsllmq" path="res://Scripts/social_points_bg.gd" id="5_whq80"]
-[ext_resource type="Texture2D" uid="uid://d0o0nkf78lg2l" path="res://Assets/shop_ui/skill_offer.png" id="6_3r70p"]
-[ext_resource type="Texture2D" uid="uid://ccb528qgl5qe0" path="res://Assets/hud/67.png" id="6_v4f2e"]
-[ext_resource type="Texture2D" uid="uid://c3uxcep0qpk7k" path="res://Assets/shop_ui/buy_button.png" id="7_8fs27"]
-[ext_resource type="Texture2D" uid="uid://bbk6fasyh0u62" path="res://Assets/shop_ui/2137.png" id="8_whq80"]
-[ext_resource type="Texture2D" uid="uid://cutvoud3rk6wp" path="res://Assets/shop_ui/bargain.png" id="9_kuui0"]
-[ext_resource type="Texture2D" uid="uid://c3bsthklht7kf" path="res://Assets/shop_ui/spin_circle_half.png" id="10_smy1h"]
-[ext_resource type="Texture2D" uid="uid://cfg17ewa54ypx" path="res://Assets/hud/player_hp_bar.png" id="11_fcexb"]
-[ext_resource type="Texture2D" uid="uid://drrsps327ojr5" path="res://Assets/hud/boss_hp_bar.png" id="11_fe2sg"]
+[ext_resource type="Texture2D" uid="uid://d0o0nkf78lg2l" path="res://Assets/ui/shop_ui/skill_offer.png" id="6_3r70p"]
+[ext_resource type="Texture2D" uid="uid://ccb528qgl5qe0" path="res://Assets/ui/hud/67.png" id="6_v4f2e"]
+[ext_resource type="Texture2D" uid="uid://c3uxcep0qpk7k" path="res://Assets/ui/shop_ui/buy_button.png" id="7_8fs27"]
+[ext_resource type="Texture2D" uid="uid://bbk6fasyh0u62" path="res://Assets/ui/shop_ui/2137.png" id="8_whq80"]
+[ext_resource type="Texture2D" uid="uid://cutvoud3rk6wp" path="res://Assets/ui/shop_ui/bargain.png" id="9_kuui0"]
+[ext_resource type="Texture2D" uid="uid://c3bsthklht7kf" path="res://Assets/ui/shop_ui/spin_circle_half.png" id="10_smy1h"]
+[ext_resource type="Texture2D" uid="uid://cfg17ewa54ypx" path="res://Assets/ui/hud/player_hp_bar.png" id="11_fcexb"]
+[ext_resource type="Texture2D" uid="uid://drrsps327ojr5" path="res://Assets/ui/hud/boss_hp_bar.png" id="11_fe2sg"]
 [ext_resource type="Script" uid="uid://do2ppahxs8qcx" path="res://Scripts/boss_health_bar.gd" id="11_jd57c"]
-[ext_resource type="Texture2D" uid="uid://daelqacfkje6v" path="res://Assets/shop_ui/hot_tungtungi.png" id="11_lkjmk"]
+[ext_resource type="Texture2D" uid="uid://daelqacfkje6v" path="res://Assets/ui/shop_ui/hot_tungtungi.png" id="11_lkjmk"]
 [ext_resource type="Script" uid="uid://bpll4g7c03ujd" path="res://Scripts/health_bar.gd" id="11_v4f2e"]
-[ext_resource type="Texture2D" uid="uid://ctvtah4a6cqce" path="res://Assets/shop_ui/exit_button.png" id="12_d42i4"]
-[ext_resource type="Texture2D" uid="uid://dbw2ih0m2kydo" path="res://Assets/shop_ui/buy_button_hovered.png" id="17_85lyl"]
-[ext_resource type="Texture2D" uid="uid://bsf2syrpwlyx1" path="res://Assets/shop_ui/buy_button_pressed.png" id="17_pmm21"]
-[ext_resource type="Texture2D" uid="uid://d03hi6bhuuyh3" path="res://Assets/shop_ui/buy_button_disabled.png" id="19_nbcfj"]
-[ext_resource type="Texture2D" uid="uid://b41oyxf4in11g" path="res://Assets/shop_ui/exit_button_pressed.png" id="25_3g2cg"]
-[ext_resource type="Texture2D" uid="uid://cqs7sum8mrdb6" path="res://Assets/shop_ui/exit_button_hovered.png" id="26_wc4t8"]
-[ext_resource type="Texture2D" uid="uid://b62erjqjug6th" path="res://Assets/shop_ui/download.png" id="27_kjfio"]
-[ext_resource type="Texture2D" uid="uid://bw5soffs20sfo" path="res://Assets/shop_ui/download_pressed.png" id="28_0o3wc"]
-[ext_resource type="Texture2D" uid="uid://bvded2chp4t3h" path="res://Assets/shop_ui/download_hovered.png" id="29_ebfgw"]
+[ext_resource type="Texture2D" uid="uid://ctvtah4a6cqce" path="res://Assets/ui/shop_ui/exit_button.png" id="12_d42i4"]
+[ext_resource type="Texture2D" uid="uid://dueiliaaggxta" path="res://Assets/ui/hud/crosshair.png" id="13_0o3wc"]
+[ext_resource type="Texture2D" uid="uid://dbw2ih0m2kydo" path="res://Assets/ui/shop_ui/buy_button_hovered.png" id="17_85lyl"]
+[ext_resource type="Texture2D" uid="uid://bsf2syrpwlyx1" path="res://Assets/ui/shop_ui/buy_button_pressed.png" id="17_pmm21"]
+[ext_resource type="Texture2D" uid="uid://d03hi6bhuuyh3" path="res://Assets/ui/shop_ui/buy_button_disabled.png" id="19_nbcfj"]
+[ext_resource type="Texture2D" uid="uid://b41oyxf4in11g" path="res://Assets/ui/shop_ui/exit_button_pressed.png" id="25_3g2cg"]
+[ext_resource type="Texture2D" uid="uid://cqs7sum8mrdb6" path="res://Assets/ui/shop_ui/exit_button_hovered.png" id="26_wc4t8"]
+[ext_resource type="Texture2D" uid="uid://b62erjqjug6th" path="res://Assets/ui/shop_ui/download.png" id="27_kjfio"]
+[ext_resource type="Texture2D" uid="uid://bw5soffs20sfo" path="res://Assets/ui/shop_ui/download_pressed.png" id="28_0o3wc"]
+[ext_resource type="Texture2D" uid="uid://bvded2chp4t3h" path="res://Assets/ui/shop_ui/download_hovered.png" id="29_ebfgw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe2sg"]
 bg_color = Color(0, 0, 0, 0.13725491)
@@ -124,6 +125,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_fe2sg")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/hotbar_graph/Hotbar/Panel1" unique_id=438315023]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,6 +141,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jd57c")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/hotbar_graph/Hotbar/Panel2" unique_id=872996267]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -154,6 +157,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_85lyl")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/hotbar_graph/Hotbar/Panel3" unique_id=926691427]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -169,6 +173,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_mplvk")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/hotbar_graph/Hotbar/Panel4" unique_id=1980650250]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,6 +223,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_v4f2e")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pmm21")
+max_value = 1000.0
 value = 47.0
 show_percentage = false
 script = ExtResource("11_v4f2e")
@@ -269,6 +275,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_fe2sg")
 expand_mode = 1
+
+[node name="Crosshair" type="TextureRect" parent="HUD" unique_id=259847377]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_0o3wc")
 
 [node name="ShopUI" type="Control" parent="." unique_id=1592280237 groups=["shop_ui"]]
 visible = false
@@ -488,7 +510,7 @@ texture_pressed = ExtResource("28_0o3wc")
 texture_hover = ExtResource("29_ebfgw")
 
 [node name="SocialPointsBg" type="TextureRect" parent="." unique_id=378042509]
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -169.0

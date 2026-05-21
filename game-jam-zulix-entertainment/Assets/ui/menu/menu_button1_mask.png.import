@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cwcrtj144d1cj"
+path="res://.godot/imported/menu_button1_mask.png-e3258e617e14c072a6cb0ba5d6849b7c.res"
+
+[deps]
+
+source_file="res://Assets/ui/menu/menu_button1_mask.png"
+dest_files=["res://.godot/imported/menu_button1_mask.png-e3258e617e14c072a6cb0ba5d6849b7c.res"]
+
+[params]
+
+create_from=1
+threshold=0.0

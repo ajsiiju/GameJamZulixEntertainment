@@ -14,9 +14,9 @@ var speed = DEFAULT_SPEED
 const CROUCH_SPEED: float = 4.0
 const JUMP_VELOCITY := 4.5
 
-var visible_health: float = 50.0
-var target_health: float = 50.0
-const MAX_HEALTH: float = 100.0
+var visible_health: float = 500.0
+var target_health: float = 500.0
+const MAX_HEALTH: float = 1000.0
 const HEALTH_REGEN_PER_FRAME: float = 0.02
 const SPECIAL_ATTACK_IMMUNITY_TIME: float = 4.0
 var immunity = false
@@ -29,7 +29,7 @@ var dashing = false
 var DASH_SPEED: float = 40.0
 var dash_velocity: Vector3
 
-
+signal hotbar_icon_unlocked(number: int)
 signal hotbar_key_pressed(number: int)
 signal set_social_points_ui(points: int)
 
@@ -118,6 +118,7 @@ func unlock_skill(skill_number):
 		unlocked_skills[skill_number] = true
 		var shop_ui = get_tree().get_first_node_in_group("shop_ui")
 		shop_ui.get_node("shop_bg/skill_offer" + str(skill_number) + "/buy_button1").disabled = true
+		hotbar_icon_unlocked.emit(skill_number)
 		
 func change_social_points(points: int):
 	social_points += points
@@ -140,9 +141,9 @@ func activate_skill(skill_number):
 				)
 			return
 		3:
-			change_health(20)
+			change_health(200)
 		4: 
-			change_health(40)
+			change_health(400)
 			immunity = true
 			get_tree().create_timer(SPECIAL_ATTACK_IMMUNITY_TIME).timeout.connect(
 				func():
