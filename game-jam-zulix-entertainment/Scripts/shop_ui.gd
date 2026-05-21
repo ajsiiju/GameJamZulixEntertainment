@@ -4,9 +4,20 @@ var timer_to_show_shop: float = 5.0
 var timer_to_exit_shop: float = 0.0
 @export var SHOP_VISIBILITY_TIME: float  = 15.0
 const DUCK_RUN_TIME: float = 6.0
-const duck_scene = preload("res://scenes/duck.tscn")
+const duck_scene = preload("res://Scenes/duck.tscn")
+var shop_scene = preload("res://Scenes/tungtung.tscn")
 signal unlock_skill(skill_number)
 signal move_social_points(move_position)
+var platform_range: Array[float]
+@export var OFFSET_FROM_WALL: float = 4.0
+enum Borders {
+	MIN_X,
+	MAX_X,
+	MIN_Y,
+	MAX_Y,
+	MIN_Z,
+	MAX_Z
+}
 
 func _ready() -> void:
 	visible = false
@@ -14,7 +25,9 @@ func _ready() -> void:
 	var main = get_tree().get_first_node_in_group("main")
 	main.ad_appear_counter.connect(ad_appear_counter)
 	$shop_bg/exit_button.pressed.connect(on_exit_button)
-	$shop_bg/DownloadButton.pressed.connect(duck_appears)
+	$shop_bg/DownloadButton.pressed.connect(malpka_appears)
+	$shop_bg/duck_button.pressed.connect(duck_appears)
+	$shop_bg/tungtung_button.pressed.connect(tungtung_appears)
 	$shop_bg/skill_offer1/buy_button1.pressed.connect(func(): buy_skill(1))
 	$shop_bg/skill_offer2/buy_button1.pressed.connect(func(): buy_skill(2))
 	$shop_bg/skill_offer3/buy_button1.pressed.connect(func(): buy_skill(3))
@@ -82,3 +95,34 @@ func duck_appears():
 			player.get_node("CameraRig").is_broken_camera = true,
 		CONNECT_ONE_SHOT
 	)
+
+func malpka_appears():
+	shop_hide()
+	var malpka = get_parent().get_node("Malpka")
+	malpka.activate_malpka()
+
+func tungtung_appears():
+	shop_hide()
+	var platform = get_node("/root/Node3D/platform")
+	for i in range(500):
+		var tungtung_instance = shop_scene.instantiate()
+		platform_range = update_platform_range(platform)
+		tungtung_instance.position = Vector3(
+			randf_range(platform_range[Borders.MIN_X] + OFFSET_FROM_WALL,
+						platform_range[Borders.MAX_X] - OFFSET_FROM_WALL),
+			randf_range(platform_range[Borders.MAX_Y], platform_range[Borders.MAX_Y] + 30) ,
+			randf_range(platform_range[Borders.MIN_Z] + OFFSET_FROM_WALL,
+						platform_range[Borders.MAX_Z] - OFFSET_FROM_WALL)
+		)
+		add_child(tungtung_instance)
+	
+func update_platform_range(platform: CSGBox3D) -> Array[float]:
+	var middle = platform.global_position
+	var half = platform.size / 2
+	var min_x = middle.x - half.x
+	var max_x = middle.x + half.x
+	var min_y = middle.y - half.y
+	var max_y = middle.y + half.y
+	var min_z = middle.z - half.z
+	var max_z = middle.z + half.z
+	return [min_x, max_x, min_y, max_y, min_z, max_z]

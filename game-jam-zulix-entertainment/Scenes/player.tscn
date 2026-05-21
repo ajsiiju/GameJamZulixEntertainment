@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://vjqwsvor6kb4" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://cdybh12vh1aoa" path="res://Scripts/camera_rig.gd" id="2_h4iuc"]
 [ext_resource type="PackedScene" uid="uid://bhmn883uquge8" path="res://Scenes/projectile_launcher.tscn" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://ulvl6eu5kbmn" path="res://Audio/footsteps-woman_WYCIĘTE.mp3" id="3_vgqql"]
+[ext_resource type="PackedScene" uid="uid://ccn1bdk5208jf" path="res://Assets/Characters/MC_OK.fbx" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ogh5"]
 radius = 0.45263672
-height = 1.4901829
+height = 1.9
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h4iuc"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_cvnsp"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fd4e3"]
 animation = &"base/run"
@@ -44,14 +44,15 @@ nodes/TimeScale/position = Vector2(320, 288)
 node_connections = [&"output", 0, &"movement", &"movement", 0, &"Animation", &"movement", 1, &"TimeScale", &"TimeScale", 0, &"Animation 2"]
 
 [node name="player" type="CharacterBody3D" unique_id=1849972682 groups=["player"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_v0iea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1078810062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.063515246, 0.7031126, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
 shape = SubResource("CapsuleShape3D_5ogh5")
 
 [node name="CameraRig" type="SpringArm3D" parent="." unique_id=1249298410]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 2, 0)
+transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 0, 2, 0)
 top_level = true
 collision_mask = 2
 shape = SubResource("SphereShape3D_h4iuc")
@@ -61,13 +62,9 @@ script = ExtResource("2_h4iuc")
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraRig/Camera3D" unique_id=1768894938]
-target_position = Vector3(0, 0, -20)
+target_position = Vector3(0, 0, -100)
 collision_mask = 4
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraRig/Camera3D/RayCast3D" unique_id=1029826860]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -10)
-visible = false
-mesh = SubResource("SphereMesh_cvnsp")
+collide_with_areas = true
 
 [node name="Timer" type="Timer" parent="CameraRig/Camera3D/RayCast3D" unique_id=1855314832]
 wait_time = 0.2
@@ -81,13 +78,20 @@ parameters/movement/current_index = 0
 parameters/TimeScale/scale = 1.0
 
 [node name="footsteps" type="AudioStreamPlayer3D" parent="." unique_id=1200280726]
+stream = ExtResource("3_vgqql")
+bus = &"SoundFx"
+parameters/looping = true
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1716844817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3048403, -0.06600571)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1209018433]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03564453, 0.6732178, -0.026809692)
-size = Vector3(0.7138672, 1.4387207, 0.66311646)
-
 [node name="ProjectileLauncher" parent="." unique_id=1136157717 instance=ExtResource("3_6t5aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1902325264]
+
+[node name="MC_OK" parent="." unique_id=741727302 instance=ExtResource("4_vgqql")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CameraOffset" type="Node3D" parent="." unique_id=864035995]
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 1.4999999, 0, -1.4210855e-14)

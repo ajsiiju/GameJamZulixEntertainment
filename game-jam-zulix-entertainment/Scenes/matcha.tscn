@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bcy6tsmeqp5ww"]
+[gd_scene format=3 uid="uid://chcvxkaikma8h"]
 
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_gvhwi"]
-[ext_resource type="Script" uid="uid://chwovpw8x74xq" path="res://Scripts/matcha.gd" id="1_usddh"]
+[ext_resource type="Script" path="res://Scripts/matcha.gd" id="1_usddh"]
 [ext_resource type="Texture2D" uid="uid://n567t1t1x061" path="res://Assets/Characters/Bosses/matcha.png" id="3_bh7yw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bh7yw"]
@@ -50,6 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7109518, 0)
 shape = SubResource("SphereShape3D_2nw8k")
 
 [node name="Area3D2" type="Area3D" parent="StaticBody3D" unique_id=1989139071]
+collision_layer = 0
 script = ExtResource("1_gvhwi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D2" unique_id=531080102]

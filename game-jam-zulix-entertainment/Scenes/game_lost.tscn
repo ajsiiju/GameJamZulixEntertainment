@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cshpm0g0h5e7g"]
+
+[node name="GameLost" type="CanvasLayer" unique_id=1801829098]
+
+[node name="Label" type="Label" parent="." unique_id=95190245]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "game lost
+"

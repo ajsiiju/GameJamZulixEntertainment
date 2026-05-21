@@ -1,6 +1,12 @@
 extends Node3D
 
 @onready var boss_1: Timer = $Boss1
+var player
+var target_health: float = 1000.0
+var visible_health: float = 1000.0
+const MAX_HEALTH: float = 1000.0
+const HEALTH_REGEN_PER_FRAME: float = 0.02
+
 @onready var boss_2: Timer = $Boss2
 @onready var boss_3: Timer = $Boss3
 @onready var boss_4: Timer = $Boss4
@@ -11,6 +17,7 @@ extends Node3D
 
 @onready var boss: TextureRect = $Sprite3D/SubViewport/boss
 @onready var telefon_bg: TextureRect = $Sprite3D/SubViewport/telefonBg
+@onready var hurt_audio: AudioStreamPlayer3D = $HurtAudio
 
 #boss 1 - job apl
 #boss 2 - makłowicz
@@ -153,6 +160,64 @@ func boss_2_start() -> void:
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_idle.png")
 
 func boss_2_stop() -> void:
+	pass
+
+func boss_3_start() -> void:
+	pass
+
+func boss_3_stop() -> void:
+	pass
+
+func boss_4_start() -> void:
+	pass
+
+func boss_4_stop() -> void:
+	pass
+
+func boss_5_start() -> void:
+	pass
+
+func boss_5_stop() -> void:
+	pass
+
+func boss_6_start() -> void:
+	pass
+
+func boss_6_stop() -> void:
+	pass
+
+var current_boss = ""
+
+#kiedy użyje sie stuna sprawdza który boss i zatrzymuje jego timery ataków na 3s i z powrotem wznawia
+#if current_boss == "":
+#pass
+
+func _ready() -> void:
+	boss.texture = load("res://Assets/Characters/Bosses/job_apl.jpg")
+	telefon_bg.texture = load("res://Assets/Characters/Bosses/tel_bg2.png")
+	player = get_tree().get_first_node_in_group("player")
+
+func _process(_delta: float) -> void:
+	visible_
+  
+  = lerp(visible_health, target_health, HEALTH_REGEN_PER_FRAME)
+
+func change_health(health_difference):
+	target_health += health_difference
+	target_health = clamp(target_health, 0.0, MAX_HEALTH)
+	if health_difference < 0.0:
+		hurt_audio.play()
+		player.change_social_points(10)
+	if target_health <= 0.0:
+		get_tree().change_scene_to_file("res://Scenes/game_won.tscn")
+
+func _on_boss_1_timeout() -> void:
+	boss_1_start()
+	boss_2.start()
+	boss_1_stop()
+
+
+func _on_boss_2_timeout() -> void:
 	timer_grass.stop()
 	
 	timer_cat_and_dog.stop()
@@ -595,7 +660,8 @@ func _on_timer_grass_timeout() -> void:
 	await get_tree().create_timer(0.2).timeout
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_idle.png")
 	
-	await get_tree().create_timer(1.2).timeout
+	await get_tree().create_timer(3.0).timeout
+	grass_instance.get_node("GrassDisappear").play()
 	transitionTween.tween_property(grass_instance, "position:y", -10.524, 0.3)
 
 
@@ -670,7 +736,6 @@ func _on_timer_palka_poziom_timeout() -> void:
 
 
 #CHOCOLATE
-@onready var player = get_parent().get_node("player")
 
 func _on_timer_chocolate_timeout() -> void:
 	boss.texture = load("res://Assets/Characters/Bosses/labubu_attack.png")

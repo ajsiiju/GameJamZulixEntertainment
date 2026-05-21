@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://diu5yeotqgjwf"]
+[gd_scene format=3 uid="uid://b8yq0vmjudmv5"]
 
 [ext_resource type="Script" uid="uid://uuagqp4wbyys" path="res://Scripts/cat_dog_follow.gd" id="1_ymri1"]
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="2_xqb1u"]
@@ -16,6 +16,7 @@ script = ExtResource("1_ymri1")
 shape = SubResource("SphereShape3D_ymri1")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=474965874]
+collision_layer = 5
 script = ExtResource("2_xqb1u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=41176144]

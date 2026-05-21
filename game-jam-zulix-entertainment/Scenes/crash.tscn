@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ukiv5yahx4wf"]
+
+[ext_resource type="Texture2D" uid="uid://b3877r7kbinyf" path="res://Assets/misc/malpka/crash.png" id="1_m0212"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1667360848]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1932785613]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m0212")

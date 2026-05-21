@@ -1,19 +1,18 @@
 extends CharacterBody3D
 
 var cat_dog_speed = 11.5
-var health = 20
+var health: float = 20.0
 @onready var player = get_parent().get_node("player")
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
-func _ready() -> void:
-	if health == 0:
-		queue_free()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	velocity = Vector3.ZERO
 	nav_agent.set_target_position(player.global_transform.origin)
 	var next_nav_point = nav_agent.get_next_path_position()
 	velocity = (next_nav_point - global_transform.origin).normalized() * cat_dog_speed
+	if health <= 0.0:
+		queue_free()
 	move_and_slide()
 
 

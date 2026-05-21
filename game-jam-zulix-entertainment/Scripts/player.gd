@@ -11,17 +11,22 @@ var active_gravity_well: Area3D = null
 @onready var raycast: RayCast3D = $CameraRig/Camera3D/RayCast3D
 @onready var test_enemy: CharacterBody3D = $"../test_enemy"
 @onready var timer: Timer = $CameraRig/Camera3D/RayCast3D/Timer
+@onready var audio_player = $footsteps
 #@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
+
+@export var SPECIAL_ATTACK4_DAMAGE: float = -100.0
+@export var SPECIAL_ATTACK3_HEAL: float = 50.0
+@export var SPECIAL_ATTACK4_HEAL: float = 50.0
 
 const DEFAULT_SPEED: float = 12.0
 var speed = DEFAULT_SPEED
 const CROUCH_SPEED: float = 4.0
 const JUMP_VELOCITY := 6
 
-var visible_health: float = 500.0
-var target_health: float = 500.0
+var visible_health: float = 1000.0
+var target_health: float = 1000.0
 const MAX_HEALTH: float = 1000.0
-const HEALTH_REGEN_PER_FRAME: float = 0.02
+const HEALTH_REGEN_PER_FRAME: float = 0.04
 const SPECIAL_ATTACK_IMMUNITY_TIME: float = 4.0
 var immunity = false
 var social_points: int  = 100
@@ -36,7 +41,7 @@ var dash_velocity: Vector3
 signal hotbar_icon_unlocked(number: int)
 signal hotbar_key_pressed(number: int)
 signal set_social_points_ui(points: int)
-
+var points = Callable(self, "change_social_points")
 
 func _ready() -> void:
 	var shop_ui = get_tree().get_first_node_in_group("shop_ui")
@@ -45,10 +50,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	visible_health = lerp(visible_health, target_health, HEALTH_REGEN_PER_FRAME)
-	if Input.is_action_just_pressed("debug_test"):
-		target_health -= 1
-	if (target_health < 1):
-		queue_free()
 
 func _physics_process(delta: float) -> void:
 	#TESTTEST
@@ -71,6 +72,13 @@ func _physics_process(delta: float) -> void:
 	# This ensures you land properly and prevents jump-stacking glitches!
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	elif velocity.length() > 0.1:
+		if not audio_player.playing:
+			audio_player.play()
+		else:
+			audio_player.stream_paused = false
+	else:
+		audio_player.stream_paused = true
 		
 	# #TESTTEST
 
@@ -178,7 +186,7 @@ func unlock_skill(skill_number):
 func change_social_points(points: int):
 	social_points += points
 	set_social_points_ui.emit(social_points)
-		
+
 func activate_skill(skill_number):
 	match skill_number:
 		1:
@@ -196,15 +204,17 @@ func activate_skill(skill_number):
 				)
 			return
 		3:
-			change_health(200)
+			change_health(SPECIAL_ATTACK3_HEAL)
 		4: 
-			change_health(400)
+			change_health(SPECIAL_ATTACK4_HEAL)
 			immunity = true
 			get_tree().create_timer(SPECIAL_ATTACK_IMMUNITY_TIME).timeout.connect(
 				func():
 					immunity = false,
 					CONNECT_ONE_SHOT
 			)
+			var boss = get_tree().get_first_node_in_group("boss")
+			boss.change_health(SPECIAL_ATTACK4_DAMAGE)
 		_:
 			pass
 	change_social_points(-skill_costs[skill_number])
@@ -214,6 +224,8 @@ func change_health(health_difference):
 		return
 	target_health += health_difference
 	target_health = clamp(target_health, 0.0, MAX_HEALTH)
+	if target_health <= 0.0:
+		get_tree().change_scene_to_file("res://Scenes/game_lost.tscn")
 
 func player_immunity(is_immune):
 	if is_immune:
