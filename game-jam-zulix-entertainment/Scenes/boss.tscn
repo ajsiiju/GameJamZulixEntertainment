@@ -460,6 +460,14 @@ script = ExtResource("71_1g202")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.221436, 0)
 shape = SubResource("BoxShape3D_ngxla")
 
+[node name="BossCharacterBody" type="CharacterBody3D" parent="." unique_id=1427534396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+collision_layer = 4
+script = ExtResource("7_qtle2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BossCharacterBody" unique_id=241968554]
+shape = SubResource("BoxShape3D_mh6p8")
+
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]
 [connection signal="timeout" from="TimerPalkaPion" to="." method="_on_timer_palka_pion_timeout"]
