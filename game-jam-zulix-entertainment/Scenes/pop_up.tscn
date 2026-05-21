@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dxbb5a0lmdwj7" path="res://Assets/Characters/Bosses/job_apl_pop_up.jpg" id="1_tv3en"]
 
-[node name="PopUp" type="CanvasLayer" unique_id=1387776888]
+[node name="PopUp" type="Node2D" unique_id=1927800362]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1388443518]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1847956627]
 offset_right = 431.0
 offset_bottom = 431.0
 texture = ExtResource("1_tv3en")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="." unique_id=1443780736]
+[node name="Label" type="Label" parent="." unique_id=752468608]
 offset_left = 353.0
 offset_top = 20.0
 offset_right = 399.0

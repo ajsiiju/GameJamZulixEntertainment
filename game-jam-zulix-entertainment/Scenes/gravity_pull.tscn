@@ -56,7 +56,7 @@ linear_damp_space_override = 1
 script = ExtResource("1_r8e3i")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=143218601]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 13.301726, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 12.70065, -0.9384489)
 billboard = 1
 texture = SubResource("ViewportTexture_nfcdc")
 

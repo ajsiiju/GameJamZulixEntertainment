@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://kjnxmx1tj0he" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cfmqt77c8jam7" path="res://Scenes/boss.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cisywsx4gwr26" path="res://Scenes/ui.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dja81d0wnq25s" path="res://Assets/Enviro/arena próba.glb" id="6_6bp64"]
 [ext_resource type="ArrayMesh" uid="uid://cqm4hmi1pbbmq" path="res://Assets/Enviro/arena.obj" id="6_21xkr"]
 [ext_resource type="AudioStream" uid="uid://jyvhpfvshw6u" path="res://Audio/FightBossRotten.mp3" id="7_6bp64"]
 
@@ -67,11 +68,15 @@ height = 6.8393555
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="arena" unique_id=12664993]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -13.857, -3.676, -4.438)
+visible = false
 mesh = ExtResource("6_21xkr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="arena" unique_id=718491124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6358042, -1.4442136, -2.830307)
 shape = SubResource("CylinderShape3D_21xkr")
+
+[node name="arena próba" parent="arena" unique_id=1314619428 instance=ExtResource("6_6bp64")]
+transform = Transform3D(41, 0, 0, 0, 41, 0, 0, 0, 41, -55.958, -165.684, -122.39)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2000100279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, 120.90495)

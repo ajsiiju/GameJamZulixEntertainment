@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cvel3i2xju1du"]
 
+[ext_resource type="Script" uid="uid://bn7ehlyc5ywt4" path="res://Scripts/palka_poziom.gd" id="1_qrwc7"]
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_w4w7l"]
 [ext_resource type="PackedScene" uid="uid://dwphmeggnqxvd" path="res://Assets/Characters/Bosses/PRAWIDŁOWA PAŁA SAHURA.glb" id="2_08xkg"]
 
@@ -8,6 +9,7 @@ height = 52.436195
 radius = 0.8129883
 
 [node name="palka_poziom" type="Node3D" unique_id=1710252040]
+script = ExtResource("1_qrwc7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=542565603]
 
@@ -21,4 +23,8 @@ shape = SubResource("CylinderShape3D_qrwc7")
 [node name="PRAWIDŁOWA PAŁA SAHURA" parent="StaticBody3D" unique_id=472002880 instance=ExtResource("2_08xkg")]
 transform = Transform3D(19.999512, -0.2443441, 0, 0.1396252, 34.999146, 0, 0, 0, 20, 0.095332146, -1.0890275, 0.054301262)
 
+[node name="Timer" type="Timer" parent="." unique_id=1448841295]
+wait_time = 2.5
+
 [connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_palka_poziom"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://exdeun6lr6xv" path="res://Audio/koperek wraca do ziemi.mp3" id="5_y1qba"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4j8v"]
-size = Vector3(9.02124, 7.983408, 9.241943)
+size = Vector3(27.210938, 8.541509, 26.228516)
 
 [node name="grass" type="Node3D" unique_id=1613832033]
 script = ExtResource("1_qm417")
@@ -19,7 +19,7 @@ collision_layer = 0
 script = ExtResource("2_on02d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1161400301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.027876, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9827843, 3.7488256, 0.1842699)
 shape = SubResource("BoxShape3D_p4j8v")
 
 [node name="ziolo_dobre2" parent="." unique_id=5182033 instance=ExtResource("2_qm417")]
@@ -29,6 +29,29 @@ wait_time = 3.6
 one_shot = true
 autostart = true
 
+[node name="ziolo_dobre3" parent="." unique_id=1467353760 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.226395, 0, 0)
+
+[node name="ziolo_dobre4" parent="." unique_id=1706784990 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.226395, 0, -9.029697)
+
+[node name="ziolo_dobre5" parent="." unique_id=1926359608 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10640144, 0, -9.029697)
+
+[node name="ziolo_dobre6" parent="." unique_id=844501115 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.600523, 0, -9.029697)
+
+[node name="ziolo_dobre7" parent="." unique_id=1066133851 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.600523, 0, 0.40633488)
+
+[node name="ziolo_dobre8" parent="." unique_id=1603417267 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.600523, 0, 8.803952)
+
+[node name="ziolo_dobre9" parent="." unique_id=1028573142 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061250687, 0, 8.803952)
+
+[node name="ziolo_dobre10" parent="." unique_id=2000771469 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.865202, 0, 8.803952)
 [node name="GrassAppear" type="AudioStreamPlayer3D" parent="." unique_id=298761593]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6938992, 0)
 stream = ExtResource("4_8gyqa")

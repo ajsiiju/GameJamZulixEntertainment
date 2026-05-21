@@ -190,7 +190,7 @@ func change_social_points(points: int):
 func activate_skill(skill_number):
 	match skill_number:
 		1:
-			pass
+			get_parent().get_node("boss").boss_stun()
 		2:
 			if !dashing:
 				dashing = true

@@ -12,13 +12,13 @@ radius = 0.6362297
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bh7yw"]
 height = 0.6237793
-radius = 3.1621094
+radius = 1.0327148
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nw8k"]
 albedo_color = Color(0.47932786, 0.56493425, 0.22435388, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bh7yw"]
-emission_shape_scale = Vector3(3, 0.2, 3)
+emission_shape_scale = Vector3(6, 0.2, 6)
 emission_shape = 6
 emission_ring_axis = Vector3(0, 1, 0)
 emission_ring_height = 1.0
@@ -43,8 +43,10 @@ collision_mask = 0
 shape = SubResource("SphereShape3D_bh7yw")
 
 [node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=520449925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03352022, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1545594218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7109518, 0)
 shape = SubResource("SphereShape3D_2nw8k")
 
 [node name="Area3D2" type="Area3D" parent="StaticBody3D" unique_id=1989139071]
@@ -57,7 +59,7 @@ shape = SubResource("CylinderShape3D_bh7yw")
 disabled = true
 
 [node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=559839713]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.13689256, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.379188, 0)
 billboard = 1
 texture = ExtResource("3_bh7yw")
 
@@ -65,7 +67,7 @@ texture = ExtResource("3_bh7yw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25805432, 0)
 material_override = SubResource("StandardMaterial3D_2nw8k")
 emitting = false
-amount = 30
+amount = 60
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_bh7yw")
