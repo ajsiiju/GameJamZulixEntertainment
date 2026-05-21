@@ -8,6 +8,8 @@ extends Node3D
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("ground"):
+		await get_tree().create_timer(0.2).timeout
+		$StaticBody3D/Area3D2/CollisionShape3D.shape.radius = 0.6
 		sprite.visible = false
 		collision_damage.disabled = false
 		particles.emitting = true

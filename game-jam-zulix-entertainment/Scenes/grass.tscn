@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cwlc7nwawj6wv" path="res://Scenes/grass_mesh.tscn" id="2_qm417"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4j8v"]
-size = Vector3(9.02124, 7.983408, 9.241943)
+size = Vector3(27.210938, 8.541509, 26.228516)
 
 [node name="grass" type="Node3D" unique_id=1613832033]
 script = ExtResource("1_qm417")
@@ -14,11 +14,10 @@ script = ExtResource("1_qm417")
 
 [node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=510371791]
 collision_layer = 0
-collision_mask = 0
 script = ExtResource("2_on02d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1161400301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.027876, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9827843, 3.7488256, 0.1842699)
 shape = SubResource("BoxShape3D_p4j8v")
 
 [node name="ziolo_dobre2" parent="." unique_id=5182033 instance=ExtResource("2_qm417")]
@@ -27,6 +26,30 @@ shape = SubResource("BoxShape3D_p4j8v")
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="ziolo_dobre3" parent="." unique_id=1467353760 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.226395, 0, 0)
+
+[node name="ziolo_dobre4" parent="." unique_id=1706784990 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.226395, 0, -9.029697)
+
+[node name="ziolo_dobre5" parent="." unique_id=1926359608 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10640144, 0, -9.029697)
+
+[node name="ziolo_dobre6" parent="." unique_id=844501115 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.600523, 0, -9.029697)
+
+[node name="ziolo_dobre7" parent="." unique_id=1066133851 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.600523, 0, 0.40633488)
+
+[node name="ziolo_dobre8" parent="." unique_id=1603417267 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.600523, 0, 8.803952)
+
+[node name="ziolo_dobre9" parent="." unique_id=1028573142 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061250687, 0, 8.803952)
+
+[node name="ziolo_dobre10" parent="." unique_id=2000771469 instance=ExtResource("2_qm417")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.865202, 0, 8.803952)
 
 [connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_grass"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

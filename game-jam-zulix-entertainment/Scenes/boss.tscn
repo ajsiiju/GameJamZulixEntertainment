@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d3u0d8oixsram" path="res://Scripts/boss.gd" id="1_0154r"]
 [ext_resource type="Texture2D" uid="uid://d1j6eax2wyi73" path="res://Assets/Characters/Bosses/tel_bg.png" id="2_mh6p8"]
-[ext_resource type="Texture2D" uid="uid://b3pwrna6pglit" path="res://Assets/Characters/Bosses/labubu_idle.png" id="3_cxrok"]
 [ext_resource type="Texture2D" uid="uid://e4fik46160sn" path="res://Assets/Characters/Bosses/BoberAttack/frame_01.png" id="4_g7cqf"]
 [ext_resource type="Texture2D" uid="uid://qrey3qb4lg7e" path="res://Assets/Characters/Bosses/RobloxBaller/kaltka0000.png" id="4_pfkk2"]
 [ext_resource type="Texture2D" uid="uid://n4f7b6338eyy" path="res://Assets/Characters/Bosses/tel_overlay.png" id="4_qtle2"]
@@ -70,7 +69,6 @@
 [ext_resource type="Texture2D" uid="uid://cwotd6lantjw7" path="res://Assets/Characters/Bosses/Tung/frame16.png" id="43_vj2p4"]
 [ext_resource type="Texture2D" uid="uid://bj7w8y5ras64i" path="res://Assets/Characters/Bosses/Tung/frame17.png" id="44_xw0s2"]
 [ext_resource type="Texture2D" uid="uid://b0ddhg63auin2" path="res://Assets/Characters/Bosses/Tung/frame18.png" id="45_tag0e"]
-[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="71_1g202"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cxrok"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -328,11 +326,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809, -0.60772943, -0.38584
 target_position = Vector3(0, 0, -1)
 
 [node name="TimerWaveBullets" type="Timer" parent="." unique_id=777390409]
-autostart = true
 
 [node name="TimerPopUpWindow" type="Timer" parent="." unique_id=956408659]
-wait_time = 2.0
-autostart = true
+wait_time = 8.0
 
 [node name="TimerPalkaPion" type="Timer" parent="." unique_id=1721766746]
 wait_time = 8.0
@@ -341,24 +337,23 @@ wait_time = 8.0
 wait_time = 2.0
 
 [node name="Boss1" type="Timer" parent="." unique_id=691048150]
-wait_time = 25.0
+wait_time = 5.0
 one_shot = true
-autostart = true
 
 [node name="Boss2" type="Timer" parent="." unique_id=805157149]
-wait_time = 25.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Boss3" type="Timer" parent="." unique_id=1672681574]
-wait_time = 25.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Boss4" type="Timer" parent="." unique_id=1311549345]
-wait_time = 25.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Boss5" type="Timer" parent="." unique_id=2041125505]
-wait_time = 25.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Boss6" type="Timer" parent="." unique_id=307904111]
@@ -366,7 +361,7 @@ wait_time = 75.0
 one_shot = true
 
 [node name="TimerCatAndDog" type="Timer" parent="." unique_id=1877719883]
-wait_time = 2.0
+wait_time = 0.5
 
 [node name="TimerPalkaPoziom" type="Timer" parent="." unique_id=1388753635]
 wait_time = 5.0
@@ -406,14 +401,15 @@ offset_top = 280.88
 offset_right = 1650.46
 offset_bottom = 1979.88
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_cxrok")
 
 [node name="BossAnimSprites" type="AnimatedSprite2D" parent="Sprite3D/SubViewport" unique_id=495400624]
 visible = false
 position = Vector2(286.78, 565.605)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_53dft")
-animation = &"bober_attack"
+animation = &"roblox_baller"
+frame = 16
+frame_progress = 1.0
 
 [node name="telefonOverlay" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=1418966732]
 offset_right = 974.0
@@ -454,11 +450,14 @@ wait_time = 15.0
 wait_time = 0.1
 
 [node name="Area3D" type="Area3D" parent="." unique_id=975148772]
-script = ExtResource("71_1g202")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1906939153]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.221436, 0)
 shape = SubResource("BoxShape3D_ngxla")
+
+[node name="TimerBoss" type="Timer" parent="." unique_id=86030219]
+wait_time = 11.0
+one_shot = true
 
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]
@@ -481,4 +480,4 @@ shape = SubResource("BoxShape3D_ngxla")
 [connection signal="timeout" from="TimerRobloxBalls" to="." method="_on_timer_roblox_balls_timeout"]
 [connection signal="timeout" from="TimerGravityPull" to="." method="_on_timer_gravity_pull_timeout"]
 [connection signal="timeout" from="TimerBoberBullets" to="." method="_on_timer_bober_bullets_timeout"]
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered_roblox_bullet"]
+[connection signal="timeout" from="TimerBoss" to="." method="_on_timer_boss_timeout"]
