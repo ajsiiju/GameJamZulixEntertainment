@@ -20,8 +20,8 @@ enum Borders {
 	MAX_Z
 }
 
-func _ready():
-	shop_timer = create_shop_timer()
+#func _ready():
+	#shop_timer = create_shop_timer()
 
 func _process(_delta: float) -> void:
 	pass

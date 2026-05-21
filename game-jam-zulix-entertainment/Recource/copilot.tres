@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://gcr84rivcchp"]
+
+[ext_resource type="Script" uid="uid://ka4q0j2fcqmy" path="res://Scripts/job_apl_recource.gd" id="1_lufwv"]
+[ext_resource type="Texture2D" uid="uid://b5buthn62v6n3" path="res://Assets/Characters/Bosses/job_apl_bullet2.png" id="2_654ab"]
+
+[resource]
+script = ExtResource("1_lufwv")
+name = "copilot"
+texture = ExtResource("2_654ab")

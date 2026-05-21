@@ -1,27 +1,16 @@
 [gd_scene format=3 uid="uid://ct7mkg1ychhbp"]
 
+[ext_resource type="Script" uid="uid://c5bv3p13lfj58" path="res://Scripts/grass.gd" id="1_qm417"]
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="2_on02d"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4j8v"]
-albedo_color = Color(0.3340921, 0.5026071, 0.23859352, 1)
+[ext_resource type="PackedScene" uid="uid://cwlc7nwawj6wv" path="res://Scenes/grass_mesh.tscn" id="2_qm417"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4j8v"]
-size = Vector3(2.967041, 0.6427345, 3.0739746)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewrq5"]
-albedo_color = Color(0.33333334, 0.5019608, 0.23921569, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_on02d"]
-size = Vector3(3.0136719, 0.2984619, 3.0859375)
+size = Vector3(9.02124, 7.983408, 9.241943)
 
 [node name="grass" type="Node3D" unique_id=1613832033]
+script = ExtResource("1_qm417")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=522250255]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=141390770]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34716797, 0)
-size = Vector3(3.0761719, 0.30566406, 3.1445313)
-material = SubResource("StandardMaterial3D_p4j8v")
 
 [node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=510371791]
 collision_layer = 0
@@ -29,119 +18,15 @@ collision_mask = 0
 script = ExtResource("2_on02d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1161400301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17863274, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.027876, 0)
 shape = SubResource("BoxShape3D_p4j8v")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="StaticBody3D" unique_id=533955144]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0715332, 0)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
+[node name="ziolo_dobre2" parent="." unique_id=5182033 instance=ExtResource("2_qm417")]
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="StaticBody3D" unique_id=1464155317]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62774664, -0.1430664, 0)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="StaticBody3D" unique_id=843896035]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83069724, -0.022944659, 0)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="StaticBody3D" unique_id=1177041765]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.83069724, -0.07484689, -1.1048195)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="StaticBody3D" unique_id=348341677]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34930182, -0.066336244, -1.1048195)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="StaticBody3D" unique_id=168135421]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21956891, -0.075877875, -1.1048195)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="StaticBody3D" unique_id=849050603]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7180469, -0.05533722, -1.1048195)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="StaticBody3D" unique_id=1944185185]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7180469, -0.05533722, -0.5733261)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="StaticBody3D" unique_id=866812065]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7180469, -0.05533722, 0.7873471)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="StaticBody3D" unique_id=1523771774]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14452052, -0.05533722, 0.7873471)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="StaticBody3D" unique_id=1037894701]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7534318, -0.05533722, 0.7873471)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="StaticBody3D" unique_id=900446235]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7534318, -0.05533722, 1.3158591)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="StaticBody3D" unique_id=194478082]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2953658, -0.05533722, 1.3158591)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D14" type="CSGCylinder3D" parent="StaticBody3D" unique_id=1778894760]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2576077, -0.05533722, 1.3158591)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D15" type="CSGCylinder3D" parent="StaticBody3D" unique_id=624868507]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2576077, -0.05533722, 0.50772643)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D16" type="CSGCylinder3D" parent="StaticBody3D" unique_id=2088135414]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2576077, -0.05533722, -0.39505368)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D17" type="CSGCylinder3D" parent="StaticBody3D" unique_id=1380485943]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2576077, -0.05533722, -1.2903333)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CSGCylinder3D18" type="CSGCylinder3D" parent="StaticBody3D" unique_id=1288576245]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2576077, -0.05533722, -1.2903333)
-radius = 0.068847656
-height = 0.4584961
-material = SubResource("StandardMaterial3D_ewrq5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=420979201]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.347, 0)
-shape = SubResource("BoxShape3D_on02d")
+[node name="Timer" type="Timer" parent="." unique_id=244091990]
+wait_time = 2.0
+one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_grass"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

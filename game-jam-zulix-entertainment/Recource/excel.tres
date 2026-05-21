@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://djwfxa6nsxf82"]
+
+[ext_resource type="Script" uid="uid://ka4q0j2fcqmy" path="res://Scripts/job_apl_recource.gd" id="1_ekelu"]
+[ext_resource type="Texture2D" uid="uid://bqevr1h478tcc" path="res://Assets/Characters/Bosses/job_apl_bullet1.png" id="2_2qpyq"]
+
+[resource]
+script = ExtResource("1_ekelu")
+name = "excel"
+texture = ExtResource("2_2qpyq")

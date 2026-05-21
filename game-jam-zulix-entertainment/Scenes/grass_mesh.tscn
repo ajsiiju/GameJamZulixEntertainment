@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cwlc7nwawj6wv"]
+
+[ext_resource type="PackedScene" uid="uid://b0cggdvnl6w6p" path="res://Assets/Characters/Bosses/ziolo_dobre.glb" id="1_2hend"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hend"]
+albedo_color = Color(0.30371636, 0.38212538, 0.18600738, 1)
+
+[node name="ziolo_dobre" unique_id=5182033 instance=ExtResource("1_2hend")]
+
+[node name="Plane_011" parent="." index="0" unique_id=744579045]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_2hend")
