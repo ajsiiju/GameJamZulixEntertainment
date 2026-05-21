@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://dwp06c7ifw8kh"]
+[gd_scene format=3 uid="uid://7mcjqg03mw7e"]
 
 [ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_8okam"]
 [ext_resource type="Script" uid="uid://deopb4usoi0c5" path="res://Scripts/roblox_bullet.gd" id="1_djuwi"]
-[ext_resource type="Texture2D" uid="uid://d2toyym3ps58x" path="res://Assets/test.png" id="2_djuwi"]
+[ext_resource type="Texture2D" uid="uid://bcqc0wedxckuh" path="res://Assets/Characters/Bosses/roblox_bullet.png" id="3_djuwi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_es40b"]
 radius = 0.5225194
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ky3x6"]
-radius = 0.66306883
+radius = 0.92635685
 
 [node name="RobloxBullet" type="Node3D" unique_id=2109421777]
 script = ExtResource("1_djuwi")
@@ -27,9 +27,9 @@ script = ExtResource("1_8okam")
 shape = SubResource("SphereShape3D_ky3x6")
 
 [node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=274436986]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
 billboard = 1
-texture = ExtResource("2_djuwi")
+texture = ExtResource("3_djuwi")
 
 [node name="Timer" type="Timer" parent="." unique_id=759627473]
 wait_time = 5.0

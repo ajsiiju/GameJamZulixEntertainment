@@ -1,6 +1,27 @@
-[gd_scene format=3 uid="uid://crmvhy0hsux21"]
+[gd_scene format=3 uid="uid://cpmp2pmwm1jt"]
 
 [ext_resource type="Script" uid="uid://cbxw71t2fyj4s" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://ckqldxgb2qfl" path="res://Assets/ui/menu/menu_bg.png" id="2_opfnp"]
+[ext_resource type="Texture2D" uid="uid://kkvpskmbbn1l" path="res://Assets/ui/menu/menu_button1.png" id="3_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://etphibk5hb8h" path="res://Assets/ui/menu/menu_button1_pressed.png" id="4_t1dhk"]
+[ext_resource type="FontFile" uid="uid://b100wnggx5fl2" path="res://Assets/fonts/LoveYaLikeASister-Regular.ttf" id="4_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://uijyxlruq6p3" path="res://Assets/ui/menu/menu_button1_hovered.png" id="5_5egv6"]
+[ext_resource type="Texture2D" uid="uid://dk0hp0fn6cp1f" path="res://Assets/ui/menu/menu_button2.png" id="5_trj04"]
+[ext_resource type="BitMap" uid="uid://cwcrtj144d1cj" path="res://Assets/ui/menu/menu_button1_mask.png" id="6_5egv6"]
+[ext_resource type="Texture2D" uid="uid://bopj7xowjpfw" path="res://Assets/ui/menu/menu_button3.png" id="6_16hvj"]
+[ext_resource type="Texture2D" uid="uid://cqxshd67ms5wt" path="res://Assets/ui/menu/menu_button2_pressed.png" id="8_vtepg"]
+[ext_resource type="Texture2D" uid="uid://drlw08564bh3u" path="res://Assets/ui/menu/menu_button2_hovered.png" id="9_8dnnj"]
+[ext_resource type="BitMap" uid="uid://cn1ng0h1n6rtb" path="res://Assets/ui/menu/menu_button2_mask.png" id="11_8dnnj"]
+[ext_resource type="Texture2D" uid="uid://bqqmlh4wq0k44" path="res://Assets/ui/menu/menu_button3_pressed.png" id="11_m3bi6"]
+[ext_resource type="Texture2D" uid="uid://cswsye0e7cxqm" path="res://Assets/ui/menu/menu_button3_hovered.png" id="12_wyh8j"]
+[ext_resource type="BitMap" uid="uid://bwbictlkpvafg" path="res://Assets/ui/menu/menu_button3_mask.png" id="15_m3bi6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vr1f0"]
+font = ExtResource("4_yhxw7")
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.18039216)
 
 [node name="MainMenu" type="Control" unique_id=319089423]
 layout_mode = 3
@@ -11,38 +32,108 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1469138535]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=434555658]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -164.5
-offset_bottom = 291.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_opfnp")
+expand_mode = 1
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=424995297]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 72
-text = "GRAĆ"
+[node name="VBoxContainer1" type="VBoxContainer" parent="." unique_id=897863667]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.13700001
+anchor_right = 1.0
+anchor_bottom = 0.97400004
+offset_left = -720.0
+offset_top = 0.039993286
+offset_right = -77.0
+offset_bottom = 0.079956055
+grow_horizontal = 0
+grow_vertical = 2
 
-[node name="Authors" type="Button" parent="VBoxContainer" unique_id=1353330827]
+[node name="Play" type="TextureButton" parent="VBoxContainer1" unique_id=839872897]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 72
+size_flags_vertical = 3
+texture_normal = ExtResource("3_cp0ys")
+texture_pressed = ExtResource("4_t1dhk")
+texture_hover = ExtResource("5_5egv6")
+texture_click_mask = ExtResource("6_5egv6")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer1/Play" unique_id=1588902342]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25500003
+anchor_top = 0.19100001
+anchor_right = 0.57500005
+anchor_bottom = 0.492
+offset_left = -59.96501
+offset_top = 34.082005
+offset_right = 56.274963
+offset_bottom = 34.083008
+grow_horizontal = 2
+grow_vertical = 2
+text = "ZBIERZ AURE"
+label_settings = SubResource("LabelSettings_vr1f0")
+
+[node name="Authors" type="TextureButton" parent="VBoxContainer1" unique_id=795315548]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("5_trj04")
+texture_pressed = ExtResource("8_vtepg")
+texture_hover = ExtResource("9_8dnnj")
+texture_click_mask = ExtResource("11_8dnnj")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer1/Authors" unique_id=1506570359]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45900002
+anchor_top = 0.120000005
+anchor_right = 0.81200004
+anchor_bottom = 0.40800002
+offset_left = -0.13702393
+offset_top = 40.119984
+offset_right = -0.11602783
+offset_bottom = 46.00798
+grow_horizontal = 2
+grow_vertical = 2
 text = "AUTORZY"
+label_settings = SubResource("LabelSettings_vr1f0")
 
-[node name="Exit" type="Button" parent="VBoxContainer" unique_id=452080501]
+[node name="Exit" type="TextureButton" parent="VBoxContainer1" unique_id=685479931]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 72
-text = "WYJŚCIE"
+size_flags_vertical = 3
+texture_normal = ExtResource("6_16hvj")
+texture_pressed = ExtResource("11_m3bi6")
+texture_hover = ExtResource("12_wyh8j")
+texture_click_mask = ExtResource("15_m3bi6")
+ignore_texture_size = true
+stretch_mode = 4
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Authors" to="." method="_on_authors_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="Label" type="Label" parent="VBoxContainer1/Exit" unique_id=234028757]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25500003
+anchor_top = 0.19100001
+anchor_right = 0.57500005
+anchor_bottom = 0.492
+offset_left = 0.034988403
+offset_top = -0.109004974
+offset_right = 0.27496338
+offset_bottom = -0.10800171
+grow_horizontal = 2
+grow_vertical = 2
+text = "WYJŚCIE"
+label_settings = SubResource("LabelSettings_vr1f0")
+
+[connection signal="pressed" from="VBoxContainer1/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer1/Authors" to="." method="_on_authors_pressed"]
+[connection signal="pressed" from="VBoxContainer1/Exit" to="." method="_on_exit_pressed"]

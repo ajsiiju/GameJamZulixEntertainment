@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://kjnxmx1tj0he" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cfmqt77c8jam7" path="res://Scenes/boss.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cisywsx4gwr26" path="res://Scenes/ui.tscn" id="3_8gbba"]
+[ext_resource type="ArrayMesh" uid="uid://cqm4hmi1pbbmq" path="res://Assets/Enviro/arena.obj" id="6_21xkr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,8 +20,12 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jjvhh"]
-vertices = PackedVector3Array(-24.218384, -0.13964844, -22.166016, -24.218384, -0.13964844, 18.083984, 27.781616, -0.13964844, 18.083984, 27.781616, -0.13964844, -22.166016)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-31.968262, -0.4501953, -0.46826172, -31.968262, -0.4501953, 0.5317383, -22.718262, -0.4501953, 22.781738, 22.781738, -0.4501953, -22.718262, 0.5317383, -0.4501953, -31.968262, -0.46826172, -0.4501953, -31.968262, -22.718262, -0.4501953, -22.718262, -0.21826172, -0.4501953, 32.03174, 22.781738, -0.4501953, 22.781738, 32.03174, -0.4501953, 0.28173828)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(0, 6, 5), PackedInt32Array(9, 8, 7), PackedInt32Array(2, 0, 7), PackedInt32Array(7, 0, 5), PackedInt32Array(7, 5, 3), PackedInt32Array(7, 3, 9)]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_21xkr"]
+height = 3.3098145
+radius = 34.32617
 
 [node name="Node3D" type="Node3D" unique_id=2040138282 groups=["main"]]
 script = ExtResource("1_bo1nx")
@@ -33,23 +38,42 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="platform" type="CSGBox3D" parent="." unique_id=1747437879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, -2.0630493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, 153.86497)
+visible = false
 use_collision = true
 collision_mask = 0
 size = Vector3(53.09552, 1, 41.205933)
 
 [node name="player" parent="." unique_id=1849972682 instance=ExtResource("1_jjgbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, 0, -2.0630493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45035172, 0, -26.627674)
 
 [node name="CanvasLayerUI" parent="." unique_id=1443381599 instance=ExtResource("3_8gbba")]
+layer = -1
 
 [node name="boss" parent="." unique_id=897832154 instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3185892, 16.816624)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=213678960]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=213678960 groups=["ground"]]
 navigation_mesh = SubResource("NavigationMesh_jjvhh")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=2000100279 groups=["ground"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, -2.0630493)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D" unique_id=1451136005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.2805176, 0)
+visible = false
+radius = 32.46826
+height = 6.8393555
+
+[node name="arena" type="StaticBody3D" parent="." unique_id=1272176161 groups=["ground"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="arena" unique_id=12664993]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -13.857, -3.676, -4.438)
+mesh = ExtResource("6_21xkr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arena" unique_id=718491124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6358042, -1.4442136, -2.830307)
+shape = SubResource("CylinderShape3D_21xkr")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2000100279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, 120.90495)
+visible = false
 use_collision = true
 size = Vector3(53.09552, 1, 41.205933)

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://qb1n5aqe26ww"]
+
+[ext_resource type="Script" uid="uid://kdym0prho4q3" path="res://Scripts/damage.gd" id="1_nsn8q"]
+[ext_resource type="Script" uid="uid://c4keq30ixic6e" path="res://Scripts/bober_bullets.gd" id="1_xc7d2"]
+[ext_resource type="Texture2D" uid="uid://bt1h2gp86en4s" path="res://Assets/Characters/Bosses/BoberTeeth/frame_2.png" id="2_xc7d2"]
+[ext_resource type="Texture2D" uid="uid://cdlvyfvpvksff" path="res://Assets/Characters/Bosses/BoberTeeth/frame_1.png" id="3_etpjk"]
+[ext_resource type="Texture2D" uid="uid://c5tyahghwd3g3" path="res://Assets/Characters/Bosses/BoberTeeth/frame_3.png" id="4_0hduo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7o88u"]
+radius = 0.5225194
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7mdxw"]
+radius = 0.92635685
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nsn8q"]
+viewport_path = NodePath("StaticBody3D/Sprite3D/SubViewport")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xc7d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_etpjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xc7d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0hduo")
+}],
+"loop": true,
+"name": &"bober_teeth",
+"speed": 5.0
+}]
+
+[node name="bober_bullets" type="Node3D" unique_id=1684465782]
+script = ExtResource("1_xc7d2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=660379935]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1924196604]
+shape = SubResource("SphereShape3D_7o88u")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=814641880]
+script = ExtResource("1_nsn8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=335951382]
+shape = SubResource("SphereShape3D_7mdxw")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=737158048]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_nsn8q")
+
+[node name="SubViewport" type="SubViewport" parent="StaticBody3D/Sprite3D" unique_id=1839130133]
+transparent_bg = true
+size = Vector2i(844, 1913)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody3D/Sprite3D/SubViewport" unique_id=13772129]
+position = Vector2(400, 1000)
+sprite_frames = SubResource("SpriteFrames_xc7d2")
+animation = &"bober_teeth"
+autoplay = "bober_teeth"
+frame_progress = 0.45113757
+
+[node name="Timer" type="Timer" parent="." unique_id=1196552783]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_roblox_bullet"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CatDogResource" format=3 uid="uid://ckgaab0yu2lrs"]
+
+[ext_resource type="Script" uid="uid://b7qtxj6cvp1yb" path="res://Scripts/cat_dog_recource.gd" id="1_31hi8"]
+[ext_resource type="Texture2D" uid="uid://bwxo37epr0h6p" path="res://Assets/Characters/Bosses/dog.png" id="2_7peyc"]
+
+[resource]
+script = ExtResource("1_31hi8")
+name = "dog"
+texture = ExtResource("2_7peyc")

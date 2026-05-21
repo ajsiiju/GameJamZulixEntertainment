@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="JobAplResource" format=3 uid="uid://vyxjhktdgrvv"]
+
+[ext_resource type="Script" uid="uid://ka4q0j2fcqmy" path="res://Scripts/job_apl_recource.gd" id="1_k87j5"]
+[ext_resource type="Texture2D" uid="uid://qy80vfkr5w08" path="res://Assets/Characters/Bosses/job_apl_bullet3.png" id="2_cg5k1"]
+
+[resource]
+script = ExtResource("1_k87j5")
+name = "cortisol"
+texture = ExtResource("2_cg5k1")
