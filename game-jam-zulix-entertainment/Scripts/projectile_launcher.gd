@@ -21,4 +21,5 @@ func _physics_process(delta: float) -> void:
 			timer.start(0.2)
 			var projectile = PROJECTILE.instantiate()
 			add_child(projectile)
+			$"../klapek_sound".play()
 			projectile.global_transform = global_transform

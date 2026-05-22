@@ -23,17 +23,17 @@ var speed = DEFAULT_SPEED
 const CROUCH_SPEED: float = 4.0
 const JUMP_VELOCITY := 6
 
-var visible_health: float = 1000.0
-var target_health: float = 1000.0
-const MAX_HEALTH: float = 1000.0
+var visible_health: float = 4000.0
+var target_health: float = 4000.0
+const MAX_HEALTH: float = 4000.0
 const HEALTH_REGEN_PER_FRAME: float = 0.04
 const SPECIAL_ATTACK_IMMUNITY_TIME: float = 4.0
 var immunity = false
-var social_points: int  = 100
+var social_points: int  = 0
 # skill number 0 is nothing
 var unlocked_skills: Array[bool] = [true]
-var skill_unlock_costs: Array[int] = [0,5,5,5,5]
-var skill_costs: Array[int] = [0,0,0,0,0]
+var skill_unlock_costs: Array[int] = [0,1000,1000,1500,1500]
+var skill_costs: Array[int] = [0,500,500,1000,1000]
 var dashing = false
 var DASH_SPEED: float = 40.0
 var dash_velocity: Vector3
@@ -224,6 +224,7 @@ func change_health(health_difference):
 		return
 	target_health += health_difference
 	target_health = clamp(target_health, 0.0, MAX_HEALTH)
+	$damage_sound.play()
 	if target_health <= 0.0:
 		get_tree().change_scene_to_file("res://Scenes/game_lost.tscn")
 

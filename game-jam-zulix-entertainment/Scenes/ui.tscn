@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5dpqlemnvrh2" path="res://Assets/ui/hud/hotbar.png" id="2_d42i4"]
 [ext_resource type="Script" uid="uid://c72pfcppjm4v4" path="res://Scripts/hotbar.gd" id="2_qdvrb"]
 [ext_resource type="Texture2D" uid="uid://r64eeej5bvbi" path="res://Assets/ui/hud/muka.png" id="3_lkjmk"]
-[ext_resource type="Script" uid="uid://bygsvhhkwdkk5" path="res://Scripts/ad_label.gd" id="3_nf4gj"]
+[ext_resource type="Script" path="res://Scripts/ad_label.gd" id="3_nf4gj"]
 [ext_resource type="Texture2D" uid="uid://dbc8ivykckyaa" path="res://Assets/ui/hud/social_points_bg.png" id="4_8fs27"]
 [ext_resource type="Script" uid="uid://6t88454bi40b" path="res://Scripts/shop_ui.gd" id="4_2246s"]
 [ext_resource type="Texture2D" uid="uid://d1xhioe8mdnw8" path="res://Assets/ui/hud/dab.png" id="4_d42i4"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cfg17ewa54ypx" path="res://Assets/ui/hud/player_hp_bar.png" id="11_fcexb"]
 [ext_resource type="Texture2D" uid="uid://drrsps327ojr5" path="res://Assets/ui/hud/boss_hp_bar.png" id="11_fe2sg"]
 [ext_resource type="Script" uid="uid://do2ppahxs8qcx" path="res://Scripts/boss_health_bar.gd" id="11_jd57c"]
-[ext_resource type="Script" uid="uid://bpll4g7c03ujd" path="res://Scripts/health_bar.gd" id="11_v4f2e"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="11_v4f2e"]
 [ext_resource type="Texture2D" uid="uid://ctvtah4a6cqce" path="res://Assets/ui/shop_ui/exit_button.png" id="12_d42i4"]
 [ext_resource type="Texture2D" uid="uid://dueiliaaggxta" path="res://Assets/ui/hud/crosshair.png" id="13_0o3wc"]
 [ext_resource type="Texture2D" uid="uid://dbw2ih0m2kydo" path="res://Assets/ui/shop_ui/buy_button_hovered.png" id="17_85lyl"]
@@ -231,7 +231,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_v4f2e")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pmm21")
-max_value = 1000.0
+max_value = 4000.0
 value = 47.0
 show_percentage = false
 script = ExtResource("11_v4f2e")
@@ -264,7 +264,7 @@ offset_bottom = 109.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_v4f2e")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nbcfj")
-max_value = 1000.0
+max_value = 8000.0
 value = 47.0
 show_percentage = false
 script = ExtResource("11_jd57c")

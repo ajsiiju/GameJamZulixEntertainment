@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="CatDogResource" format=3 uid="uid://dl0ccsy5svcls"]
 
 [ext_resource type="Script" uid="uid://b7qtxj6cvp1yb" path="res://Scripts/cat_dog_recource.gd" id="1_4bppc"]
+[ext_resource type="AudioStream" uid="uid://detpvvsnniug8" path="res://Audio/meow.mp3" id="2_lal3r"]
 [ext_resource type="Texture2D" uid="uid://qn7d5hmqe7ac" path="res://Assets/Characters/Bosses/cat.png" id="2_ygeyk"]
 
 [resource]
 script = ExtResource("1_4bppc")
 name = "cat"
 texture = ExtResource("2_ygeyk")
+sound = ExtResource("2_lal3r")

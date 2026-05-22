@@ -69,6 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://cwotd6lantjw7" path="res://Assets/Characters/Bosses/Tung/frame16.png" id="43_vj2p4"]
 [ext_resource type="Texture2D" uid="uid://bj7w8y5ras64i" path="res://Assets/Characters/Bosses/Tung/frame17.png" id="44_xw0s2"]
 [ext_resource type="Texture2D" uid="uid://b0ddhg63auin2" path="res://Assets/Characters/Bosses/Tung/frame18.png" id="45_tag0e"]
+[ext_resource type="AudioStream" uid="uid://dde2klf02mbu3" path="res://Audio/gdy boss obrywa.mp3" id="70_g7cqf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cxrok"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -314,7 +315,7 @@ size = Vector3(11.957031, 22.355957, 3.8769531)
 script = ExtResource("1_0154r")
 
 [node name="RayWave" type="RayCast3D" parent="." unique_id=1438902319]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.321344, -0.097, -0.386)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.321, -0.869, -0.386)
 target_position = Vector3(0, 0, -1)
 
 [node name="RayRobloxBullet" type="RayCast3D" parent="." unique_id=1363398527]
@@ -361,7 +362,7 @@ wait_time = 75.0
 one_shot = true
 
 [node name="TimerCatAndDog" type="Timer" parent="." unique_id=1877719883]
-wait_time = 0.5
+wait_time = 2.5
 
 [node name="TimerPalkaPoziom" type="Timer" parent="." unique_id=1388753635]
 wait_time = 5.0
@@ -444,7 +445,7 @@ wait_time = 0.2
 wait_time = 10.0
 
 [node name="TimerGravityPull" type="Timer" parent="." unique_id=336883801]
-wait_time = 15.0
+wait_time = 10.0
 
 [node name="TimerBoberBullets" type="Timer" parent="." unique_id=750786509]
 wait_time = 0.1
@@ -458,10 +459,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.221436, 0)
 shape = SubResource("BoxShape3D_ngxla")
 
 [node name="TimerBoss" type="Timer" parent="." unique_id=86030219]
-wait_time = 11.0
+wait_time = 60.0
 one_shot = true
+
 [node name="HurtAudio" type="AudioStreamPlayer3D" parent="." unique_id=1449879315]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.769934, 0)
+stream = ExtResource("70_g7cqf")
+unit_size = 40.0
+max_polyphony = 4
+bus = &"SoundFx"
+
+[node name="BossAudio" type="AudioStreamPlayer3D" parent="." unique_id=1072373828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.539867, 0)
+volume_db = 3.0
+unit_size = 100.0
+max_db = 4.0
 max_polyphony = 4
 bus = &"SoundFx"
 

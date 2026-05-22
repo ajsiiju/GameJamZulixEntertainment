@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bhmn883uquge8" path="res://Scenes/projectile_launcher.tscn" id="3_6t5aa"]
 [ext_resource type="AudioStream" uid="uid://ulvl6eu5kbmn" path="res://Audio/footsteps-woman_WYCIĘTE.mp3" id="3_vgqql"]
 [ext_resource type="PackedScene" uid="uid://ccn1bdk5208jf" path="res://Assets/Characters/MC_OK.fbx" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://dmgrd5bwc8mvt" path="res://Audio/proper klapek shot.mp3" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://cmsah13r0nn5r" path="res://Audio/oof damage.mp3" id="7_3smsa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5ogh5"]
 radius = 0.45263672
@@ -94,3 +96,16 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="CameraOffset" type="Node3D" parent="." unique_id=864035995]
 transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 1.4999999, 0, -1.4210855e-14)
+
+[node name="klapek_sound" type="AudioStreamPlayer3D" parent="." unique_id=1256196549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.078271866, 0)
+stream = ExtResource("6_x3wgy")
+volume_db = 0.05
+unit_size = 1.0
+max_db = 0.05
+bus = &"SoundFx"
+
+[node name="damage_sound" type="AudioStreamPlayer" parent="." unique_id=698623601]
+stream = ExtResource("7_3smsa")
+volume_db = 0.1
+bus = &"SoundFx"

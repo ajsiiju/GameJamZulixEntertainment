@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crlvmv4s6eij"
+path="res://.godot/imported/rozbijające się szkło matcha.mp3-78f415dded356aec69b20bc13c4089e2.mp3str"
+
+[deps]
+
+source_file="res://Audio/rozbijające się szkło matcha.mp3"
+dest_files=["res://.godot/imported/rozbijające się szkło matcha.mp3-78f415dded356aec69b20bc13c4089e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
