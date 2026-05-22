@@ -11,6 +11,12 @@ var active_gravity_well: Area3D = null
 @onready var raycast: RayCast3D = $CameraRig/Camera3D/RayCast3D
 @onready var test_enemy: CharacterBody3D = $"../test_enemy"
 @onready var timer: Timer = $CameraRig/Camera3D/RayCast3D/Timer
+<<<<<<< Updated upstream
+=======
+@onready var ability_timer: Timer = $AbilityTimer
+@onready var audio_player = $footsteps
+@onready var player_animation: Node3D = $MC_NLA_ANIMATIONS_OK
+>>>>>>> Stashed changes
 #@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 
 const DEFAULT_SPEED: float = 12.0
@@ -32,6 +38,7 @@ var skill_costs: Array[int] = [0,0,0,0,0]
 var dashing = false
 var DASH_SPEED: float = 40.0
 var dash_velocity: Vector3
+var ability_in_use: bool = false
 
 signal hotbar_icon_unlocked(number: int)
 signal hotbar_key_pressed(number: int)
@@ -129,26 +136,19 @@ func _physics_process(delta: float) -> void:
 	
 	#MOVEMENT ANIMATION
 	var current_speed := velocity.length()
-	if current_speed > 1:
-		#anim_player.play("base/run")
-		anim_tree.set("parameters/movement/transition_request", "run")
-	else:
-		#anim_player.play("base/idle")
-		anim_tree.set("parameters/movement/transition_request", "idle")
-	if Input.mouse_mode == Input.MOUSE_MODE_CONFINED:
-		anim_tree.set("parameters/movement/transition_request", "idle")
+	if ability_in_use == false:
+		if current_speed > 5:
+			#anim_player.play("base/run")
+			player_animation.play_run.call()
+		else:
+			player_animation.play_idle.call()
+		if Input.mouse_mode == Input.MOUSE_MODE_CONFINED:
+			player_animation.play_idle.call()
 	
 	# rotate player model with camera
-	rotation.y = lerp_angle(rotation.y, camera_rig.rotation.y, 0.3)
+	#rotation.y = lerp_angle(rotation.y, camera_rig.rotation.y, 0.3)
 
 func _input(event: InputEvent) -> void:
-	# handle crouching
-	if Input.is_action_just_pressed("crouch"):
-		speed = CROUCH_SPEED
-		anim_tree.set("parameters/movement/transition_request", "crouch")
-	elif Input.is_action_just_released("crouch"):
-		speed = DEFAULT_SPEED
-	
 	for skill_number in range(0, 5):
 		var action_name = "key_" + str(skill_number)
 		if event.is_action(action_name) \
@@ -157,7 +157,7 @@ func _input(event: InputEvent) -> void:
 		and (skill_costs[skill_number] <= social_points):
 			hotbar_key_pressed.emit(skill_number)
 			activate_skill(skill_number)
-
+			
 func turn_to(direction: Vector3) -> void:
 	if  direction:
 		var yaw:= atan2(-direction.x, -direction.z)
@@ -180,6 +180,8 @@ func change_social_points(points: int):
 	set_social_points_ui.emit(social_points)
 
 func activate_skill(skill_number):
+	ability_in_use = true
+	ability_timer.start(2)
 	match skill_number:
 		1:
 			pass
@@ -196,7 +198,12 @@ func activate_skill(skill_number):
 				)
 			return
 		3:
+<<<<<<< Updated upstream
 			change_health(200)
+=======
+			change_health(SPECIAL_ATTACK3_HEAL)
+			player_animation.play_gangnam.call()
+>>>>>>> Stashed changes
 		4: 
 			change_health(400)
 			immunity = true
@@ -208,6 +215,8 @@ func activate_skill(skill_number):
 		_:
 			pass
 	change_social_points(-skill_costs[skill_number])
+	
+	
 
 func change_health(health_difference):
 	if immunity and health_difference < 0:
@@ -220,3 +229,6 @@ func player_immunity(is_immune):
 		immunity = true
 	DebugChat.message("player immune: " + str(is_immune))
 	
+
+func _on_ability_timer_timeout() -> void:
+	ability_in_use = false

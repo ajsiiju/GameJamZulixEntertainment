@@ -17,6 +17,129 @@ extends Node3D
 #boss 5 - roblox
 #boss 6 - bober
 
+<<<<<<< Updated upstream
+=======
+
+#LOSOWANIE BOSÓW
+var max_random_number = 5
+var boss_amount = 0
+var boss_array = ["boss1", "boss2", "boss3", "boss4", "boss5", "boss6"]
+var boss_order_array = []
+var current_boss_number = 0
+var previous_boss_array = current_boss_number - 1
+var current_boss_array = null
+var next_boss_array = current_boss_number + 1
+
+func _process(_delta: float) -> void:
+	visible_health= lerp(visible_health, target_health, HEALTH_REGEN_PER_FRAME)
+
+func change_health(health_difference):
+	target_health += health_difference
+	target_health = clamp(target_health, 0.0, MAX_HEALTH)
+	if health_difference < 0.0:
+		hurt_audio.play()
+		player.change_social_points(10)
+	if target_health <= 0.0:
+		get_tree().change_scene_to_file("res://Scenes/game_won.tscn")
+
+
+func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
+	while boss_amount < 6:
+		var random_number = rng.randi_range(0, max_random_number)
+		max_random_number -= 1
+		boss_amount += 1
+		var selected_boss = boss_array[random_number]
+		boss_order_array.append(selected_boss)
+		boss_array.remove_at(random_number)
+	
+	play_next_boss()
+
+
+func play_next_boss() -> void:
+	if current_boss_number > 0:
+		var previous_boss_name = boss_order_array[current_boss_number - 1]
+		stop_boss_by_name(previous_boss_name)
+	
+	if current_boss_number >= boss_order_array.size():
+#		#GAMEOVER SCREEN
+		return
+	
+	current_boss_array = boss_order_array[current_boss_number]
+	start_boss_by_name(current_boss_array)
+	
+	round_timer.start()
+		
+	current_boss_number += 1
+
+
+func start_boss_by_name(boss_name: String) -> void:
+	match boss_name:
+		"boss1": boss_1_start(); current_boss = 1
+		"boss2": boss_2_start(); current_boss = 2
+		"boss3": boss_3_start(); current_boss = 3
+		"boss4": boss_4_start(); current_boss = 4
+		"boss5": boss_5_start(); current_boss = 5
+		"boss6": boss_6_start(); current_boss = 6
+
+func stop_boss_by_name(boss_name: String) -> void:
+	match boss_name:
+		"boss1": boss_1_stop()
+		"boss2": boss_2_stop()
+		"boss3": boss_3_stop()
+		"boss4": boss_4_stop()
+		"boss5": boss_5_stop()
+		"boss6": boss_6_stop()
+
+func _on_timer_boss_timeout() -> void:
+	play_next_boss()
+
+var current_boss = 1
+
+func boss_stun() -> void:
+	match current_boss:
+		1:
+			timer_wave_bullets.stop()
+			timer_pop_up_window.stop()
+			await get_tree().create_timer(5).timeout
+			timer_wave_bullets.start()
+			timer_pop_up_window.start()
+		2:
+			timer_grass.stop()
+			timer_cat_and_dog.stop()
+			await get_tree().create_timer(5).timeout
+			timer_grass.start()
+			timer_cat_and_dog.start()
+		3:
+			timer_palka_pion.stop()
+			timer_palka_poziom.stop()
+			await get_tree().create_timer(5).timeout
+			timer_palka_pion.start()
+			timer_palka_poziom.start()
+		4:
+			timer_chocolate.stop()
+			timer_chocolate_change_fast.stop()
+			timer_matcha.stop()
+			await get_tree().create_timer(5).timeout
+			timer_chocolate.start()
+			timer_chocolate_change_fast.start()
+			timer_matcha.start()
+		5:
+			timer_roblox_bullet.stop()
+			timer_roblox_balls.stop()
+			await get_tree().create_timer(5).timeout
+			timer_roblox_bullet.start()
+			timer_roblox_balls.start()
+		6:
+			timer_gravity_pull.stop()
+			timer_bober_bullets.stop()
+			await get_tree().create_timer(5).timeout
+			timer_gravity_pull.start()
+			timer_bober_bullets.start()
+
+
+
+>>>>>>> Stashed changes
 func boss_1_start() -> void:
 	timer_wave_bullets.stop()
 	if get_parent().has_node("boss_bullet"):

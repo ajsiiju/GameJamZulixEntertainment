@@ -460,6 +460,7 @@ script = ExtResource("71_1g202")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.221436, 0)
 shape = SubResource("BoxShape3D_ngxla")
 
+<<<<<<< Updated upstream
 [node name="BossCharacterBody" type="CharacterBody3D" parent="." unique_id=1427534396]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 collision_layer = 4
@@ -467,6 +468,16 @@ script = ExtResource("7_qtle2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BossCharacterBody" unique_id=241968554]
 shape = SubResource("BoxShape3D_mh6p8")
+=======
+[node name="TimerBoss" type="Timer" parent="." unique_id=86030219]
+wait_time = 11.0
+one_shot = true
+
+[node name="HurtAudio" type="AudioStreamPlayer3D" parent="." unique_id=1449879315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+volume_db = 10.0
+max_polyphony = 4
+>>>>>>> Stashed changes
 
 [connection signal="timeout" from="TimerWaveBullets" to="." method="_on_timer_wave_bullets_timeout"]
 [connection signal="timeout" from="TimerPopUpWindow" to="." method="_on_timer_pop_up_window_timeout"]

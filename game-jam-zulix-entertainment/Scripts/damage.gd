@@ -1,11 +1,23 @@
 extends Area3D
 
+<<<<<<< Updated upstream
 #@onready var player = get_tree().get_first_node_in_group("player")
 #
 #var damage_wave = -5
 #func _on_body_entered_wave(body: Node3D) -> void:
 	#if body.is_in_group("player"):
 		#player.change_health.emit(damage_wave)
+=======
+@onready var player = get_tree().get_first_node_in_group("player")
+const DAMAGE_WAVE: float = -50.0
+const DAMAGE_GRASS: float = -20.0
+const DAMAGE_CAT_DOG: float = -20.0
+const DAMAGE_PALKA_PION: float = -100.0
+const DAMAGE_PALKA_POZIOM: float = -50.0
+const DAMAGE_CHOCOLATE: float = -20.0
+const DAMAGE_MATCHA: float = -30.0
+const DAMAGE_BALLS: float = -50.0
+>>>>>>> Stashed changes
 
 
 var damage_grass = 5
