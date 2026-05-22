@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnuvmrfw4sd27"]
 
 [ext_resource type="Script" uid="uid://con4rnjuxy15j" path="res://Scripts/john_pork.gd" id="1_yb5aa"]
-[ext_resource type="AudioStream" uid="uid://detpvvsnniug8" path="res://Audio/meow.mp3" id="2_v55rp"]
+[ext_resource type="AudioStream" uid="uid://biytthkiluaaw" path="res://Audio/WHATSAPP VIDEO CALLING RINGTONE MEME _ SOUND EFFECT.mp3" id="2_d41iw"]
 [ext_resource type="PackedScene" uid="uid://8v6xoetoabid" path="res://Assets/misc/john_pork/giga głowa porka.glb" id="3_d41iw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7qiby"]
@@ -14,7 +14,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_7qiby")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1449766841]
-stream = ExtResource("2_v55rp")
+stream = ExtResource("2_d41iw")
 autoplay = true
 parameters/looping = true
 

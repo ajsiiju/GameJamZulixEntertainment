@@ -4,7 +4,7 @@ extends MeshInstance3D
 var john_pork_scene = preload("res://Scenes/john_pork.tscn")
 var platform_range: Array[float]
 var timer: float = 0.0
-var SPAWN_COOLDOWN: float = 2.0
+var SPAWN_COOLDOWN: float = 20.0
 enum Borders {
 	MIN_X,
 	MAX_X,

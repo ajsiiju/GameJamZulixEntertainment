@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://biytthkiluaaw"
+path="res://.godot/imported/WHATSAPP VIDEO CALLING RINGTONE MEME _ SOUND EFFECT.mp3-c8bc7236e65b1fecd0f71d782b444f64.mp3str"
+
+[deps]
+
+source_file="res://Audio/WHATSAPP VIDEO CALLING RINGTONE MEME _ SOUND EFFECT.mp3"
+dest_files=["res://.godot/imported/WHATSAPP VIDEO CALLING RINGTONE MEME _ SOUND EFFECT.mp3-c8bc7236e65b1fecd0f71d782b444f64.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

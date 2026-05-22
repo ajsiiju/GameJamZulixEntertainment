@@ -16,3 +16,4 @@ shape = SubResource("CylinderShape3D_sxxxl")
 
 [node name="widzisz_mnie_audio" type="AudioStreamPlayer" parent="." unique_id=622280418]
 stream = ExtResource("2_2p7cl")
+volume_db = 24.0
