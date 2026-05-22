@@ -26,7 +26,7 @@ func _ready():
 
 func create_shop_timer() -> Timer:
 	var new_shop_timer = Timer.new()
-	new_shop_timer.wait_time = SHOP_RESPAWN_TIME #- 30.0 # 30.0 as debug
+	new_shop_timer.wait_time = 21 #SHOP_RESPAWN_TIME #- 30.0 # 30.0 as debug
 	new_shop_timer.one_shot = false
 	new_shop_timer.timeout.connect(open_shop)
 	add_child(new_shop_timer)

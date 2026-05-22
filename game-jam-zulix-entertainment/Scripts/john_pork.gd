@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 		position.y += SPEED * delta
 	else:
 		position.x += SPEED * delta
+		position.z -= SPEED * delta
 	timer += delta
 	
 	pork_head.rotation.x += ROTATION_SPEED * delta

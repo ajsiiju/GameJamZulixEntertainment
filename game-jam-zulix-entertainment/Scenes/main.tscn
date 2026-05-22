@@ -92,7 +92,7 @@ light_specular = 0.0
 omni_range = 4096.0
 
 [node name="JohnPorkSpawner" parent="." unique_id=492641663 instance=ExtResource("9_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.431664, 5.766695, -7.386341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.431664, 2.6647816, 5.25502)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1655466144]
 light_energy = 9.913
