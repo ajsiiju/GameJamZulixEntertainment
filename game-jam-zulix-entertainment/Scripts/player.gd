@@ -230,5 +230,7 @@ func change_health(health_difference):
 func player_immunity(is_immune):
 	if is_immune:
 		immunity = true
+	else:
+		immunity = false
 	DebugChat.message("player immune: " + str(is_immune))
 	

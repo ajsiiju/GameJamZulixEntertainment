@@ -35,5 +35,5 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _physics_process(_delta: float) -> void:
-	position = player.position + Vector3(0, camera_rig_height, 0)
+	global_position = player.global_position + Vector3(0, camera_rig_height, 0)
 	

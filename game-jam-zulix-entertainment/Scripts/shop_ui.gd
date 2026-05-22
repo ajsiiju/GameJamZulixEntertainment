@@ -3,6 +3,8 @@ extends Control
 var timer_to_show_shop: float = 5.0
 var timer_to_exit_shop: float = 0.0
 @export var SHOP_VISIBILITY_TIME: float  = 15.0
+@onready var boss_music = $BossMusic
+@onready var shop_music = $ShopMusic
 const DUCK_RUN_TIME: float = 6.0
 const duck_scene = preload("res://Scenes/duck.tscn")
 var shop_scene = preload("res://Scenes/tungtung.tscn")
@@ -42,11 +44,16 @@ func _process(delta: float) -> void:
 	if timer_to_show_shop <= 0:
 		if timer_to_exit_shop >= SHOP_VISIBILITY_TIME:
 			shop_hide()
+			boss_music.stream_paused = false
+			shop_music.stream_paused = true
 		else:
 			timer_to_exit_shop += delta
 			$shop_bg/ProgressBar.value = timer_to_exit_shop
 			shop_show()
-
+			if !shop_music.playing:
+				shop_music.play()
+			boss_music.stream_paused = true
+			shop_music.stream_paused = false
 		
 func on_exit_button():
 	get_tree().quit()

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cnuvmrfw4sd27"]
 
 [ext_resource type="Script" uid="uid://con4rnjuxy15j" path="res://Scripts/john_pork.gd" id="1_yb5aa"]
+[ext_resource type="AudioStream" uid="uid://detpvvsnniug8" path="res://Audio/meow.mp3" id="2_v55rp"]
+[ext_resource type="PackedScene" uid="uid://8v6xoetoabid" path="res://Assets/misc/john_pork/giga głowa porka.glb" id="3_d41iw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7qiby"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_yb5aa"]
 
 [node name="Area3D" type="Area3D" unique_id=1810104686]
 script = ExtResource("1_yb5aa")
@@ -13,5 +13,10 @@ script = ExtResource("1_yb5aa")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_7qiby")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1306744278]
-mesh = SubResource("BoxMesh_yb5aa")
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1449766841]
+stream = ExtResource("2_v55rp")
+autoplay = true
+parameters/looping = true
+
+[node name="pork_head" parent="." unique_id=1774787674 instance=ExtResource("3_d41iw")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, -2.65, 0, 0)

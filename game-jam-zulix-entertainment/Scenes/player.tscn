@@ -79,7 +79,6 @@ parameters/TimeScale/scale = 1.0
 
 [node name="footsteps" type="AudioStreamPlayer3D" parent="." unique_id=1200280726]
 stream = ExtResource("3_vgqql")
-bus = &"SoundFx"
 parameters/looping = true
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1716844817]

@@ -9,6 +9,7 @@ const DAMAGE_PALKA_POZIOM: float = -5.0
 const DAMAGE_CHOCOLATE: float = -5.0
 const DAMAGE_MATCHA: float = -5.0
 const DAMAGE_BALLS: float = -5.0
+const SOCIAL_POINTS_DAMAGE: float = -100.0
 
 const PLAYER_DAMAGE_ON_CAT_DOG: float = 10.0
 
@@ -61,3 +62,9 @@ func _on_body_entered_balls(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		DebugChat.message("balls")
 		player.change_health(DAMAGE_BALLS)
+
+
+func _on_body_entered_robux(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		DebugChat.message("robux")
+		player.change_social_points(SOCIAL_POINTS_DAMAGE)
