@@ -4,10 +4,14 @@ const PROJECTILE = preload("uid://fjehkmtigldw")
 @onready var timer: Timer = $Timer
 @onready var camera: SpringArm3D = $"../CameraRig"
 @onready var raycast: RayCast3D = $"../CameraRig/Camera3D/RayCast3D"
+@onready var animation: Node3D = $"../MC_NLA_ANIMATIONS_OK"
+@onready var ability_timer: Timer = $"../AbilityTimer"
+
 
 func _physics_process(delta: float) -> void:
 	if timer.is_stopped():
-		if Input.is_action_pressed("shoot"):
+		if ability_timer.is_stopped() and Input.is_action_pressed("shoot"):
+			animation.play_shoot.call()
 			if (raycast.get_collider() == null):
 				rotation.x = camera.rotation.x + 0.05
 			else:

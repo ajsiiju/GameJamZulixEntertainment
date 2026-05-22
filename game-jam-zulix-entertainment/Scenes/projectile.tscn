@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://fjehkmtigldw"]
 
 [ext_resource type="Script" uid="uid://dngisy23eokqb" path="res://Scripts/projectile.gd" id="1_f8cdk"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_at5ip"]
-radius = 0.125
-height = 0.25
+[ext_resource type="PackedScene" uid="uid://xa8ebh5ubf63" path="res://Scenes/klapek.tscn" id="2_yr2qt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f8cdk"]
-radius = 0.16667074
+radius = 0.4
 
 [node name="Projectile" type="RayCast3D" unique_id=694658156]
 top_level = true
@@ -15,9 +12,7 @@ collision_mask = 4
 collide_with_areas = true
 script = ExtResource("1_f8cdk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1943554737]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("SphereMesh_at5ip")
+[node name="klapek z tekstura" parent="." unique_id=1324687527 instance=ExtResource("2_yr2qt")]
 
 [node name="Timer" type="Timer" parent="." unique_id=1449692490]
 wait_time = 5.0

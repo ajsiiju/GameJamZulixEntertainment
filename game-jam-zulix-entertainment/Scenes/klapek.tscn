@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://xa8ebh5ubf63"]
+
+[ext_resource type="PackedScene" uid="uid://dep6umepw6se3" path="res://Assets/klapek z tekstura.glb" id="1_2tcyp"]
+
+[node name="klapek z tekstura" unique_id=1324687527 instance=ExtResource("1_2tcyp")]
+
+[node name="pCube1" parent="." index="0" unique_id=160528866]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, -20, 0, 20, -8.742278e-07, 0, -0.3, 0)
