@@ -10,11 +10,13 @@
 stream = ExtResource("1_hx2pa")
 volume_db = 5.0
 autoplay = true
-bus = &"Music"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=655046357]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_dl3hp")
 
 [node name="Label" type="Label" parent="TextureRect" unique_id=95190245]

@@ -5,7 +5,7 @@ var active_tween := create_tween()
 
 
 func _on_timer_timeout() -> void:
-	if progress_bar.value >= 75:
+	if progress_bar.value >= 60:
 		progress_bar.value = 0
 	else:
 		active_tween = create_tween()

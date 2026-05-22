@@ -10,6 +10,7 @@ const DAMAGE_CHOCOLATE: float = -100.0
 const DAMAGE_MATCHA: float = -100.0
 const DAMAGE_BALLS: float = -100.0
 const DAMAGE_BOBER_BULLETS: float = -100.0
+const SOCIAL_POINTS_DAMAGE: float = -100.0
 
 const PLAYER_DAMAGE_ON_CAT_DOG: float = 10.0
 
@@ -67,8 +68,8 @@ func _on_body_entered_bober_bullets(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		DebugChat.message("bober bullets")
 		player.change_health(DAMAGE_BOBER_BULLETS)
-    
-    
+	
+	
 func _on_body_entered_robux(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		DebugChat.message("robux")
