@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://cdybh12vh1aoa" path="res://Scripts/camera_rig.gd" id="2_h4iuc"]
 [ext_resource type="PackedScene" uid="uid://bhmn883uquge8" path="res://Scenes/projectile_launcher.tscn" id="3_6t5aa"]
 [ext_resource type="AudioStream" uid="uid://ulvl6eu5kbmn" path="res://Audio/footsteps-woman_WYCIĘTE.mp3" id="3_vgqql"]
-[ext_resource type="PackedScene" uid="uid://ccn1bdk5208jf" path="res://Assets/Characters/MC_OK.fbx" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://bcj7ogc8nami" path="res://Scenes/mc_nla_animations_ok.tscn" id="5_3smsa"]
+[ext_resource type="Script" uid="uid://c1wu6hm2jfwjf" path="res://Scripts/mc_nla_animations_ok.gd" id="6_8erm5"]
 [ext_resource type="AudioStream" uid="uid://dmgrd5bwc8mvt" path="res://Audio/proper klapek shot.mp3" id="6_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://cmsah13r0nn5r" path="res://Audio/oof damage.mp3" id="7_3smsa"]
 
@@ -89,10 +90,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3048403, -0.06600571)
 [node name="ProjectileLauncher" parent="." unique_id=1136157717 instance=ExtResource("3_6t5aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1902325264]
-
-[node name="MC_OK" parent="." unique_id=741727302 instance=ExtResource("4_vgqql")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+[node name="MC_NLA_ANIMATIONS_OK" parent="." unique_id=881882754 instance=ExtResource("5_3smsa")]
+script = ExtResource("6_8erm5")
 
 [node name="CameraOffset" type="Node3D" parent="." unique_id=864035995]
 transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 1.4999999, 0, -1.4210855e-14)
@@ -103,9 +102,12 @@ stream = ExtResource("6_x3wgy")
 volume_db = 0.05
 unit_size = 1.0
 max_db = 0.05
-bus = &"SoundFx"
 
 [node name="damage_sound" type="AudioStreamPlayer" parent="." unique_id=698623601]
 stream = ExtResource("7_3smsa")
 volume_db = 0.1
-bus = &"SoundFx"
+
+[node name="AbilityTimer" type="Timer" parent="." unique_id=1531536562]
+one_shot = true
+
+[connection signal="timeout" from="AbilityTimer" to="." method="_on_ability_timer_timeout"]

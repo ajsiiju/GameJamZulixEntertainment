@@ -14,6 +14,9 @@ var active_gravity_well: Area3D = null
 @onready var audio_player = $footsteps
 #@onready var anim_player: AnimationPlayer = $Mesh/AnimationPlayer
 
+@onready var animation: Node3D = $MC_NLA_ANIMATIONS_OK
+@onready var ability_timer: Timer = $AbilityTimer
+
 @export var SPECIAL_ATTACK4_DAMAGE: float = -100.0
 @export var SPECIAL_ATTACK3_HEAL: float = 50.0
 @export var SPECIAL_ATTACK4_HEAL: float = 50.0
@@ -37,6 +40,7 @@ var skill_costs: Array[int] = [0,500,500,1000,1000]
 var dashing = false
 var DASH_SPEED: float = 40.0
 var dash_velocity: Vector3
+var is_ability_used: bool = false
 
 signal hotbar_icon_unlocked(number: int)
 signal hotbar_key_pressed(number: int)
@@ -137,26 +141,18 @@ func _physics_process(delta: float) -> void:
 	
 	#MOVEMENT ANIMATION
 	var current_speed := velocity.length()
-	if current_speed > 1:
-		#anim_player.play("base/run")
-		anim_tree.set("parameters/movement/transition_request", "run")
-	else:
-		#anim_player.play("base/idle")
-		anim_tree.set("parameters/movement/transition_request", "idle")
-	if Input.mouse_mode == Input.MOUSE_MODE_CONFINED:
-		anim_tree.set("parameters/movement/transition_request", "idle")
+	if is_ability_used == false:
+		if current_speed > 5:
+			animation.play_run.call()
+		else:
+			animation.play_idle.call()
+		if Input.mouse_mode == Input.MOUSE_MODE_CONFINED:
+			animation.play_idle.call()
 	
 	# rotate player model with camera
 	rotation.y = lerp_angle(rotation.y, camera_rig.rotation.y, 0.3)
 
 func _input(event: InputEvent) -> void:
-	# handle crouching
-	if Input.is_action_just_pressed("crouch"):
-		speed = CROUCH_SPEED
-		anim_tree.set("parameters/movement/transition_request", "crouch")
-	elif Input.is_action_just_released("crouch"):
-		speed = DEFAULT_SPEED
-	
 	for skill_number in range(0, 5):
 		var action_name = "key_" + str(skill_number)
 		if event.is_action(action_name) \
@@ -188,6 +184,8 @@ func change_social_points(points: int):
 	set_social_points_ui.emit(social_points)
 
 func activate_skill(skill_number):
+	is_ability_used = true
+	ability_timer.start(2)
 	match skill_number:
 		1:
 			get_parent().get_node("boss").boss_stun()
@@ -205,6 +203,7 @@ func activate_skill(skill_number):
 			return
 		3:
 			change_health(SPECIAL_ATTACK3_HEAL)
+			animation.play_gangnam.call()
 		4: 
 			change_health(SPECIAL_ATTACK4_HEAL)
 			immunity = true
@@ -235,3 +234,6 @@ func player_immunity(is_immune):
 		immunity = false
 	DebugChat.message("player immune: " + str(is_immune))
 	
+
+func _on_ability_timer_timeout() -> void:
+	is_ability_used = false
