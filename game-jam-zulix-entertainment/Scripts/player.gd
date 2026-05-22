@@ -169,7 +169,6 @@ func turn_to(direction: Vector3) -> void:
 		rotation.y = yaw
 	
 func unlock_skill(skill_number):
-	DebugChat.message("unlocking skill: " + str(skill_number))
 	if (skill_unlock_costs[skill_number] <= social_points) \
 	and (unlocked_skills[skill_number] == false):
 		social_points -= skill_unlock_costs[skill_number]
@@ -232,7 +231,6 @@ func player_immunity(is_immune):
 		immunity = true
 	else:
 		immunity = false
-	DebugChat.message("player immune: " + str(is_immune))
 	
 
 func _on_ability_timer_timeout() -> void:

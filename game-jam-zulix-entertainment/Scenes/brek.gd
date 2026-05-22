@@ -9,7 +9,6 @@ func _ready():
 	
 func _on_body_entered(body: Node3D):
 	if body.is_in_group("player"):
-		DebugChat.message("entered")
 		widzisz_mnie_audio.play()
 		brek_img.visible = true
 		get_tree().create_timer(0.1).timeout.connect(
