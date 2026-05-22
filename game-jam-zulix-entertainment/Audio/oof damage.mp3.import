@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmsah13r0nn5r"
+path="res://.godot/imported/oof damage.mp3-55ad80627bf9f6db9f557515fa3434ff.mp3str"
+
+[deps]
+
+source_file="res://Audio/oof damage.mp3"
+dest_files=["res://.godot/imported/oof damage.mp3-55ad80627bf9f6db9f557515fa3434ff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

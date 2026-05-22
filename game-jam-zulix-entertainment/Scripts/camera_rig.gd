@@ -2,7 +2,7 @@ extends SpringArm3D
 
 @onready var camera:Camera3D = $Camera3D
 @onready var turn_rate:= 200
-@onready var mouse_sensitivity:= 0.05
+@onready var mouse_sensitivity:= 0.5
 var mouse_input : Vector2 = Vector2()
 @onready var player: Node3D = get_parent()
 @onready var camera_offset: Node3D = $"../CameraOffset"

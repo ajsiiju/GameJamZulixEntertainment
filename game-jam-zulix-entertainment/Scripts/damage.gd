@@ -1,18 +1,19 @@
 extends Area3D
 
 @onready var player = get_tree().get_first_node_in_group("player")
-const DAMAGE_WAVE: float = -5.0
-const DAMAGE_GRASS: float = -50.0
-const DAMAGE_CAT_DOG: float = -5.0
-const DAMAGE_PALKA_PION: float = -5.0
-const DAMAGE_PALKA_POZIOM: float = -5.0
-const DAMAGE_CHOCOLATE: float = -5.0
-const DAMAGE_MATCHA: float = -5.0
-const DAMAGE_BALLS: float = -5.0
+const DAMAGE_WAVE: float = -100.0
+const DAMAGE_GRASS: float = -100.0
+const DAMAGE_CAT_DOG: float = -50.0
+const DAMAGE_PALKA_PION: float = -100.0
+const DAMAGE_PALKA_POZIOM: float = -100.0
+const DAMAGE_CHOCOLATE: float = -100.0
+const DAMAGE_MATCHA: float = -100.0
+const DAMAGE_BALLS: float = -100.0
+const DAMAGE_BOBER_BULLETS: float = -100.0
 
 const PLAYER_DAMAGE_ON_CAT_DOG: float = 10.0
 
-var damage_wave = -5
+
 func _on_body_entered_wave(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		DebugChat.message("wave")
@@ -31,7 +32,6 @@ func _on_body_entered_cat_dog(body: Node3D) -> void:
 		player.change_health(DAMAGE_CAT_DOG)
 func projectile_hit():
 	get_parent().health -= PLAYER_DAMAGE_ON_CAT_DOG
-	# todo: dzwiek (kot lub pies)
 
 func _on_body_entered_palka_pion(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -61,3 +61,9 @@ func _on_body_entered_balls(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		DebugChat.message("balls")
 		player.change_health(DAMAGE_BALLS)
+
+
+func _on_body_entered_bober_bullets(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		DebugChat.message("bober bullets")
+		player.change_health(DAMAGE_BOBER_BULLETS)

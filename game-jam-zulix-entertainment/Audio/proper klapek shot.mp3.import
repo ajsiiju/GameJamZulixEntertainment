@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmgrd5bwc8mvt"
+path="res://.godot/imported/proper klapek shot.mp3-9211ff9fd979b4a1206736e648352560.mp3str"
+
+[deps]
+
+source_file="res://Audio/proper klapek shot.mp3"
+dest_files=["res://.godot/imported/proper klapek shot.mp3-9211ff9fd979b4a1206736e648352560.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

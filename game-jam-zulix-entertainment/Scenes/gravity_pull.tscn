@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cdlvyfvpvksff" path="res://Assets/Characters/Bosses/BoberTeeth/frame_1.png" id="2_nfcdc"]
 [ext_resource type="Texture2D" uid="uid://bt1h2gp86en4s" path="res://Assets/Characters/Bosses/BoberTeeth/frame_2.png" id="3_6urws"]
 [ext_resource type="Texture2D" uid="uid://c5tyahghwd3g3" path="res://Assets/Characters/Bosses/BoberTeeth/frame_3.png" id="4_3kr6o"]
+[ext_resource type="AudioStream" uid="uid://b2pbn5it7dkuf" path="res://Audio/zęby bobra.mp3" id="5_3kr6o"]
+[ext_resource type="AudioStream" uid="uid://dievrqjv47kia" path="res://Audio/woda (mp3cut.net).mp3" id="5_6urws"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_nfcdc"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -26,13 +28,13 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pw03t"]
-size = Vector3(102.27539, 8.407341, 250.00357)
+size = Vector3(102.27539, 27.261625, 250.00357)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6urws"]
 albedo_color = Color(0.3645893, 0.5760569, 0.7157723, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3kr6o"]
-emission_shape_scale = Vector3(35, 0.2, 35)
+emission_shape_scale = Vector3(65, 0.2, 65)
 emission_shape = 6
 emission_ring_axis = Vector3(0, 1, 0)
 emission_ring_height = 1.0
@@ -56,7 +58,7 @@ linear_damp_space_override = 1
 script = ExtResource("1_r8e3i")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=143218601]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 12.70065, -0.9384489)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 12.70065, -2.620862)
 billboard = 1
 texture = SubResource("ViewportTexture_nfcdc")
 
@@ -72,13 +74,33 @@ autoplay = "bober_teeth"
 frame_progress = 0.29297855
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=84472312]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048461914, -3.4685383, 0.5056305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048461914, -12.794269, 0.5056305)
 shape = SubResource("BoxShape3D_pw03t")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=1006699276]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25805432, 0)
 material_override = SubResource("StandardMaterial3D_6urws")
-amount = 1500
+amount = 2500
 lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_3kr6o")
 draw_pass_1 = SubResource("BoxMesh_hfvdi")
+
+[node name="bober_teeth_sound" type="AudioStreamPlayer3D" parent="." unique_id=1888863556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.417986, 0)
+stream = ExtResource("5_3kr6o")
+volume_db = 5.0
+unit_size = 20.85
+max_db = 4.809
+bus = &"SoundFx"
+parameters/looping = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1874559070]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[node name="water" type="AudioStreamPlayer" parent="." unique_id=1820374794]
+stream = ExtResource("5_6urws")
+bus = &"SoundFx"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

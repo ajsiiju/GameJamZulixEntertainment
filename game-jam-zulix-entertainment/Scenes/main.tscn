@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://kjnxmx1tj0he" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cfmqt77c8jam7" path="res://Scenes/boss.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cisywsx4gwr26" path="res://Scenes/ui.tscn" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://dja81d0wnq25s" path="res://Assets/Enviro/arena próba.glb" id="6_6bp64"]
-[ext_resource type="ArrayMesh" uid="uid://cqm4hmi1pbbmq" path="res://Assets/Enviro/arena.obj" id="6_21xkr"]
 [ext_resource type="AudioStream" uid="uid://jyvhpfvshw6u" path="res://Audio/FightBossRotten.mp3" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://b8lciho5el34u" path="res://Assets/Enviro/arena/Arena z teksturami.glb" id="7_344ge"]
+[ext_resource type="AudioStream" uid="uid://bepojr0ht7bx8" path="res://Audio/REKLAMA TUNG.mp3" id="8_344ge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,12 +22,12 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jjvhh"]
-vertices = PackedVector3Array(-31.968262, -0.4501953, -0.46826172, -31.968262, -0.4501953, 0.5317383, -22.718262, -0.4501953, 22.781738, 22.781738, -0.4501953, -22.718262, 0.5317383, -0.4501953, -31.968262, -0.46826172, -0.4501953, -31.968262, -22.718262, -0.4501953, -22.718262, -0.21826172, -0.4501953, 32.03174, 22.781738, -0.4501953, 22.781738, 32.03174, -0.4501953, 0.28173828)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(0, 6, 5), PackedInt32Array(9, 8, 7), PackedInt32Array(2, 0, 7), PackedInt32Array(7, 0, 5), PackedInt32Array(7, 5, 3), PackedInt32Array(7, 3, 9)]
+vertices = PackedVector3Array(-37.635788, -0.2721176, -5.829933, -27.385788, -0.2721176, 18.920067, -25.885788, -0.2721176, 19.920067, -0.38578796, -0.2721176, -44.079933, -1.385788, -0.2721176, -44.079933, -27.135788, -0.2721176, -33.329933, -37.885788, -0.2721176, -7.579933, -1.135788, -0.2721176, 30.170067, 25.364212, -0.2721176, 19.420067, 36.364212, -0.2721176, -6.829933, 25.614212, -0.2721176, -33.079933)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(0, 6, 5), PackedInt32Array(8, 7, 2), PackedInt32Array(3, 10, 9), PackedInt32Array(0, 5, 2), PackedInt32Array(2, 5, 3), PackedInt32Array(2, 3, 8), PackedInt32Array(8, 3, 9)]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_21xkr"]
-height = 3.3098145
-radius = 34.32617
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6bp64"]
+height = 4.8779297
+radius = 33.442383
 
 [node name="Node3D" type="Node3D" unique_id=2040138282 groups=["main"]]
 script = ExtResource("1_bo1nx")
@@ -36,57 +36,57 @@ script = ExtResource("1_bo1nx")
 environment = SubResource("Environment_8gbba")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=899112785]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 6.4926147, 0)
+visible = false
 shadow_enabled = true
 
 [node name="platform" type="CSGBox3D" parent="." unique_id=1747437879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.4576061, -4.5966187)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0887794, -1.1578982, -7.468483)
 visible = false
-use_collision = true
 collision_mask = 0
-size = Vector3(53.09552, 1, 41.205933)
+size = Vector3(54.404762, 1, 34.627914)
 
 [node name="player" parent="." unique_id=1849972682 instance=ExtResource("1_jjgbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45035172, 0, -26.627674)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8843839, 0, -26.627674)
 
 [node name="CanvasLayerUI" parent="." unique_id=1443381599 instance=ExtResource("3_8gbba")]
 layer = -1
 
 [node name="boss" parent="." unique_id=897832154 instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3185892, 16.816624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7189655, 1.3185892, 16.816624)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=213678960 groups=["ground"]]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=213678960]
 navigation_mesh = SubResource("NavigationMesh_jjvhh")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D" unique_id=1451136005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.2805176, 0)
-visible = false
-radius = 32.46826
+transform = Transform3D(1.1022233, 0, 0, 0, 1, 0, 0, 0, 1.1022226, -0.8154087, -4.10244, -7.009573)
+layers = 0
+calculate_tangents = false
+radius = 34.086
 height = 6.8393555
-
-[node name="arena" type="StaticBody3D" parent="." unique_id=1272176161 groups=["ground"]]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="arena" unique_id=12664993]
-transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -13.857, -3.676, -4.438)
-visible = false
-mesh = ExtResource("6_21xkr")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="arena" unique_id=718491124]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6358042, -1.4442136, -2.830307)
-shape = SubResource("CylinderShape3D_21xkr")
-
-[node name="arena próba" parent="arena" unique_id=1314619428 instance=ExtResource("6_6bp64")]
-transform = Transform3D(41, 0, 0, 0, 41, 0, 0, 0, 41, -55.958, -165.684, -122.39)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2000100279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8293762, -1.1396484, 120.90495)
-visible = false
-use_collision = true
-size = Vector3(53.09552, 1, 41.205933)
 
 [node name="BossMusic" type="AudioStreamPlayer" parent="." unique_id=1769272504]
 stream = ExtResource("7_6bp64")
 autoplay = true
-parameters/looping = false
+bus = &"Music"
 
 [node name="ShopMusic" type="AudioStreamPlayer" parent="." unique_id=1521823245]
+stream = ExtResource("8_344ge")
+bus = &"Music"
+
+[node name="arena" type="StaticBody3D" parent="." unique_id=1272176161 groups=["ground"]]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arena" unique_id=494692686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6902027, -2.822754, -8.66547)
+shape = SubResource("CylinderShape3D_6bp64")
+
+[node name="Arena z teksturami" parent="." unique_id=1445313109 instance=ExtResource("7_344ge")]
+transform = Transform3D(42, 0, 0, 0, 42, 0, 0, 0, 42, -55.474, -171.736, -123.861)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=753277565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.273838, 12.044567, -6.2240133)
+light_energy = 16.0
+light_specular = 0.0
+omni_range = 4096.0

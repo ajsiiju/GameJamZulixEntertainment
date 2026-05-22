@@ -2,9 +2,9 @@ extends Node3D
 
 @onready var boss_1: Timer = $Boss1
 var player
-var target_health: float = 1000.0
-var visible_health: float = 1000.0
-const MAX_HEALTH: float = 1000.0
+var target_health: float = 8000.0
+var visible_health: float = 8000.0
+const MAX_HEALTH: float = 8000.0
 const HEALTH_REGEN_PER_FRAME: float = 0.02
 
 @onready var boss_2: Timer = $Boss2
@@ -18,6 +18,10 @@ const HEALTH_REGEN_PER_FRAME: float = 0.02
 @onready var boss: TextureRect = $Sprite3D/SubViewport/boss
 @onready var telefon_bg: TextureRect = $Sprite3D/SubViewport/telefonBg
 @onready var hurt_audio: AudioStreamPlayer3D = $HurtAudio
+@onready var boss_audio: AudioStreamPlayer3D = $BossAudio
+var maklowicz_sounds = ["res://Audio/to będzie zdrowy piesek.mp3", "res://Audio/lubisz rikottę.mp3", "res://Audio/hihihiihi.mp3", "res://Audio/gatino.mp3", "res://Audio/ależ on żre koperek.mp3"]
+
+
 
 #boss 1 - job apl
 #boss 2 - makłowicz
@@ -69,7 +73,7 @@ func play_next_boss() -> void:
 		stop_boss_by_name(previous_boss_name)
 		
 	if current_boss_number >= boss_order_array.size():
-#		#GAMEOVER SCREEN
+		get_tree().change_scene_to_file("res://Scenes/game_lost.tscn")
 		return
 
 	current_boss_array = boss_order_array[current_boss_number]
@@ -183,6 +187,8 @@ func boss_2_stop() -> void:
 		cat_dog_instance.queue_free()
 	
 	boss.texture = null
+	
+	boss_audio.stop()
 
 
 func boss_3_start() -> void:
@@ -573,6 +579,7 @@ func _on_timer_wave_bullets_timeout() -> void:
 func _on_timer_pop_up_window_timeout() -> void:
 	pop_up_instance = pop_up_window.instantiate()
 	get_parent().add_child(pop_up_instance)
+	pop_up_instance.get_node("pop_up_sound").play()
 	if prev_pop_up_instance:
 		prev_pop_up_instance.queue_free()
 	prev_pop_up_instance = pop_up_instance
@@ -604,7 +611,6 @@ func _input(event: InputEvent) -> void:
 
 #GRASS
 func _on_timer_grass_timeout() -> void:
-	#while grass_amount < 2:
 	grass_instance = grass.instantiate()
 	var rand_position_x = rng.randf_range(25.0, -25.0)
 	var rand_position_z = rng.randf_range(20.0, -30.0)
@@ -618,8 +624,9 @@ func _on_timer_grass_timeout() -> void:
 	await get_tree().create_timer(0.2).timeout
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_idle.png")
 	
-	await get_tree().create_timer(3.0).timeout
-	grass_instance.get_node("GrassDisappear").play()
+	#grass_instance.get_node("GrassDisappear").play()
+	#await get_tree().create_timer(2.7).timeout
+	#grass_instance.get_node("GrassDisappear").play()
 	transitionTween.tween_property(grass_instance, "position:y", -10.524, 0.3)
 
 
@@ -632,10 +639,17 @@ func _on_timer_cat_and_dog_timeout() -> void:
 	var current_resource = load(cat_dog_resource_array[rand_resource])
 	cat_dog_instance.set_meta("cat_dog_recsource", current_resource)
 	cat_dog_instance.get_node("Sprite3D").texture = current_resource.texture
+	cat_dog_instance.get_node("cat_dog_sound").stream = current_resource.sound
 	
 	cat_dog_instance.position = Vector3(0, 0, 15.822)
 	
 	get_parent().add_child(cat_dog_instance)
+	
+	if boss_audio.playing == false:
+		var rand_makl_sound = rng.randi_range(0, 4)
+		boss_audio.stream = load(maklowicz_sounds[rand_makl_sound])
+		boss_audio.play()
+	
 	
 	boss.texture = load("res://Assets/Characters/Bosses/maklowicz_attack.png")
 	await get_tree().create_timer(0.2).timeout
@@ -658,14 +672,10 @@ func _on_timer_palka_pion_timeout() -> void:
 		tween.tween_property(palka_pion_instance, "rotation:x", rotation_x, 0.5).set_trans(Tween.TRANS_QUAD)\
 		.set_ease(Tween.EASE_IN)
 		
-		await get_tree().create_timer(0.1).timeout
-		#todo DŹWIĘK
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1).timeout
 		
 		
-		palka_pion_instance.queue_free()
 		palka_pion_amount += 1
-		#await get_tree().create_timer(0.8).timeout
 	palka_pion_amount = 1
 
 
@@ -684,7 +694,7 @@ func _on_timer_palka_poziom_timeout() -> void:
 	.set_ease(Tween.EASE_IN)  
 	
 	await get_tree().create_timer(0.6).timeout
-	
+	#palka_poziom_instance.get_node("pala_poziom_sound").play()
 	var y_degrees = 180
 	var rotation_y = deg_to_rad(y_degrees)
 	tween = create_tween()
@@ -746,7 +756,7 @@ func _on_timer_roblox_bullet_timeout() -> void:
 #ROBLOX BALLS
 func _on_timer_roblox_balls_timeout() -> void:
 	boss_anim_sprites.play("roblox_baller")
-	while roblox_balls_amount <= 40:
+	while roblox_balls_amount <= 60:
 		roblox_balls_instance = roblox_balls_scene.instantiate()
 		var pos_y = 26.0
 		var rand_pos_x = rng.randf_range(25.0, -25.0)
@@ -769,8 +779,10 @@ func _on_timer_gravity_pull_timeout() -> void:
 	gravity_pull_instance.global_position = global_position
 	get_parent().add_child(gravity_pull_instance)
 	
-	await get_tree().create_timer(12).timeout
-	gravity_pull_instance.queue_free()
+	gravity_pull_instance.get_node("water").play()
+	gravity_pull_instance.get_node("bober_teeth_sound").play()
+	
+	await get_tree().create_timer(7).timeout
 	boss_anim_sprites.play("bober_idle")
 
 

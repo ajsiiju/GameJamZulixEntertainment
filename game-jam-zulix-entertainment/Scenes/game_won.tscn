@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://4diktc86gfsp"]
 
+[ext_resource type="AudioStream" uid="uid://ukn3t2dva7ug" path="res://Audio/Win sound.mp3" id="1_8t3w3"]
+[ext_resource type="Texture2D" uid="uid://ciq6dfxqgl2s1" path="res://Assets/ui/Winscreen.png" id="2_q3l7y"]
+
 [node name="GameWon" type="CanvasLayer" unique_id=434638621]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=369262422]
+stream = ExtResource("1_8t3w3")
+volume_db = 5.0
+autoplay = true
+bus = &"Music"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=867969042]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_q3l7y")

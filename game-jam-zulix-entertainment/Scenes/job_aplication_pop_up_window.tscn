@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8858gyhnc8ds"]
 
 [ext_resource type="Script" uid="uid://c3ybpvdafqu1y" path="res://Scripts/job_apl_pop_up.gd" id="1_sunvb"]
+[ext_resource type="AudioStream" uid="uid://c8s4lyg6qaark" path="res://Audio/exel pop up sound.mp3" id="2_sunvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btge0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -26,3 +27,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_btge0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fhd65")
 max_value = 20.0
 show_percentage = false
+
+[node name="pop_up_sound" type="AudioStreamPlayer" parent="." unique_id=309996202]
+stream = ExtResource("2_sunvb")
+bus = &"SoundFx"

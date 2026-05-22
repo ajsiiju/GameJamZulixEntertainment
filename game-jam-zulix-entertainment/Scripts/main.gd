@@ -28,7 +28,7 @@ func _ready():
 
 func create_shop_timer() -> Timer:
 	var new_shop_timer = Timer.new()
-	new_shop_timer.wait_time = SHOP_RESPAWN_TIME - 30.0 # 30.0 as debug
+	new_shop_timer.wait_time = SHOP_RESPAWN_TIME #- 30.0 # 30.0 as debug
 	new_shop_timer.one_shot = false
 	new_shop_timer.timeout.connect(open_shop)
 	add_child(new_shop_timer)
@@ -36,17 +36,7 @@ func create_shop_timer() -> Timer:
 	return new_shop_timer
 	
 func open_shop():
-	boss_music.stream_paused = true
-	if !shop_music.playing:
-		shop_music.play()
-	shop_music.stream_paused = false
-	get_tree().create_timer(SHOP_AD_TIME).timeout.connect(
-	func():
-			boss_music.stream_paused = false
-			shop_music.stream_paused = true,
-		CONNECT_ONE_SHOT
-	)
-	shop_timer.paused = true # debug
+	#shop_timer.paused = true # debug
 	ad_appear_counter.emit()
 	spawn_shop_area()
 	
