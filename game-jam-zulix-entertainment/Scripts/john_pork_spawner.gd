@@ -22,7 +22,6 @@ func _process(delta: float) -> void:
 	timer += delta
 	if timer >= SPAWN_COOLDOWN:
 		john_pork_spawn()
-		DebugChat.message("respawn")
 		timer = 0.0
 
 func john_pork_spawn():
