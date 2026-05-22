@@ -147,7 +147,7 @@ func _physics_process(delta: float) -> void:
 		anim_tree.set("parameters/movement/transition_request", "idle")
 	
 	# rotate player model with camera
-	rotation.y = lerp_angle(rotation.y, camera_rig.rotation.y, 0.3)
+	#rotation.y = lerp_angle(rotation.y, camera_rig.rotation.y, 0.3)
 
 func _input(event: InputEvent) -> void:
 	# handle crouching
