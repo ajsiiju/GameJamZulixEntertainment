@@ -1,8 +1,6 @@
 extends Node3D
 
 @onready var game_platform: CSGBox3D
-@onready var boss_music = $BossMusic
-@onready var shop_music = $ShopMusic
 var shop_timer: Timer
 var platform_range: Array[float]
 var shop_scene = preload("res://Scenes/shop.tscn")

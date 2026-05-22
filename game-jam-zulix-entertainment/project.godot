@@ -32,6 +32,7 @@ ground=""
 main=""
 shop_ui=""
 boss=""
+ui=""
 
 [input]
 

@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var cat_dog_speed = 11.5
-var health: float = 1
-@onready var player = get_parent().get_node("player")
+var health: float = 1.0
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 

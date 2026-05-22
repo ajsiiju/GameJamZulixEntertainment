@@ -45,4 +45,5 @@ max_db = 4.809
 bus = &"SoundFx"
 
 [connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/Area3D" method="_on_body_entered_robux"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

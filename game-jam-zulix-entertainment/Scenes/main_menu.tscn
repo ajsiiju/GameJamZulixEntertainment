@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://cswsye0e7cxqm" path="res://Assets/ui/menu/menu_button3_hovered.png" id="12_wyh8j"]
 [ext_resource type="BitMap" uid="uid://bwbictlkpvafg" path="res://Assets/ui/menu/menu_button3_mask.png" id="15_m3bi6"]
 [ext_resource type="AudioStream" uid="uid://de0mapu051aaa" path="res://Audio/RottingBrainMainMenu.mp3" id="16_m3bi6"]
+[ext_resource type="Texture2D" uid="uid://c1820l5k8c4d" path="res://Assets/ui/menu/authors_bg.png" id="17_wyh8j"]
+[ext_resource type="Script" uid="uid://cpxm6gl5oo42e" path="res://Scripts/authors_label.gd" id="18_mkpwh"]
+[ext_resource type="Script" uid="uid://bruf7u8ikdj2b" path="res://Scripts/authors_label_2.gd" id="18_ujyyl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vr1f0"]
 font = ExtResource("4_yhxw7")
@@ -23,6 +26,11 @@ font_size = 60
 font_color = Color(0, 0, 0, 1)
 shadow_size = 7
 shadow_color = Color(0, 0, 0, 0.18039216)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mkpwh"]
+font = ExtResource("4_yhxw7")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control" unique_id=319089423]
 layout_mode = 3
@@ -43,7 +51,7 @@ grow_vertical = 2
 texture = ExtResource("2_opfnp")
 expand_mode = 1
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="." unique_id=897863667]
+[node name="main_menu_buttons" type="VBoxContainer" parent="." unique_id=897863667]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -57,7 +65,7 @@ offset_bottom = 0.079956055
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Play" type="TextureButton" parent="VBoxContainer1" unique_id=839872897]
+[node name="Play" type="TextureButton" parent="main_menu_buttons" unique_id=839872897]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("3_cp0ys")
@@ -67,7 +75,7 @@ texture_click_mask = ExtResource("6_5egv6")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="VBoxContainer1/Play" unique_id=1588902342]
+[node name="Label" type="Label" parent="main_menu_buttons/Play" unique_id=1588902342]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25500003
@@ -80,10 +88,10 @@ offset_right = 56.274963
 offset_bottom = 34.083008
 grow_horizontal = 2
 grow_vertical = 2
-text = "ZBIERZ AURE"
+text = "LEMME IN"
 label_settings = SubResource("LabelSettings_vr1f0")
 
-[node name="Authors" type="TextureButton" parent="VBoxContainer1" unique_id=795315548]
+[node name="Authors" type="TextureButton" parent="main_menu_buttons" unique_id=795315548]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("5_trj04")
@@ -93,7 +101,7 @@ texture_click_mask = ExtResource("11_8dnnj")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="VBoxContainer1/Authors" unique_id=1506570359]
+[node name="Label" type="Label" parent="main_menu_buttons/Authors" unique_id=1506570359]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.45900002
@@ -109,7 +117,7 @@ grow_vertical = 2
 text = "AUTORZY"
 label_settings = SubResource("LabelSettings_vr1f0")
 
-[node name="Exit" type="TextureButton" parent="VBoxContainer1" unique_id=685479931]
+[node name="Exit" type="TextureButton" parent="main_menu_buttons" unique_id=685479931]
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("6_16hvj")
@@ -119,7 +127,7 @@ texture_click_mask = ExtResource("15_m3bi6")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="VBoxContainer1/Exit" unique_id=234028757]
+[node name="Label" type="Label" parent="main_menu_buttons/Exit" unique_id=234028757]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25500003
@@ -138,9 +146,141 @@ label_settings = SubResource("LabelSettings_vr1f0")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=886632994]
 stream = ExtResource("16_m3bi6")
 autoplay = true
-bus = &"Music"
 parameters/looping = true
 
-[connection signal="pressed" from="VBoxContainer1/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer1/Authors" to="." method="_on_authors_pressed"]
-[connection signal="pressed" from="VBoxContainer1/Exit" to="." method="_on_exit_pressed"]
+[node name="AuthorsScreen" type="Control" parent="." unique_id=1019845589]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="AuthorsScreen" unique_id=1644738411]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.615
+anchor_top = 0.064
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.19995117
+offset_top = -0.12000275
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("17_wyh8j")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="RichTextLabel" parent="AuthorsScreen/TextureRect" unique_id=1972187937]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.57100004
+anchor_top = 0.048
+anchor_right = 0.57100004
+anchor_bottom = 1.0
+offset_left = 0.030975342
+offset_top = 124.472
+offset_right = 211.03098
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_yhxw7")
+bbcode_enabled = true
+text = "[font_size=21][color=black][font=LoveYaLikeASister-Regular]
+[color=#1A237E]2D Artists[/color]
+Maja Bryl
+Paulina Kopeć 
+Julia Cieślar 
+Barbara Mrówka 
+Kacper Żółty 
+
+[color=#0D47A1]3D Artists[/color]
+Maja Bryl 
+Gleb Chemodanov
+
+[color=#4A148C]2D Animator[/color]
+Paulina Kopeć
+Julia Cieślar
+
+[color=#1B5E20]Sound Designer[/color]
+Julia Cieślar
+
+[color=#BF360C]Motion capture UI Designer[/color]
+Barbara Mrówka
+[/font][/color][/font_size]"
+script = ExtResource("18_mkpwh")
+
+[node name="Label2" type="RichTextLabel" parent="AuthorsScreen/TextureRect" unique_id=62410124]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.177
+anchor_right = 0.177
+anchor_bottom = 1.0
+offset_left = 40.197006
+offset_top = 115.0
+offset_right = 275.19702
+offset_bottom = -254.0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_yhxw7")
+bbcode_enabled = true
+text = "[font_size=21][color=black][font=LoveYaLikeASister-Regular]
+[color=#BF360C]Motion capture Actor[/color]
+Kacper Żółty
+
+[color=#311B92]Character Designer[/color]
+Kacper Żółty
+
+[color=#004D40]Environment Designer[/color]
+Maria Holewka
+
+[color=#0D47A1]Programmers[/color]
+Dominika Suda
+Przemysław Loll
+Ender
+
+[color=#880E4F]Management[/color]
+Kacper Żółty
+Dominika Suda
+Maria Holewka
+[/font][/color][/font_size]"
+script = ExtResource("18_ujyyl")
+
+[node name="TextureButton" type="TextureButton" parent="AuthorsScreen" unique_id=437175697]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84400004
+anchor_right = 0.25300002
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -0.52001953
+offset_right = 0.23995972
+offset_bottom = -15.0
+grow_vertical = 2
+texture_normal = ExtResource("6_16hvj")
+texture_pressed = ExtResource("11_m3bi6")
+texture_hover = ExtResource("12_wyh8j")
+texture_click_mask = ExtResource("15_m3bi6")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="AuthorsScreen/TextureButton" unique_id=228099347]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42800003
+anchor_top = 0.5
+anchor_right = 0.42800003
+anchor_bottom = 0.5
+offset_left = -76.16402
+offset_top = -29.0
+offset_right = 92.83598
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "POWRÓT"
+label_settings = SubResource("LabelSettings_mkpwh")
+
+[connection signal="pressed" from="main_menu_buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="main_menu_buttons/Authors" to="." method="_on_authors_pressed"]
+[connection signal="pressed" from="main_menu_buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="AuthorsScreen/TextureButton" to="." method="_on_texture_button_pressed"]

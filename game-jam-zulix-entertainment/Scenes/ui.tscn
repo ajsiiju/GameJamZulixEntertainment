@@ -37,6 +37,9 @@
 [ext_resource type="Texture2D" uid="uid://gce25kw5blkh" path="res://Assets/misc/tungtung/tungtung_pressed.png" id="33_bsvcc"]
 [ext_resource type="PackedScene" uid="uid://dc75immvbgqg" path="res://Scenes/malpka.tscn" id="33_ebfgw"]
 [ext_resource type="Texture2D" uid="uid://ddkt0cg5uhias" path="res://Assets/misc/tungtung/tungtung_hovered.png" id="34_u8gt4"]
+[ext_resource type="AudioStream" uid="uid://jyvhpfvshw6u" path="res://Audio/FightBossRotten.mp3" id="35_bsvcc"]
+[ext_resource type="AudioStream" uid="uid://bepojr0ht7bx8" path="res://Audio/REKLAMA TUNG.mp3" id="36_u8gt4"]
+[ext_resource type="Texture2D" uid="uid://drq0et34b0wnr" path="res://Assets/misc/brek/brek.jpg" id="40_r6b04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe2sg"]
 bg_color = Color(0, 0, 0, 0.13725491)
@@ -74,7 +77,7 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_kjfio"]
 font_size = 36
 
-[node name="CanvasLayerUI" type="CanvasLayer" unique_id=1443381599]
+[node name="CanvasLayerUI" type="CanvasLayer" unique_id=1443381599 groups=["ui"]]
 
 [node name="HUD" type="Control" parent="." unique_id=444490330]
 layout_mode = 3
@@ -514,6 +517,15 @@ texture_normal = ExtResource("32_mdsrb")
 texture_pressed = ExtResource("33_bsvcc")
 texture_hover = ExtResource("34_u8gt4")
 
+[node name="BossMusic" type="AudioStreamPlayer" parent="ShopUI" unique_id=1349813229]
+stream = ExtResource("35_bsvcc")
+autoplay = true
+parameters/looping = false
+
+[node name="ShopMusic" type="AudioStreamPlayer" parent="ShopUI" unique_id=2077687272]
+stream = ExtResource("36_u8gt4")
+parameters/looping = true
+
 [node name="SocialPointsBg" type="TextureRect" parent="." unique_id=378042509]
 anchors_preset = 5
 anchor_left = 0.5
@@ -562,3 +574,22 @@ label_settings = SubResource("LabelSettings_kjfio")
 
 [node name="Malpka" parent="." unique_id=380867994 instance=ExtResource("33_ebfgw")]
 visible = false
+
+[node name="brek_img" type="Control" parent="." unique_id=1249543639]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="brek_img" unique_id=1720733654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("40_r6b04")
+expand_mode = 1

@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://jyvhpfvshw6u" path="res://Audio/FightBossRotten.mp3" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://b8lciho5el34u" path="res://Assets/Enviro/arena/Arena z teksturami.glb" id="7_344ge"]
 [ext_resource type="AudioStream" uid="uid://bepojr0ht7bx8" path="res://Audio/REKLAMA TUNG.mp3" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://u1hhfrn6cf5h" path="res://john_pork_spawner.tscn" id="9_ynf5e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -90,3 +91,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.273838, 12.044567, -6.2240
 light_energy = 16.0
 light_specular = 0.0
 omni_range = 4096.0
+
+[node name="JohnPorkSpawner" parent="." unique_id=492641663 instance=ExtResource("9_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.431664, 5.766695, -7.386341)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1655466144]
+light_energy = 9.913
+light_indirect_energy = 0.8
+light_volumetric_fog_energy = 1.322
+light_specular = 0.0
+omni_range = 55.139

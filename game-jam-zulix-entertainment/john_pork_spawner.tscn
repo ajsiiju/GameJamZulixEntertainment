@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://u1hhfrn6cf5h"]
+
+[ext_resource type="Script" uid="uid://bqva4e55tngex" path="res://Scripts/john_pork_spawner.gd" id="1_t3cup"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_65vnv"]
+size = Vector3(0.02, 8, 40)
+
+[node name="JohnPorkSpawner" type="MeshInstance3D" unique_id=492641663]
+layers = 0
+mesh = SubResource("BoxMesh_65vnv")
+script = ExtResource("1_t3cup")
