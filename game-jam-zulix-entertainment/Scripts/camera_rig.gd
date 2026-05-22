@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 			look_input += mouse_input
 			mouse_input = Vector2()
 		rotation_degrees.x += look_input.y
-		rotation_degrees.y += look_input.x
+		player.rotation_degrees.y += look_input.x
 		rotation_degrees.x = clampf(rotation_degrees.x, -50, 35)
 
 func _input(event: InputEvent) -> void:
@@ -35,5 +35,5 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _physics_process(_delta: float) -> void:
-	global_position = player.global_position + Vector3(0, camera_rig_height, 0)
+	global_position = camera_offset.global_position + Vector3(0, camera_rig_height, 0)
 	

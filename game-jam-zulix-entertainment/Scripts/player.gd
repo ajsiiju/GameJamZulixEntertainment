@@ -150,7 +150,7 @@ func _physics_process(delta: float) -> void:
 			animation.play_idle.call()
 	
 	# rotate player model with camera
-	rotation.y = lerp_angle(rotation.y, camera_rig.rotation.y, 0.3)
+	#rotation.y = lerp_angle(rotation.y, camera_rig.rotation.y, 0.3)
 
 func _input(event: InputEvent) -> void:
 	for skill_number in range(0, 5):
